@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>بوابة مهام Nexus | Nexus Missions Portal</title>
+
+  <meta name="description" content="استكشف وشارك في مهام الابتكار التعاونية بين Nexus AI وشركائها الرائدين. فرص للطلاب والشركات للمساهمة في رؤية السعودية 2030.">
+  <meta name="keywords" content="Nexus, Toyota, Ford, BMW, Hyundai, SEC, Saudi Arabia, AI, Innovation, Mobility, Energy, Students, Vision 2030, Missions Portal, بوابة المهام, نيكسوس, تويوتا, السعودية, ذكاء اصطناعي, ابتكار, تنقل, طاقة, طلاب, رؤية 2030">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3ENAI%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #00A99D; /* Teal */
+      --secondary: #FDB813; /* Gold */
+      --accent: #C41E3A; /* Deep Red */
+      --dark: #0A192F; /* Deeper Navy */
+      --darker: #031022;
+      --light: #F8FAFC;
+      --text: #CCD6F6; /* Lighter text */
+      --text-secondary: #8892B0;
+      --success: #34D399; /* Emerald Green */
+      --warning: #FBBF24; /* Amber */
+      --danger: #F87171;  /* Light Red */
+      --border: #1E293B; /* Slate */
+      --card-bg: #112240;
+      --terminal-bg: #0A192F;
+      --terminal-text: #CCD6F6;
+      --terminal-prompt: var(--primary);
+      --terminal-command: #63b0f4;
+      --terminal-output: var(--terminal-text);
+      --terminal-system: var(--secondary);
+      --terminal-success: var(--success);
+      --terminal-warning: var(--warning);
+      --terminal-error: var(--danger);
+      --terminal-cursor: var(--primary);
+      --timeline-active: var(--primary);
+      --timeline-inactive: #334155;
+      --timeline-completed: var(--success);
+      --modal-bg: rgba(10, 25, 47, 0.9); /* Slightly more opaque */
+      --modal-backdrop-blur: 6px; /* More blur */
+      --glow-primary: rgba(0, 169, 157, 0.5); /* Brighter glow */
+      --glow-secondary: rgba(253, 184, 19, 0.5);
+      --glow-accent: rgba(196, 30, 58, 0.4);
+
+      --transition-fast: 0.2s ease-in-out;
+      --transition-medium: 0.4s ease-in-out;
+      --transition-slow: 0.6s ease-in-out;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.15);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.25);
+      --shadow-lg: 0 10px 35px rgba(0,0,0,0.35);
+      --shadow-glow-primary: 0 0 18px var(--glow-primary);
+      --shadow-glow-secondary: 0 0 18px var(--glow-secondary);
+      --shadow-glow-accent: 0 0 18px var(--glow-accent);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Tajawal', 'Roboto', sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color var(--transition-medium);
+    }
+
+    body::before {
+      content: ""; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23112240' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.4; z-index: -1; pointer-events: none;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+      padding: 0.75rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--shadow-md); position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--border);
+      transition: padding var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    body.scrolled header {
+        padding: 0.5rem 2rem;
+        background-color: rgba(3, 16, 34, 0.9); /* var(--darker) with alpha */
+        backdrop-filter: blur(10px); /* Stronger blur */
+        box-shadow: var(--shadow-lg);
+    }
+
+    .header-left { display: flex; align-items: center; gap: 1rem; }
+    .logo {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-weight: 900; font-size: 1.4rem; color: var(--text);
+      text-decoration: none; transition: transform var(--transition-fast);
+    }
+    .logo:hover { transform: scale(1.03); text-shadow: 0 0 5px var(--glow-primary); }
+    .logo-icon {
+      color: var(--primary); font-size: 1.8rem;
+      text-shadow: 0 0 10px var(--glow-primary);
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+     @keyframes floatIcon { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-5px) rotate(3deg); } }
+    .logo-text-main { font-size: 1.2rem; font-weight: 700; color: var(--text); display: none; }
+    .logo-partner {
+      font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);
+      margin-inline-start: 0.5rem; opacity: 0;
+      transition: opacity var(--transition-medium), transform var(--transition-medium);
+      transform: translateX(-10px);
+    }
+    .logo-partner.visible { opacity: 1; transform: translateX(0); }
+
+    .main-platform-title {
+        font-size: 1.3rem; font-weight: 700; color: var(--secondary);
+        text-shadow: 0 0 8px var(--glow-secondary);
+        text-align: center; flex-grow: 1; order: 0; margin: 0 1rem; display: none;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .stats-container { display: flex; align-items: center; gap: 0.8rem; }
+    .stat-box {
+      background-color: var(--card-bg); border-radius: 8px; /* Softer radius */
+      padding: 0.6rem 0.9rem; min-width: 100px;
+      display: flex; flex-direction: column; align-items: center;
+      transition: all var(--transition-medium); border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm); opacity: 0.9; cursor: default;
+    }
+    .stat-box:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), var(--shadow-glow-primary);
+      opacity: 1; border-color: var(--primary);
+    }
+    .stat-label {
+      font-size: 0.65rem; color: var(--text-secondary); margin-bottom: 0.2rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .stat-value { font-weight: 700; color: var(--text); font-size: 0.9rem; min-height: 1.1em; }
+    .stat-value.placeholder { color: var(--text-secondary); font-style: italic; }
+    .action-buttons { display: flex; gap: 1rem; }
+
+    .btn {
+      padding: 0.7rem 1.5rem; border-radius: 6px; font-weight: 700; /* Bolder text */
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem; /* Increased gap */
+      cursor: pointer; transition: all var(--transition-medium); /* Slower transition for more impact */
+      border: 1px solid transparent; font-family: 'Tajawal', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.8px; /* Wider spacing */
+      font-size: 0.9rem; /* Slightly larger */
+      position: relative; overflow: hidden; z-index: 1; text-decoration: none;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn::before {
+      content: ""; position: absolute; top: 50%; left: 50%;
+      width: 0; height: 0; background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%; transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+      z-index: -1; opacity: 0;
+    }
+    .btn:active::before {
+      width: 350%; height: 350%; opacity: 1;
+      transition: width 0s, height 0s, opacity 0s;
+    }
+    .btn:active { transform: translateY(2px) scale(0.97); box-shadow: none; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #007A70 100%); /* Adjusted gradient */
+      color: white; box-shadow: 0 5px 12px var(--glow-primary), var(--shadow-md);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #007A70 0%, var(--primary) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px var(--glow-primary), var(--shadow-lg);
+    }
+    .btn-accent {
+      background: linear-gradient(135deg, var(--accent) 0%, #A31A30 100%);
+      color: white; box-shadow: 0 5px 12px var(--glow-accent), var(--shadow-md);
+    }
+    .btn-accent:hover {
+        background: linear-gradient(135deg, #A31A30 0%, var(--accent) 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px var(--glow-accent), var(--shadow-lg);
+    }
+    .btn-icon { margin-inline-end: 0.5rem; }
+
+    main {
+      display: flex; flex: 1; overflow: hidden; position: relative;
+      opacity: 1; transition: opacity var(--transition-medium);
+    }
+    main.loading { opacity: 0.3; filter: blur(2px); pointer-events: none; }
+
+    .left-panel, .right-panel {
+      scrollbar-width: thin; scrollbar-color: var(--primary) var(--darker);
+    }
+    .left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar, .terminal-content::-webkit-scrollbar, .modal-body::-webkit-scrollbar { width: 8px; }
+    .left-panel::-webkit-scrollbar-track, .right-panel::-webkit-scrollbar-track, .terminal-content::-webkit-scrollbar-track, .modal-body::-webkit-scrollbar-track { background: var(--darker); border-radius: 4px; }
+    .left-panel::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 4px; border: 1px solid var(--darker); }
+    .right-panel::-webkit-scrollbar-thumb { background-color: var(--secondary); border-radius: 4px; border: 1px solid var(--darker); }
+    .terminal-content::-webkit-scrollbar-thumb { background-color: var(--terminal-prompt); border-radius: 4px; border: 1px solid var(--terminal-bg); }
+    .modal-body::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 4px; border: 1px solid var(--card-bg); }
+
+    .left-panel {
+      width: 300px; background-color: var(--darker); padding: 1.5rem;
+      border-right: 1px solid var(--border); overflow-y: auto;
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+      transform: translateX(0);
+    }
+    .panel-title {
+      font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+      padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+    }
+    .phase-list { display: flex; flex-direction: column; gap: 0.8rem; min-height: 200px; }
+    .phase-list-placeholder {
+        color: var(--text-secondary); font-style: italic; text-align: center;
+        margin-top: 2rem; font-size: 0.9rem; padding: 1rem; border: 1px dashed var(--border);
+        border-radius: 8px; background-color: rgba(0,0,0,0.05);
+    }
+    .phase-list-placeholder .btn-link {
+        color: var(--primary); text-decoration: underline; background: none; border: none; padding: 0;
+        font-family: inherit; font-size: inherit; cursor: pointer;
+    }
+    .phase-list-placeholder .btn-link:hover { color: var(--secondary); }
+
+    .phase {
+      background-color: var(--card-bg); border-radius: 8px; padding: 1rem 1.2rem;
+      padding-right: 2.8rem; /* Increased for larger number */
+      cursor: pointer; transition: all var(--transition-medium);
+      border: 1px solid var(--border); position: relative; overflow: hidden;
+      border-left: 4px solid transparent; opacity: 0; transform: translateX(-15px); /* Start further */
+      animation: phaseFadeIn 0.5s forwards; box-shadow: var(--shadow-sm);
+    }
+    .phase:nth-child(n+2) { animation-delay: calc(n * 0.07s); }
+    @keyframes phaseFadeIn { to { opacity: 1; transform: translateX(0); } }
+    .phase:hover {
+      background-color: #1a2d50; transform: translateX(5px) scale(1.02);
+      border-left-color: var(--secondary); box-shadow: var(--shadow-md), 0 0 10px var(--glow-secondary);
+      z-index: 2;
+    }
+    .phase.active {
+      background-color: #1c335a; border-left-color: var(--primary);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), var(--shadow-glow-primary);
+      transform: translateX(8px) scale(1.05); z-index: 3;
+    }
+    .phase.active .phase-title { color: var(--primary); font-weight: 900; }
+    .phase.active .phase-number {
+      background-color: var(--primary); color: white;
+      box-shadow: var(--shadow-glow-primary);
+      transform: translateY(-50%) rotate(0deg) scale(1.15); right: 12px;
+      border: 2px solid var(--darker); /* Contrast */
+    }
+    .phase-number {
+      position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
+      background-color: var(--border); color: var(--text-secondary);
+      width: 32px; height: 32px; /* Slightly larger */
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px; /* Softer radius */
+      font-size: 0.85rem; font-weight: 700; transition: all var(--transition-medium); z-index: 1;
+    }
+    .phase:hover .phase-number { transform: translateY(-50%) scale(1.1); background-color: var(--secondary); color: var(--dark); }
+    .phase-title {
+      font-weight: 700; margin-bottom: 0.3rem; color: var(--text);
+      font-size: 0.95rem; transition: color var(--transition-fast); padding-left: 10px;
+    }
+    .phase-description { font-size: 0.8rem; color: var(--text-secondary); padding-left: 10px; line-height: 1.5; }
+
+    .center-panel {
+      flex: 1; display: flex; flex-direction: column;
+      background-color: var(--terminal-bg); overflow: hidden; position: relative;
+      border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+    }
+    .center-panel::after {
+        content: ""; position: absolute; inset: 0;
+        background: linear-gradient( rgba(17, 34, 64, 0) 50%, rgba(0, 0, 0, 0.08) 50% ); /* Softer scanlines */
+        background-size: 100% 3px; opacity: 0.15; z-index: 1; pointer-events: none;
+        animation: scanlines 20s linear infinite;
+    }
+    @keyframes scanlines { 0% { background-position: 0 0; } 100% { background-position: 0 -80px; } }
+    .terminal-header {
+      padding: 0.8rem 1.5rem; display: flex; align-items: center; justify-content: space-between;
+      background-color: rgba(3, 16, 34, 0.85); /* Darker alpha */
+      border-bottom: 1px solid var(--border); z-index: 10; backdrop-filter: blur(8px);
+    }
+    .terminal-title {
+      font-weight: 700; color: var(--primary); display: flex; align-items: center;
+      gap: 0.75rem; font-size: 1rem; text-shadow: 0 0 5px var(--glow-primary);
+    }
+    .terminal-actions { display: flex; gap: 0.5rem; }
+    .terminal-btn {
+      background-color: var(--card-bg); border: 1px solid var(--border);
+      color: var(--text-secondary); width: 32px; height: 32px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all var(--transition-fast);
+    }
+    .terminal-btn:hover {
+      background-color: var(--border); color: var(--primary);
+      transform: scale(1.15) rotate(20deg); box-shadow: var(--shadow-glow-primary);
+    }
+    .terminal-btn:active { transform: scale(0.95); box-shadow: none;}
+    .terminal-content {
+      flex: 1; padding: 1.5rem; overflow-y: auto;
+      font-family: 'Roboto Mono', monospace; font-size: 0.9rem;
+      background-color: transparent; z-index: 2; position: relative;
+    }
+    .terminal-line { margin-bottom: 0.4rem; line-height: 1.6; min-height: 1.6em; opacity: 0; animation: fadeIn 0.4s forwards; word-break: break-word; }
+    .terminal-line.typing { opacity: 1; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .terminal-line.prompt { color: var(--terminal-prompt); }
+    .terminal-line.prompt::before { content: "nexusAI $ "; color: var(--terminal-prompt); margin-right: 0.5em; font-weight: bold;}
+    .terminal-line.command { color: var(--terminal-command); display: inline; }
+    .terminal-line.output { color: var(--terminal-output); padding-left: 1em; }
+    .terminal-line.system { color: var(--terminal-system); font-style: italic; }
+    .terminal-line.system::before { content: "[NEXUS_SYS] "; color: var(--text-secondary); font-style: normal; opacity: 0.8;}
+    .terminal-line.success { color: var(--terminal-success); }
+    .terminal-line.success::before { content: "[SUCCESS] "; color: var(--success); font-weight: bold; }
+    .terminal-line.warning { color: var(--terminal-warning); }
+    .terminal-line.warning::before { content: "[WARNING] "; color: var(--warning); font-weight: bold; }
+    .terminal-line.error { color: var(--terminal-error); }
+    .terminal-line.error::before { content: "[ERROR] "; color: var(--danger); font-weight: bold; }
+    .cursor {
+      display: inline-block; width: 9px; height: 1.1em;
+      background-color: var(--terminal-cursor); animation: blink 0.9s step-end infinite;
+      vertical-align: text-bottom; margin-left: 4px; box-shadow: 0 0 8px var(--glow-primary);
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    #terminal.initial-state::before {
+        content: "حدد مهمة من 'تصفح المهام' أو لوحة المراحل لعرض التفاصيل التفاعلية...";
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        color: var(--text-secondary); font-size: 1rem; font-family: 'Tajawal', sans-serif;
+        text-align: center; padding: 1.5rem; max-width: 80%; line-height: 1.8;
+        border: 1px dashed var(--border); border-radius: 8px; background: rgba(0,0,0,0.03);
+     }
+
+    .right-panel {
+      width: 360px; background-color: var(--darker); padding: 1.5rem;
+      overflow-y: auto; border-left: 1px solid var(--border);
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+      transform: translateX(0);
+    }
+    .right-panel-content { min-height: 300px; position: relative; } /* Added relative for action button container */
+    .right-panel-placeholder {
+        color: var(--text-secondary); font-style: italic; text-align: center; margin-top: 5rem;
+        padding: 1.5rem; font-size: 0.9rem; border: 1px dashed var(--border);
+        border-radius: 8px; background-color: rgba(0,0,0,0.05);
+    }
+    .mission-card {
+      background-color: var(--card-bg); border-radius: 10px; /* More rounded */
+      padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid var(--border);
+      transition: all var(--transition-medium); position: relative; overflow: hidden;
+      opacity: 0; transform: translateX(15px); /* Start further right */
+      animation: cardFadeIn 0.6s forwards; box-shadow: var(--shadow-md);
+    }
+    .mission-card:nth-child(n+1) { animation-delay: calc(n * 0.08s + 0.1s); }
+    @keyframes cardFadeIn { to { opacity: 1; transform: translateX(0); } }
+    .mission-card::before {
+        content: ""; position: absolute; inset: -1px; /* Slightly outside for thicker effect */
+        border-radius: inherit; padding: 2px; /* Border width */
+        background: linear-gradient(145deg, var(--primary), var(--secondary), var(--accent));
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude; opacity: 0;
+        transition: opacity var(--transition-medium), transform var(--transition-medium);
+        pointer-events: none; transform: scale(1.05); /* Start slightly scaled up */
+     }
+    .mission-card:hover {
+      transform: translateY(-6px) scale(1.02); /* Enhanced hover */
+      box-shadow: var(--shadow-lg), 0 0 25px var(--glow-secondary); z-index: 5;
+    }
+    .mission-card:hover::before { opacity: 1; transform: scale(1); }
+    .mission-card-title {
+      font-size: 1.2rem; font-weight: 700; color: var(--secondary);
+      text-shadow: 0 0 6px var(--glow-secondary);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;
+    }
+    .mission-card-title i { opacity: 0.9; font-size: 1.1em; }
+    .mission-card-content { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.7; }
+    .mission-card-content strong { color: var(--text); font-weight: 600; }
+    .mission-card-content .text-primary { color: var(--primary) !important; } /* Override */
+    .mission-card-content .text-secondary { color: var(--secondary) !important; }
+    .mission-card-content .text-accent { color: var(--accent) !important; }
+    .mission-card-content .text-danger { color: var(--danger) !important; }
+    .mission-card-content ul { padding-right: 1.2rem; margin: 1rem 0; list-style: none; }
+    .mission-card-content li { margin-bottom: 0.7rem; position: relative; padding-right: 1.8em; font-size: 0.85rem; }
+    .mission-card-content li::before {
+      content: "\f058"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+      color: var(--primary); position: absolute; right: 0; top: 2px; font-size: 1.1em; opacity: 0.9;
+      transition: transform 0.2s ease-out;
+    }
+    .mission-card:hover .mission-card-content li::before { transform: scale(1.1) rotate(10deg); }
+
+    .right-panel-actions-footer { /* NEW: Container for Apply/Partner buttons */
+        padding: 1.5rem 0 0.5rem; /* Padding above, less below */
+        border-top: 1px solid var(--border);
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column; /* Stack buttons */
+        gap: 1rem;
+    }
+    .right-panel-actions-footer .btn {
+        width: 100%; /* Make buttons full width */
+        padding: 0.8rem 1.5rem; /* Larger padding for these main CTAs */
+        font-size: 0.95rem;
+    }
+
+
+    .progress-section {
+      background: linear-gradient(rgba(3, 16, 34, 0.8), var(--darker));
+      padding: 3rem 2rem; border-top: 1px solid var(--border); position: relative; overflow: hidden;
+    }
+    .progress-section .section-title { color: var(--text); text-shadow: 0 0 10px var(--glow-primary); }
+    .progress-section .section-title::after {
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      box-shadow: 0 0 10px var(--glow-primary), 0 0 10px var(--glow-secondary), 0 0 10px var(--glow-accent);
+    }
+    .timeline {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      position: relative; max-width: 900px; margin: 0 auto;
+      padding-top: 25px; min-height: 150px;
+    }
+    .timeline-line, .timeline-progress {
+      position: absolute; top: 50px; right: 5%; left: 5%; height: 5px; /* Thicker */
+      z-index: 1; border-radius: 4px;
+    }
+    .timeline-line { background-color: var(--timeline-inactive); box-shadow: inset 0 1px 2px rgba(0,0,0,0.3); }
+    .timeline-progress {
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      z-index: 2; transition: width var(--transition-slow) cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother transition */
+      box-shadow: var(--shadow-glow-primary); width: 0%;
+    }
+    .timeline-node {
+      display: flex; flex-direction: column; align-items: center;
+      z-index: 3; position: relative; flex: 1; padding: 0 0.5rem;
+      text-align: center; transition: transform var(--transition-medium);
+      opacity: 0; animation: nodeFadeIn 0.6s forwards;
+    }
+    .timeline-node:nth-child(1) { animation-delay: 0.3s; }
+    .timeline-node:nth-child(2) { animation-delay: 0.45s; }
+    .timeline-node:nth-child(3) { animation-delay: 0.6s; }
+    .timeline-node:nth-child(4) { animation-delay: 0.75s; }
+    @keyframes nodeFadeIn { from { transform: translateY(20px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+    .node-icon-wrapper { position: relative; margin-bottom: 1rem; }
+    .node-icon {
+      width: 55px; height: 55px; border-radius: 50%; background-color: var(--card-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--text-secondary); border: 4px solid var(--timeline-inactive); /* Thicker border */
+      transition: all var(--transition-medium); position: relative; cursor: default;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .timeline-node.active .node-icon {
+      border-color: var(--primary); color: var(--primary); transform: scale(1.25); /* Pop more */
+      box-shadow: 0 0 0 10px var(--glow-primary), 0 0 25px var(--glow-primary), 0 3px 8px rgba(0,0,0,0.3);
+      background-color: var(--darker);
+    }
+    .timeline-node.completed .node-icon {
+      border-color: var(--timeline-completed); background-color: var(--timeline-completed); color: var(--darker);
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.6), 0 2px 5px rgba(0,0,0,0.2); transform: scale(1.05);
+    }
+    .timeline-node.completed .node-icon i::before { content: "\f00c"; font-weight: 900; animation: checkPop 0.3s ease-out; }
+    @keyframes checkPop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .node-label {
+      font-size: 0.9rem; font-weight: 600; color: var(--text-secondary);
+      transition: color var(--transition-medium), transform var(--transition-medium); max-width: 110px;
+    }
+    .timeline-node.active .node-label { color: var(--primary); font-weight: 700; transform: scale(1.05); }
+    .timeline-node.completed .node-label { color: var(--timeline-completed); }
+    .node-date { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.2rem; opacity: 0.8; }
+    #timelinePlaceholder { text-align:center; width: 100%; margin-top:1rem; font-style: italic; }
+
+
+    .modal {
+      position: fixed; inset: 0; background-color: var(--modal-bg); backdrop-filter: blur(var(--modal-backdrop-blur));
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity var(--transition-medium), visibility 0s var(--transition-medium);
+    }
+    .modal-active { opacity: 1; visibility: visible; transition-delay: 0s; }
+    .modal-content {
+      background-color: var(--card-bg); border-radius: 12px; /* More rounded */
+      width: 90%; max-width: 680px; max-height: 90vh;
+      display: flex; flex-direction: column; position: relative;
+      transform: scale(0.85) translateY(40px) rotateX(-10deg); /* More dynamic entry */
+      transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.375), opacity 0.4s ease; /* Softer overshoot */
+      border: 1px solid var(--border); box-shadow: var(--shadow-lg), 0 0 50px rgba(0,0,0,0.3);
+      opacity: 0; overflow: hidden;
+    }
+    .modal-active .modal-content { transform: scale(1) translateY(0) rotateX(0deg); opacity: 1; }
+    .modal-header {
+      padding: 1.2rem 1.8rem; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      background-color: var(--darker); flex-shrink: 0;
+    }
+    .modal-title {
+      font-size: 1.3rem; font-weight: 700; color: var(--text);
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .modal-title i { color: var(--primary); text-shadow: 0 0 6px var(--glow-primary); }
+    .close-btn {
+      background: none; border: none; color: var(--text-secondary); font-size: 1.9rem; /* Larger */
+      cursor: pointer; transition: color var(--transition-fast), transform var(--transition-medium);
+      line-height: 1; padding: 0.3rem; border-radius: 50%;
+    }
+    .close-btn:hover { color: var(--danger); transform: rotate(270deg) scale(1.15); text-shadow: 0 0 8px var(--glow-accent); }
+    .modal-body { padding: 1.8rem; overflow-y: auto; flex-grow: 1; }
+    .mission-list { list-style: none; }
+    .mission-item {
+      padding: 1rem 1.2rem; border-radius: 8px; margin-bottom: 0.8rem;
+      background-color: rgba(30, 41, 59, 0.3); /* Slate background */
+      transition: all var(--transition-medium); border-left: 5px solid var(--border);
+      position: relative; cursor: pointer; opacity: 0; transform: translateY(10px);
+      animation: missionItemFadeIn 0.5s forwards; box-shadow: var(--shadow-sm);
+    }
+    .mission-item:nth-child(n+1) { animation-delay: calc(n * 0.07s); }
+    @keyframes missionItemFadeIn { to { opacity: 1; transform: translateY(0); } }
+    .mission-item:hover {
+      background-color: rgba(0, 169, 157, 0.15); /* Primary glow background */
+      border-left-color: var(--primary);
+      transform: translateX(10px) scale(1.02);
+      box-shadow: var(--shadow-md), 0 0 12px var(--glow-primary);
+    }
+    .mission-link {
+      color: var(--text); text-decoration: none; font-weight: 600;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: color var(--transition-fast); pointer-events: none;
+    }
+    .mission-item:hover .mission-link { color: var(--primary); }
+    .mission-link > span:first-child { display: flex; align-items: center; gap: 0.7rem; }
+    .mission-link i { opacity: 0.8; transition: color var(--transition-fast); }
+    .mission-item:hover .mission-link i { color: var(--primary); }
+    .mission-company { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem; padding-right: calc(0.7rem + 1.2em); }
+    .mission-status {
+      font-size: 0.7rem; padding: 0.3rem 0.7rem; border-radius: 2rem;
+      font-weight: 700; margin-left: 0.5rem; text-transform: uppercase;
+      white-space: nowrap; letter-spacing: 0.5px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .mission-status.new { background: linear-gradient(90deg, var(--secondary), #FFD700); color: var(--darker); text-shadow: 0 0 3px rgba(0,0,0,0.2); }
+    .mission-status.active { background: linear-gradient(90deg, var(--success), #5EEAD4); color: var(--darker); text-shadow: 0 0 3px rgba(0,0,0,0.2); }
+    .mission-status.soon { background: linear-gradient(90deg, var(--warning), #FDE047); color: #5F4600; text-shadow: 0 0 3px rgba(0,0,0,0.2); }
+    .mission-status.completed { background-color: var(--timeline-inactive); color: var(--text); opacity: 0.8; }
+    .mission-item-placeholder { text-align: center; color: var(--text-secondary); padding: 1rem; font-style: italic;}
+
+    .form-group { margin-bottom: 1.3rem; }
+    .form-label {
+      display: block; margin-bottom: 0.6rem; font-size: 0.85rem; font-weight: 600;
+      color: var(--text-secondary); transition: color var(--transition-fast);
+    }
+    input:focus ~ .form-label, textarea:focus ~ .form-label, select:focus ~ .form-label { color: var(--primary); } /* Alternative focus highlight */
+    .form-control {
+      width: 100%; padding: 0.9rem 1.1rem; /* More padding */
+      background-color: var(--dark); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-family: 'Tajawal', sans-serif;
+      font-size: 0.95rem; transition: all var(--transition-medium); appearance: none;
+    }
+    .form-control:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--glow-primary), inset 0 0 5px rgba(0,0,0,0.1);
+      background-color: var(--card-bg);
+    }
+    .form-control.is-invalid {
+        border-color: var(--danger);
+        box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.4); /* Red glow */
+    }
+    .invalid-feedback {
+        display: none; color: var(--danger); font-size: 0.8rem;
+        margin-top: 0.4rem; font-weight: 600;
+    }
+    .form-control.is-invalid + .invalid-feedback, .form-control.is-invalid ~ .invalid-feedback { display: block; }
+    textarea.form-control { min-height: 120px; resize: vertical; }
+    .form-footer {
+      display: flex; justify-content: flex-end; margin-top: 1.5rem;
+      padding-top: 1rem; border-top: 1px solid var(--border);
+    }
+    .form-footer .btn { min-width: 150px; font-size: 0.95rem; }
+
+    .submit-spinner { display: none; }
+    .btn.submitting .submit-text { display: none; }
+    .btn.submitting .submit-spinner { display: inline-block; }
+
+    .mobile-nav-btn {
+      display: none; background: none; border: none; color: var(--text);
+      font-size: 1.8rem; cursor: pointer; padding: 0.5rem;
+      transition: color var(--transition-fast), transform var(--transition-medium);
+      z-index: 110; border-radius: 50%;
+    }
+    .mobile-nav-btn:hover { color: var(--primary); transform: scale(1.1) rotate(10deg); }
+    .mobile-nav-btn:active { transform: scale(0.9); }
+    .overlay {
+      position: fixed; inset: 0; background-color: rgba(3, 16, 34, 0.8); /* Darker overlay */
+      backdrop-filter: blur(6px); z-index: 90; opacity: 0; visibility: hidden;
+      transition: opacity var(--transition-medium), visibility 0s var(--transition-medium);
+    }
+    .overlay.active { opacity: 1; visibility: visible; transition-delay: 0s; }
+
+    @media (min-width: 993px) {
+        .logo-text-main { display: inline; }
+        .main-platform-title { display: block; }
+    }
+    @media (max-width: 1200px) {
+      .left-panel { width: 280px; } .right-panel { width: 330px; }
+      .stat-box { min-width: 90px; padding: 0.5rem 0.7rem; }
+      .btn { padding: 0.6rem 1.3rem; font-size: 0.8rem; }
+      header { padding: 0.75rem 1.5rem; }
+      body.scrolled header { padding: 0.5rem 1.5rem; }
+    }
+    @media (max-width: 992px) {
+      .stats-container { display: none; }
+      .main-platform-title { flex-grow: 1; text-align: center; margin: 0 0.5rem; display: block; } /* Show on tablet */
+      .logo-text-main, .logo-partner { display: none; }
+      .left-panel, .right-panel {
+        position: fixed; top: 0; bottom: 0; width: 300px; z-index: 105;
+        transition: transform var(--transition-medium) cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow var(--transition-medium);
+        box-shadow: 0 0 40px rgba(0,0,0,0.4);
+      }
+      .left-panel { right: 0; transform: translateX(100%); border-right: none; border-left: 1px solid var(--border); }
+      .left-panel.active { transform: translateX(0); }
+      .right-panel { left: 0; transform: translateX(-100%); border-left: none; border-right: 1px solid var(--border); }
+      .right-panel.active { transform: translateX(0); }
+      .mobile-nav-btn { display: block; }
+      header { padding: 0.75rem 1rem; }
+      body.scrolled header { padding: 0.5rem 1rem; }
+    }
+    @media (max-width: 768px) {
+       .main-platform-title { font-size: 1.1rem; margin: 0; }
+       .header-left .logo { gap: 0.5rem;} .header-left .logo-icon { font-size: 1.6rem; }
+       .action-buttons .btn-text { display: none; } .action-buttons .btn { padding: 0.7rem; min-width: auto; }
+       .action-buttons .btn-icon { margin-inline-end: 0; }
+      .progress-section { padding: 2.5rem 1rem; }
+      .progress-section .section-title { font-size: 1.5rem; margin-bottom: 2.5rem; }
+      .timeline { flex-direction: column; align-items: center; gap: 2.5rem; padding-top: 0;} /* Increased gap */
+      .timeline-line, .timeline-progress { display: none; }
+      .timeline-node { width: 100%; max-width: 280px; padding: 0;}
+      .node-icon-wrapper { margin-bottom: 0.8rem; }
+      .node-icon { width: 45px; height: 45px; font-size: 1.3rem; }
+      .node-label { font-size: 0.85rem; max-width: 100px; } .node-date { font-size: 0.7rem; }
+    }
+    @media (max-width: 576px) {
+      html { font-size: 15px; }
+      .modal-content { width: 95%; max-width: none; border-radius: 8px;}
+      .modal-header { padding: 1rem 1.2rem; } .modal-title { font-size: 1.1rem; }
+      .modal-body { padding: 1.2rem; }
+      .form-control { padding: 0.8rem 1rem; font-size: 0.9rem;}
+      header { padding: 0.6rem 0.8rem; } body.scrolled header { padding: 0.4rem 0.8rem; }
+      .mobile-nav-btn { font-size: 1.6rem; padding: 0.3rem; }
+      .left-panel, .right-panel { width: 260px; }
+      .main-platform-title { font-size: 1rem; }
+    }
+
+    .loading-spinner {
+      display: inline-block; width: 18px; height: 18px; /* Slightly larger */
+      border: 3px solid rgba(255, 255, 255, 0.2); /* Lighter track */
+      border-radius: 50%; border-top-color: currentColor;
+      animation: spin 0.7s linear infinite; /* Faster spin */
+      margin-right: 8px; vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .notification {
+      position: fixed; bottom: 25px; left: 50%; /* Higher up */
+      transform: translateX(-50%) translateY(150%); min-width: 300px; max-width: 90%;
+      background-color: var(--card-bg); color: var(--text); padding: 1.2rem 1.5rem; /* More padding */
+      border-radius: 10px; box-shadow: var(--shadow-lg), 0 0 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.375), opacity 0.5s ease-in-out;
+      z-index: 2000; display: flex; align-items: center; gap: 1rem;
+      border-left: 6px solid var(--success); pointer-events: none;
+    }
+    .notification.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+    .notification.error { border-left-color: var(--danger); box-shadow: 0 0 15px var(--glow-accent), var(--shadow-lg); }
+    .notification.warning { border-left-color: var(--warning); box-shadow: 0 0 15px var(--glow-secondary), var(--shadow-lg); }
+    .notification.info { border-left-color: var(--primary); box-shadow: 0 0 15px var(--glow-primary), var(--shadow-lg); }
+    .notification-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .notification.success .notification-icon { color: var(--success); }
+    .notification.error .notification-icon { color: var(--danger); }
+    .notification.warning .notification-icon { color: var(--warning); }
+    .notification.info .notification-icon { color: var(--primary); }
+    .notification-message { flex-grow: 1; font-weight: 500; }
+
+    .interactive-glow { transition: box-shadow var(--transition-fast), transform var(--transition-fast); }
+    .interactive-glow:hover, *:focus-visible .interactive-glow:not(.btn) {
+        box-shadow: var(--shadow-glow-primary); transform: scale(1.03);
+    }
+    .btn.interactive-glow:hover, .btn.interactive-glow:focus-visible {
+      /* Button specific hover/focus handled by btn styles */
+    }
+
+    *:focus-visible {
+        outline: 3px solid var(--primary); /* Thicker outline */
+        outline-offset: 2px; /* Smaller offset */
+        box-shadow: 0 0 0 5px var(--glow-primary); /* Larger glow */
+        border-radius: 4px;
+    }
+    .form-control:focus-visible { outline: none; /* Already has good focus style */ }
+    .btn:focus-visible {
+        outline: 2px solid var(--secondary); /* Different color for buttons for distinction */
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px var(--glow-secondary), 0 0 10px var(--glow-secondary);
+    }
+    .terminal-btn:focus-visible { outline: none; background-color: var(--border); color: var(--primary); box-shadow: var(--shadow-glow-primary); }
+    .phase:focus-visible { outline: none; background-color: #1a2d50; border-left-color: var(--secondary); box-shadow: var(--shadow-md), 0 0 10px var(--glow-secondary); }
+    .close-btn:focus-visible { outline: none; color: var(--danger); box-shadow: 0 0 8px var(--glow-accent); }
+
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <button class="mobile-nav-btn interactive-glow" id="leftPanelBtn" aria-label="فتح قائمة المراحل" aria-controls="leftPanel" aria-expanded="false">
+        <i class="fas fa-stream"></i>
+      </button>
+      <a href="#" class="logo" aria-label="Nexus AI - الصفحة الرئيسية">
+        <i class="fas fa-rocket logo-icon"></i>
+        <span class="logo-text-main">Nexus AI</span>
+        <span class="logo-partner" id="logoPartnerName"></span>
+      </a>
+    </div>
+    <h1 class="main-platform-title">بوابة مهام Nexus</h1>
+    <div class="header-right">
+      <div class="stats-container" data-aos="fade-in" data-aos-delay="100">
+        <div class="stat-box interactive-glow"><span class="stat-label">التعقيد</span><strong class="stat-value placeholder" id="statComplexity">--</strong></div>
+        <div class="stat-box interactive-glow"><span class="stat-label">المدة</span><strong class="stat-value placeholder" id="statDuration">--</strong></div>
+        <div class="stat-box interactive-glow"><span class="stat-label">أدوات الذكاء</span><strong class="stat-value placeholder" id="statAiTools">--</strong></div>
+        <div class="stat-box interactive-glow"><span class="stat-label">المشاركون</span><strong class="stat-value placeholder" id="statParticipants">--</strong></div>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-primary interactive-glow" id="browseBtn" aria-haspopup="dialog" aria-controls="browseModal">
+          <i class="fas fa-layer-group btn-icon"></i><span class="btn-text">تصفح المهام</span>
+        </button>
+      </div>
+      <button class="mobile-nav-btn interactive-glow" id="rightPanelBtn" aria-label="فتح معلومات المهمة" aria-controls="rightPanel" aria-expanded="false">
+        <i class="fas fa-info-circle"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <main id="mainContent">
+    <aside class="left-panel" id="leftPanel" role="navigation" aria-labelledby="phasesTitle">
+      <h2 class="panel-title" id="phasesTitle"><i class="fas fa-tasks"></i>مراحل المهمة</h2>
+      <div class="phase-list" id="phaseList">
+         <div class="phase-list-placeholder">حدد مهمة لعرض مراحلها أو <button type="button" class="btn-link" onclick="document.getElementById('browseBtn').click()">تصفح المهام المتاحة</button>.</div>
+      </div>
+    </aside>
+
+    <section class="center-panel" aria-labelledby="terminalTitleLabel">
+      <div class="terminal-header">
+        <h2 class="terminal-title" id="terminalTitleLabel"><i class="fas fa-terminal"></i><span id="terminalPhaseTitle">وحدة التحكم</span></h2>
+        <div class="terminal-actions">
+          <button class="terminal-btn interactive-glow" title="مسح الشاشة" aria-label="مسح الشاشة" id="clearTerminalBtn"><i class="fas fa-eraser"></i></button>
+          <button class="terminal-btn interactive-glow" title="تكبير/تصغير الشاشة" aria-label="تكبير/تصغير الشاشة" id="fullscreenBtn"><i class="fas fa-expand"></i></button>
+        </div>
+      </div>
+      <div class="terminal-content initial-state" id="terminal" role="log" aria-live="polite" tabindex="0">
+        <!-- CSS placeholder active -->
+      </div>
+    </section>
+
+    <aside class="right-panel" id="rightPanel" role="complementary" aria-labelledby="missionInfoTitle">
+       <h2 id="missionInfoTitle" class="panel-title"> <i class="fas fa-info-circle"></i> معلومات المهمة</h2>
+       <div class="right-panel-content" id="rightPanelContent">
+           <div class="right-panel-placeholder">حدد مهمة لعرض تفاصيلها وفرص المشاركة.</div>
+          <!-- Mission cards and action buttons will be populated here -->
+       </div>
+    </aside>
+  </main>
+
+  <section class="progress-section">
+    <h2 class="section-title" id="timelineTitle" data-aos="fade-up">تقدم المهمة</h2>
+    <div class="timeline" id="timelineContainer">
+      <!-- Timeline will be dynamically generated -->
+       <span id="timelinePlaceholder" class="text-secondary" style="display: block;">حدد مهمة لعرض خطها الزمني.</span>
+    </div>
+  </section>
+
+  <div class="modal" id="browseModal" role="dialog" aria-modal="true" aria-labelledby="browseModalTitle">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title" id="browseModalTitle"><i class="fas fa-layer-group"></i>المهام المتاحة</h3><button class="close-btn interactive-glow" id="closeBrowse" aria-label="إغلاق">×</button></div>
+      <div class="modal-body"><ul class="mission-list" id="missionListModal"><li class="mission-item-placeholder">جارٍ تحميل المهام...</li></ul></div>
+    </div>
+  </div>
+
+  <div class="modal" id="studentModal" role="dialog" aria-modal="true" aria-labelledby="studentModalTitle">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title" id="studentModalTitle"><i class="fas fa-user-graduate"></i>تقديم طلب الانضمام</h3><button class="close-btn interactive-glow" id="closeStudent" aria-label="إغلاق">×</button></div>
+      <div class="modal-body">
+        <form id="studentForm" novalidate>
+          <p class="text-secondary mb-3">انضم إلى مهمة <strong id="studentApplyMissionName" class="text-primary"></strong>!</p>
+          <div class="form-group"><label for="studentName" class="form-label">الاسم الكامل <span class="text-danger">*</span></label><input type="text" id="studentName" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال الاسم.</div></div>
+          <div class="form-group"><label for="studentEmail" class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label><input type="email" id="studentEmail" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال بريد إلكتروني صحيح.</div></div>
+          <div class="form-group"><label for="studentPhone" class="form-label">رقم الجوال (مع رمز الدولة) <span class="text-danger">*</span></label><input type="tel" id="studentPhone" class="form-control" required aria-required="true" pattern="^\+[1-9]\d{1,14}$" placeholder="+9665XXXXXXXX"><div class="invalid-feedback">الرجاء إدخال رقم جوال صحيح بالصيغة الدولية (+966...).</div></div>
+          <div class="form-group"><label for="studentUniversity" class="form-label">الجامعة</label><input type="text" id="studentUniversity" class="form-control"></div>
+          <div class="form-group"><label for="studentMajor" class="form-label">التخصص <span class="text-danger">*</span></label><input type="text" id="studentMajor" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال التخصص.</div></div>
+          <div class="form-group"><label for="studentExperience" class="form-label">الخبرة في الذكاء الاصطناعي (إن وجدت)</label><textarea id="studentExperience" class="form-control" rows="3"></textarea></div>
+          <div class="form-group"><label for="studentMessage" class="form-label">لماذا ترغب في الانضمام لهذه المهمة؟ <span class="text-danger">*</span></label><textarea id="studentMessage" class="form-control" rows="4" required aria-required="true"></textarea><div class="invalid-feedback">الرجاء توضيح سبب اهتمامك.</div></div>
+          <div class="form-footer"><button type="submit" class="btn btn-accent interactive-glow"><span class="submit-text">إرسال الطلب</span><span class="loading-spinner submit-spinner"></span></button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="companyModal" role="dialog" aria-modal="true" aria-labelledby="companyModalTitle">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title" id="companyModalTitle"><i class="fas fa-handshake"></i>الشراكة مع Nexus AI</h3><button class="close-btn interactive-glow" id="closeCompany" aria-label="إغلاق">×</button></div>
+      <div class="modal-body">
+         <p class="mb-4 text-secondary">هل أنت مهتم بالشراكة معنا لإطلاق مهمة ابتكارية؟ املأ النموذج أدناه لتبدأ الحوار.</p>
+        <form id="companyForm" novalidate>
+          <div class="form-group"><label for="companyName" class="form-label">اسم الشركة <span class="text-danger">*</span></label><input type="text" id="companyName" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال اسم الشركة.</div></div>
+          <div class="form-group"><label for="companyIndustry" class="form-label">المجال الصناعي <span class="text-danger">*</span></label><input type="text" id="companyIndustry" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال المجال الصناعي.</div></div>
+          <div class="form-group"><label for="contactName" class="form-label">اسم المسؤول <span class="text-danger">*</span></label><input type="text" id="contactName" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال اسم المسؤول.</div></div>
+          <div class="form-group"><label for="contactPosition" class="form-label">المنصب <span class="text-danger">*</span></label><input type="text" id="contactPosition" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال المنصب.</div></div>
+          <div class="form-group"><label for="companyEmail" class="form-label">البريد الإلكتروني للمسؤول <span class="text-danger">*</span></label><input type="email" id="companyEmail" class="form-control" required aria-required="true"><div class="invalid-feedback">الرجاء إدخال بريد إلكتروني صحيح.</div></div>
+          <div class="form-group"><label for="companyPhone" class="form-label">رقم الجوال للمسؤول <span class="text-danger">*</span></label><input type="tel" id="companyPhone" class="form-control" required aria-required="true" pattern="^\+[1-9]\d{1,14}$" placeholder="+966XXXXXXXXX"><div class="invalid-feedback">الرجاء إدخال رقم جوال صحيح بالصيغة الدولية (+966...).</div></div>
+          <div class="form-group"><label for="companyMessage" class="form-label">فكرة عن التحدي أو مجال التعاون المقترح <span class="text-danger">*</span></label><textarea id="companyMessage" class="form-control" rows="4" required aria-required="true"></textarea><div class="invalid-feedback">الرجاء وصف مجال الاهتمام بالشراكة.</div></div>
+          <div class="form-footer"><button type="submit" class="btn btn-primary interactive-glow"><span class="submit-text">إرسال طلب الشراكة</span><span class="loading-spinner submit-spinner"></span></button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification success" id="notification" role="alert" aria-live="assertive" aria-hidden="true">
+    <i class="fas fa-check-circle notification-icon"></i>
+    <span id="notificationMessage" class="notification-message">Notification message</span>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    const TYPING_SPEED_MS = 25; // Even Faster
+    const LINE_DELAY_MS = 120; // Slightly quicker
+    const NOTIFICATION_TIMEOUT_MS = 5000;
+    const MISSION_LOAD_DELAY_MS = 250; // Faster load simulation
+
+    const missionsData = {
+        'toyota-mobility': { /* ... (existing mission data) ... */ },
+        'ford-smart': { /* ... (existing mission data) ... */ },
+        'bmw-connected': { /* ... (existing mission data) ... */ },
+        'hyundai-green': { /* ... (existing mission data) ... */ },
+        'sec-smartgrid': { /* ... (existing mission data) ... */ }
+    };
+    // (Copy the full missionsData object from your previous code here)
+    missionsData['toyota-mobility'] = {
+            id: 'toyota-mobility', partnerName: 'Toyota', title: 'الابتكار في التنقل',
+            descriptionShort: 'حلول الذكاء الاصطناعي لمستقبل التنقل في السعودية.', status: 'active',
+            complexity: 'متوسط', duration: '12 أسبوع', aiTools: ['GPT', 'Vision', 'LSTM'], participants: 30,
+            iconClass: 'fa-car', headerIcon: 'fa-car-side',
+            phases: [
+                { id: 'p1', title: 'المرحلة 1: البحث', description: 'فهم تحديات تويوتا وتحديد نطاق المشروع.' },
+                { id: 'p2', title: 'المرحلة 2: جمع البيانات', description: 'جمع المعلومات وإعداد بيئة الذكاء الاصطناعي.' },
+                { id: 'p3', title: 'المرحلة 3: النماذج الأولية', description: 'تطوير الحلول الأولية والتحقق.' },
+                { id: 'p4', title: 'المرحلة 4: العرض النهائي', description: 'تقديم الحلول لأصحاب المصلحة.' }
+            ],
+            terminalContent: {
+                'المرحلة 1: البحث': [ { type: "system", text: "جارٍ تهيئة بيئة البحث لـ Toyota..." },{ type: "prompt", command: "load --module=research --target=toyota_mobility_saudi" },{ type: "output", text: "التركيز: فهم تحديات التنقل المستدام والسلامة لـ Toyota في KSA." },{ type: "output", text: "المهمة: تحديد نطاق المشروع، الأهداف (KPIs)، تحليل المنافسين." },{ type: "success", text: "تم تحميل وحدة البحث. جاهز لجمع المتطلبات." }],
+                'المرحلة 2: جمع البيانات': [ { type: "system", text: "إعداد خط أنابيب البيانات لبيانات التنقل..." },{ type: "prompt", command: "exec data_pipeline --source=vehicle_telemetry,traffic_api --clean --validate" },{ type: "output", text: "المصادر النشطة: بيانات Toyota Telemetry (مجهولة المصدر)، Traffic API (وزارة النقل)." },{ type: "warning", text: "تنبيه: جودة بيانات Traffic API تحتاج إلى تنظيف إضافي." },{ type: "output", text: "الأدوات: Pandas, GeoPandas, SQL." },{ type: "success", text: "تم إعداد 75% من البيانات للنمذجة." }],
+                'المرحلة 3: النماذج الأولية': [ { type: "system", text: "تشغيل بيئة تطوير نماذج التنقل..." },{ type: "prompt", command: "run --model=predictive_maintenance,anomaly_detection --framework=tf" },{ type: "output", text: "النماذج قيد التطوير: الصيانة التنبؤية (LSTM)، كشف الشذوذ في القيادة (Autoencoder)." },{ type: "output", text: "المكتبات: TensorFlow/Keras, Scikit-learn." },{ type: "system", text: "بدء تدريب النماذج الأولية..." }, ],
+                'المرحلة 4: العرض النهائي': [ { type: "system", text: "تجميع نتائج نموذج Toyota النهائي..." },{ type: "prompt", command: "compile_results --target=toyota_ksa --format=dashboard" },{ type: "output", text: "النتائج الرئيسية: تم تحديد مؤشرات الصيانة المبكرة بنسبة 88%." },{ type: "success", text: "تم إنشاء لوحة معلومات تفاعلية للعرض." },{ type: "output", text: "التوصيات: تنفيذ نظام تنبيه للسائقين basado en la IA." }, ]
+            },
+            infoCards: [
+                { title: 'عن هذه المهمة', icon: 'fa-bullseye', contentHTML: `<p>تتعاون Nexus AI مع Toyota لمواجهة تحديات التنقل المستقبلية في المملكة العربية السعودية باستخدام الذكاء الاصطناعي. يحصل الطلاب على خبرة عملية قيّمة، بينما تستفيد Toyota من الأفكار المبتكرة لتعزيز الاستدامة، السلامة، وتجربة المستخدم.</p><p class="mt-2">تتوافق هذه المبادرة مع <strong>رؤية السعودية 2030</strong> لدعم الابتكار وتنمية المواهب التقنية المحلية.</p>` },
+                { title: 'لماذا تشارك؟', icon: 'fa-star', contentHTML: `<ul><li>خبرة عملية حقيقية وفرص وظيفية محتملة في Toyota.</li><li>تطوير مهارات الذكاء الاصطناعي المتقدمة في التنقل.</li><li>المساهمة المباشرة في مبادرات التنقل الذكي للمملكة.</li><li>التواصل مع خبراء الصناعة في قطاع السيارات والتقنية.</li></ul>`},
+                { title: 'الجدول الزمني', icon: 'fa-calendar-alt', contentHTML: `<p><i class="fas fa-play-circle fa-fw text-primary"></i> <strong>بداية:</strong> 15 أكتوبر 2024</p><p><i class="fas fa-stop-circle fa-fw text-danger"></i> <strong>نهاية:</strong> 15 يناير 2025</p><p><i class="fas fa-users fa-fw text-secondary"></i> <strong>الاجتماعات:</strong> كل ثلاثاء 4-6 م (افتراضي)</p><p><i class="fas fa-map-marker-alt fa-fw text-accent"></i> <strong>الموقع:</strong> الرياض (افتراضي)</p>`}
+            ],
+            timelineNodes: [ { phaseId: 'p1', label: 'البحث', date: 'الأسبوع 1-3', icon: 'fa-search' },{ phaseId: 'p2', label: 'جمع البيانات', date: 'الأسبوع 4-6', icon: 'fa-database' },{ phaseId: 'p3', label: 'النماذج', date: 'الأسبوع 7-9', icon: 'fa-cogs' },{ phaseId: 'p4', label: 'العرض', date: 'الأسبوع 10-12', icon: 'fa-flag-checkered' } ]
+        };
+        missionsData['ford-smart'] = {
+            id: 'ford-smart', partnerName: 'Ford', title: 'المركبات الذكية للمدن', descriptionShort: 'تطوير حلول اتصال V2X لتحسين السلامة المرورية.', status: 'new',
+            complexity: 'عالي', duration: '16 أسبوع', aiTools: ['Computer Vision', '5G', 'RL'], participants: 25, iconClass: 'fa-car-burst', headerIcon: 'fa-wifi',
+            phases: [ { id: 'p1', title: 'المرحلة 1: استكشاف V2X', description: 'تحليل تقنيات Vehicle-to-Everything وبنيتها التحتية.' },{ id: 'p2', title: 'المرحلة 2: تصميم النظام', description: 'تصميم بنية اتصال آمنة وفعالة للمركبات.' },{ id: 'p3', title: 'المرحلة 3: محاكاة وتجربة', description: 'بناء بيئة محاكاة واختبار سيناريوهات التصادم.' },{ id: 'p4', title: 'المرحلة 4: التحقق والتقرير', description: 'تقييم الأداء وتقديم تقرير فني لشركة Ford.' }],
+            terminalContent: {
+                'المرحلة 1: استكشاف V2X': [{type:'system', text:'تحميل وثائق Ford V2X...'} , {type:'prompt', command:'analyze --tech=cv2x,dsrv --region=saudi'}, {type:'output', text:'التقنيات الرئيسية: C-V2X (أولوية)، DSRC (مرجع).'}, {type:'warning', text:'تحديات البنية التحتية لـ 5G في بعض المناطق.'}],
+                'المرحلة 2: تصميم النظام': [{type:'system', text:'تصميم بنية الاتصال...'}, {type:'prompt', command:'design --protocol=secure_v2x --latency=low'}, {type:'output', text:'تم اعتماد بروتوكول أمان متعدد الطبقات.'}],
+                'المرحلة 3: محاكاة وتجربة': [{type:'system', text:'إعداد بيئة المحاكاة CARLA...'}, {type:'prompt', command:'simulate --scenario=intersection_collision --vehicles=50'}, {type:'output', text:'المحاكاة جارية... معدل تجنب الاصطدام: 95%'}],
+                'المرحلة 4: التحقق والتقرير': [{type:'system', text:'جمع نتائج المحاكاة...'}, {type:'prompt', command:'report --target=ford_rd --format=technical'}, {type:'success', text:'التقرير الفني جاهز للمراجعة.'}]
+            },
+            infoCards: [ { title: 'حول مهمة Ford V2X', icon: 'fa-road', contentHTML: '<p>مهمة بالتعاون مع Ford لتطوير واختبار تقنيات الاتصال بين المركبات (V2X) بهدف تحسين السلامة المرورية بشكل كبير وتقليل الحوادث في المدن السعودية.</p>' },{ title: 'لماذا هذه المهمة؟', icon: 'fa-signal', contentHTML: '<ul><li>العمل على تقنيات الجيل القادم للسيارات المتصلة.</li><li>تطوير خبرة في محاكاة المركبات والشبكات.</li><li>المساهمة في مشاريع المدن الذكية السعودية.</li></ul>' },{ title: 'معلومات إضافية', icon: 'fa-info-circle', contentHTML: '<p><i class="fas fa-flask fa-fw text-secondary"></i> <strong>المطلوب:</strong> خلفية في الشبكات, البرمجة (Python/C++).</p><p><i class="fas fa-calendar-check fa-fw text-primary"></i> <strong>تاريخ البدء المتوقع:</strong> نوفمبر 2024</p>'} ],
+            timelineNodes: [ { phaseId: 'p1', label: 'استكشاف V2X', date: 'الأسبوع 1-4', icon: 'fa-search-location' },{ phaseId: 'p2', label: 'تصميم النظام', date: 'الأسبوع 5-8', icon: 'fa-project-diagram' },{ phaseId: 'p3', label: 'المحاكاة', date: 'الأسبوع 9-12', icon: 'fa-laptop-code' },{ phaseId: 'p4', label: 'التقرير', date: 'الأسبوع 13-16', icon: 'fa-file-alt' } ]
+        };
+        missionsData['bmw-connected'] = {
+            id: 'bmw-connected', partnerName: 'BMW', title: 'السيارات المتصلة', descriptionShort: 'تحسين تجربة السائق وسلامته في المملكة عبر خدمات متصلة.', status: 'active',
+            complexity: 'متوسط-عالي', duration: '14 أسبوع', aiTools: ['NLP', 'Cloud', 'Analytics'], participants: 28, iconClass: 'fa-car-side', headerIcon: 'fa-bluetooth-b',
+            phases: [ { id: 'p1', title: 'تحليل بيانات BMW ConnectedDrive', description: 'فهم استخدام الخدمات الحالية في السعودية.' },{ id: 'p2', title: 'تطوير ميزة جديدة', description: 'تصميم وتطوير خدمة متصلة مبتكرة (مثل المساعد الصوتي).' },{ id: 'p3', title: 'التكامل والاختبار', description: 'دمج الميزة الجديدة مع منصة BMW واختبارها.' },{ id: 'p4', title: 'تقييم تجربة المستخدم', description: 'جمع ملاحظات المستخدمين وتقديم التوصيات.' } ],
+            terminalContent: {
+                'تحليل بيانات BMW ConnectedDrive': [{type:'system', text:'الاتصال بـ BMW Cloud Analytics...'}, {type:'prompt', command:'query --service=usage_stats --region=sa --anonymized'}, {type:'output', text:'أكثر الخدمات استخدامًا: الملاحة، التحكم عن بعد.'},{type:'output', text:'فرصة لتحسين التفاعل الصوتي.'}],
+                'تطوير ميزة جديدة': [{type:'system', text:'بدء تطوير المساعد الصوتي المخصص...'}, {type:'prompt', command:'dev --feature=arabic_voice_assistant --nlp=azure'}, {type:'output', text:'تم اختيار Azure Cognitive Services لمعالجة اللغة العربية.'}],
+                'التكامل والاختبار': [{type:'system', text:'دمج المساعد مع واجهة BMW iDrive...'}, {type:'prompt', command:'integrate --api=idrive_v3 --test=unit,integration'}, {type:'success', text:'تم التكامل بنجاح. اجتياز 98% من الاختبارات.'}],
+                'تقييم تجربة المستخدم': [{type:'system', text:'إطلاق تجربة محدودة للمستخدمين...'}, {type:'prompt', command:'feedback --users=50 --method=survey,interviews'}, {type:'output', text:'جارٍ جمع الملاحظات... التقييم الأولي إيجابي.'}]
+            },
+            infoCards: [ { title: 'عن مهمة BMW Connected', icon: 'fa-satellite-dish', contentHTML: '<p>تعاون مع BMW لتحسين منصة ConnectedDrive في السوق السعودي. الهدف هو تطوير ميزات جديدة ومبتكرة، خاصة تلك التي تستخدم الذكاء الاصطناعي، لتعزيز تجربة القيادة والراحة والسلامة للسائقين في المملكة.</p>' },{ title: 'ماذا ستتعلم؟', icon: 'fa-brain', contentHTML: '<ul><li>تطوير تطبيقات سحابية متصلة بالسيارات.</li><li>فهم بنية الخدمات المتصلة لشركة رائدة.</li><li>العمل بتقنيات معالجة اللغات الطبيعية (NLP).</li><li>تصميم واجهات المستخدم للسيارات.</li></ul>' },{ title: 'مطلوب للتقديم', icon: 'fa-tasks', contentHTML: '<p><i class="fab fa-python fa-fw text-primary"></i> خبرة في بايثون أو جافا.</p><p><i class="fas fa-cloud fa-fw text-secondary"></i> فهم أساسيات الحوسبة السحابية (AWS/Azure).</p><p><i class="fas fa-comments fa-fw text-accent"></i> اهتمام بتجربة المستخدم (UX).</p>'} ],
+            timelineNodes: [ { phaseId: 'p1', label: 'تحليل البيانات', date: 'الأسبوع 1-3', icon: 'fa-chart-pie' },{ phaseId: 'p2', label: 'تطوير الميزة', date: 'الأسبوع 4-8', icon: 'fa-code' },{ phaseId: 'p3', label: 'التكامل والاختبار', date: 'الأسبوع 9-11', icon: 'fa-plug' },{ phaseId: 'p4', label: 'تقييم UX', date: 'الأسبوع 12-14', icon: 'fa-user-check' } ]
+        };
+        missionsData['hyundai-green'] = {
+            id: 'hyundai-green', partnerName: 'Hyundai', title: 'التنقل الأخضر الحضري', descriptionShort: 'تطوير حلول لخفض الانبعاثات في المناطق الحضرية باستخدام بيانات المركبات.', status: 'active',
+            complexity: 'متوسط', duration: '10 أسابيع', aiTools: ['Analytics', 'Optimization', 'IoT'], participants: 20, iconClass: 'fa-leaf', headerIcon: 'fa-leaf',
+            phases: [ { id: 'p1', title: 'تحليل أنماط الانبعاثات', description: 'دراسة بيانات Hyundai لربط سلوك القيادة بالانبعاثات.' },{ id: 'p2', title: 'تطوير نموذج Eco-Driving', description: 'بناء نموذج يقدم توصيات قيادة صديقة للبيئة.' },{ id: 'p3', title: 'تطبيق تجريبي', description: 'تطوير تطبيق جوال تجريبي للتوصيات.' },{ id: 'p4', title: 'قياس الأثر', description: 'تقييم مدى فعالية التوصيات في خفض الانبعاثات.' } ],
+            terminalContent: {
+                'تحليل أنماط الانبعاثات': [{type:'system', text:'تحميل بيانات Hyundai Eco (مجمعة)...'}, {type:'prompt', command:'analyze --feature=driving_behavior --target=emissions --city=riyadh'}, {type:'output', text:'تم تحديد ارتباط قوي بين التسارع المفاجئ وزيادة الانبعاثات.'}],
+                'تطوير نموذج Eco-Driving': [{type:'system', text:'بناء نموذج توصيات القيادة البيئية...'}, {type:'prompt', command:'train --model=gradient_boosting --features=speed,accel,rpm'}, {type:'output', text:'دقة النموذج في التنبؤ بسلوك غير بيئي: 85%.'}],
+                'تطبيق تجريبي': [{type:'system', text:'تطوير واجهة تطبيق الجوال...'}, {type:'prompt', command:'build --platform=flutter --feature=realtime_feedback'}, {type:'output', text:'تم إطلاق نسخة تجريبية (Alpha) من التطبيق.'}],
+                'قياس الأثر': [{type:'system', text:'مراقبة بيانات المستخدمين التجريبيين...'}, {type:'prompt', command:'measure --metric=emission_reduction --group=alpha_users'}, {type:'success', text:'المستخدمون الذين اتبعوا التوصيات خفضوا الانبعاثات بنسبة 12% (مبدئيًا).'}]
+            },
+            infoCards: [ { title: 'مهمة Hyundai للتنقل الأخضر', icon: 'fa-seedling', contentHTML: '<p>شراكة مع Hyundai لاستخدام بيانات المركبات وأنماط القيادة لتطوير حلول تقلل من الانبعاثات وتحسن جودة الهواء في المدن السعودية المزدحمة، بما يتماشى مع مبادرات الاستدامة الوطنية.</p>' },{ title: 'ما هي المهارات المكتسبة؟', icon: 'fa-lightbulb', contentHTML: '<ul><li>تحليل بيانات المركبات الضخمة (Big Data).</li><li>بناء نماذج تعلم الآلة للتنبؤ وتحسين السلوك.</li><li>تطوير تطبيقات ذات تأثير بيئي إيجابي.</li><li>فهم العلاقة بين التكنولوجيا والاستدامة.</li></ul>' },{ title: 'انضم للمساهمة!', icon: 'fa-hands-helping', contentHTML: '<p><i class="fas fa-database fa-fw text-primary"></i> مهارات تحليل بيانات قوية.</p><p><i class="fas fa-chart-line fa-fw text-secondary"></i> معرفة أساسية بتعلم الآلة.</p><p><i class="fas fa-mobile-alt fa-fw text-accent"></i> يفضل (وليس شرطًا) خبرة بسيطة بتطوير التطبيقات.</p>'} ],
+            timelineNodes: [ { phaseId: 'p1', label: 'تحليل الانبعاثات', date: 'الأسبوع 1-2', icon: 'fa-smog' },{ phaseId: 'p2', label: 'نموذج Eco-Driving', date: 'الأسبوع 3-5', icon: 'fa-recycle' },{ phaseId: 'p3', label: 'التطبيق التجريبي', date: 'الأسبوع 6-8', icon: 'fa-mobile-screen-button' },{ phaseId: 'p4', label: 'قياس الأثر', date: 'الأسبوع 9-10', icon: 'fa-ruler-combined' } ]
+        };
+        missionsData['sec-smartgrid'] = {
+            id: 'sec-smartgrid', partnerName: 'SEC', title: 'تحسين الشبكات الذكية', descriptionShort: 'استخدام الذكاء الاصطناعي لتحسين كفاءة توزيع الطاقة وتقليل الفاقد.', status: 'soon',
+            complexity: 'عالي', duration: '18 أسبوع', aiTools: ['Forecasting', 'Optimization', 'IoT', 'Cybersecurity'], participants: 35, iconClass: 'fa-bolt', headerIcon: 'fa-network-wired',
+            phases: [ { id: 'p1', title: 'تحليل بيانات الشبكة', description: 'فهم تدفق الطاقة وأنماط الاستهلاك والفقد الحالية.' },{ id: 'p2', title: 'تطوير نموذج التنبؤ بالطلب', description: 'بناء نموذج دقيق للتنبؤ باستهلاك الطاقة المستقبلي.' },{ id: 'p3', title: 'تحسين التوزيع', description: 'تطوير خوارزميات لتحسين مسارات توزيع الطاقة وتقليل الفاقد.' },{ id: 'p4', title: 'اعتبارات الأمن السيبراني', description: 'تقييم ودمج تدابير أمنية للحلول المقترحة.' },{ id: 'p5', title: 'النموذج الأولي والتقييم', description: 'بناء نموذج أولي وعرض التقييم الفني والاقتصادي.' } ],
+            terminalContent: {
+                'تحليل بيانات الشبكة': [{type:'system', text:'الاتصال بنظام SCADA (بيانات محاكاة)...'}, {type:'prompt', command:'analyze --data=grid_load,losses --granularity=hourly'}, {type:'output', text:'تم تحديد نقاط الضعف الرئيسية التي تسبب فقدًا بنسبة 8%.'}],
+                'تطوير نموذج التنبؤ بالطلب': [{type:'system', text:'تدريب نموذج التنبؤ بالطلب (ARIMA)...'}, {type:'prompt', command:'train --model=arima --features=weather,historical_load'}, {type:'success', text:'دقة التنبؤ للساعة القادمة: 96% (MAPE 4%).'}],
+                'تحسين التوزيع': [{type:'system', text:'تطوير خوارزمية تحسين التدفق...'}, {type:'prompt', command:'optimize --algorithm=pso --objective=minimize_loss'}, {type:'output', text:'جارٍ تشغيل التحسين... النتائج الأولية تظهر إمكانية خفض الفاقد بنسبة 2%.'}],
+                'اعتبارات الأمن السيبراني': [{type:'system', text:'تقييم مخاطر الأمن السيبراني للنموذج...'}, {type:'prompt', command:'security_audit --model=load_forecasting'}, {type:'warning', text:'تنبيه: يجب تأمين واجهة API للنموذج بشكل إضافي.'}],
+                'النموذج الأولي والتقييم': [{type:'system', text:'جارٍ بناء النموذج الأولي لواجهة التحكم...'}, {type:'prompt', command:'prototype --ui=dashboard --target=sec_ops'}, {type:'output', text:'النموذج جاهز للعرض التقييمي.'}]
+            },
+            infoCards: [ { title: 'حول مهمة SEC للشبكات الذكية', icon: 'fa-broadcast-tower', contentHTML: '<p>تعاون استراتيجي مع الشركة السعودية للكهرباء (SEC) لاستخدام الذكاء الاصطناعي في تحويل الشبكة الكهربائية إلى شبكة ذكية أكثر كفاءة وموثوقية وأمانًا، مما يساهم في استدامة الطاقة وتحقيق أهداف رؤية 2030.</p>' },{ title: 'مجالات التركيز', icon: 'fa-microchip', contentHTML: '<ul><li>تطبيق نماذج التنبؤ المتقدمة (Forecasting).</li><li>استخدام خوارزميات التحسين (Optimization) لتوزيع الحمل.</li><li>تحليل بيانات إنترنت الأشياء (IoT) من العدادات الذكية.</li><li>ضمان الأمن السيبراني (Cybersecurity) للشبكات الذكية.</li></ul>' },{ title: 'هل أنت مستعد للتحدي؟', icon: 'fa-user-tie', contentHTML: '<p><i class="fas fa-brain fa-fw text-primary"></i> شغف بحل المشكلات المعقدة في قطاع الطاقة.</p><p><i class="fas fa-calculator fa-fw text-secondary"></i> خلفية قوية في الرياضيات والإحصاء أو تعلم الآلة.</p><p><i class="fas fa-shield-alt fa-fw text-accent"></i> اهتمام بمجال الأمن السيبراني (ميزة إضافية).</p><p><strong>سيتم الإعلان عن التقديم قريبًا!</strong></p>'} ],
+            timelineNodes: [ { phaseId: 'p1', label: 'تحليل البيانات', date: 'الأسبوع 1-3', icon: 'fa-chart-bar' },{ phaseId: 'p2', label: 'نموذج التنبؤ', date: 'الأسبوع 4-7', icon: 'fa-magic' },{ phaseId: 'p3', label: 'تحسين التوزيع', date: 'الأسبوع 8-11', icon: 'fa-random' },{ phaseId: 'p4', label: 'الأمن السيبراني', date: 'الأسبوع 12-14', icon: 'fa-user-shield' },{ phaseId: 'p5', label: 'النموذج والتقييم', date: 'الأسبوع 15-18', icon: 'fa-clipboard-check' } ]
+        };
+
+
+    const body = document.body;
+    const header = document.querySelector('header');
+    const mainContent = document.getElementById('mainContent');
+    const leftPanel = document.getElementById('leftPanel');
+    const rightPanel = document.getElementById('rightPanel');
+    const leftPanelBtn = document.getElementById('leftPanelBtn');
+    const rightPanelBtn = document.getElementById('rightPanelBtn');
+    const overlay = document.getElementById('overlay');
+    const terminal = document.getElementById('terminal');
+    const terminalTitleSpan = document.getElementById('terminalPhaseTitle');
+    const phaseListContainer = document.getElementById('phaseList');
+    const rightPanelContent = document.getElementById('rightPanelContent');
+    const timelineContainer = document.getElementById('timelineContainer');
+    const timelineProgress = document.getElementById('timelineProgress'); // This will be created dynamically if not found
+    const timelinePlaceholder = document.getElementById('timelinePlaceholder');
+    const logoPartnerName = document.getElementById('logoPartnerName');
+    const timelineTitle = document.getElementById('timelineTitle');
+    const statComplexity = document.getElementById('statComplexity');
+    const statDuration = document.getElementById('statDuration');
+    const statAiTools = document.getElementById('statAiTools');
+    const statParticipants = document.getElementById('statParticipants');
+    const browseBtn = document.getElementById('browseBtn');
+    const browseModal = document.getElementById('browseModal');
+    const closeBrowse = document.getElementById('closeBrowse');
+    const missionListModal = document.getElementById('missionListModal');
+    const studentModal = document.getElementById('studentModal');
+    const closeStudent = document.getElementById('closeStudent');
+    const studentApplyMissionName = document.getElementById('studentApplyMissionName');
+    const companyModal = document.getElementById('companyModal');
+    const closeCompany = document.getElementById('closeCompany');
+    const studentForm = document.getElementById('studentForm');
+    const companyForm = document.getElementById('companyForm');
+    const notification = document.getElementById('notification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const notificationIcon = notification.querySelector('.notification-icon');
+    const clearTerminalBtn = document.getElementById('clearTerminalBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    let isLeftPanelOpen = false;
+    let isRightPanelOpen = false;
+    let currentTimeoutId = null;
+    let currentMissionData = null;
+    let currentSelectedPhaseId = null;
+
+    function initializeApp() {
+        AOS.init({ duration: 600, once: true, offset: 40, disable: 'mobile' });
+        loadMissionListIntoModal();
+        setupEventListeners();
+        showInitialState();
+        handleResize();
+    }
+
+    function loadMissionListIntoModal() {
+        missionListModal.innerHTML = '';
+        if (Object.keys(missionsData).length === 0) {
+             missionListModal.innerHTML = '<li class="mission-item-placeholder">لا توجد مهام متاحة حاليًا.</li>';
+            return;
+        }
+        Object.values(missionsData).forEach(mission => {
+            const li = document.createElement('li');
+            li.className = 'mission-item';
+            li.dataset.missionId = mission.id;
+            li.setAttribute('role', 'button'); li.setAttribute('tabindex', '0');
+            li.setAttribute('data-aos', 'fade-up'); li.setAttribute('data-aos-anchor', '#browseModal');
+            let statusBadge = '';
+            if (mission.status) {
+                statusBadge = `<span class="mission-status ${mission.status}">${mission.status === 'active' ? 'نشط' : mission.status === 'new' ? 'جديد' : mission.status === 'soon' ? 'قريبًا' : mission.status === 'completed' ? 'مكتمل' : ''}</span>`;
+            }
+            li.innerHTML = `
+                <span class="mission-link">
+                    <span><i class="fas ${mission.headerIcon || 'fa-rocket'} fa-fw text-secondary"></i> Nexus AI × ${mission.partnerName}: ${mission.title}</span>
+                     ${statusBadge}
+                </span>
+                <div class="mission-company">${mission.descriptionShort}</div>`;
+            li.addEventListener('click', () => handleMissionSelection(mission.id));
+            li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleMissionSelection(mission.id); } });
+            missionListModal.appendChild(li);
+        });
+        AOS.refreshHard();
+    }
+
+    function handleMissionSelection(missionId) { loadMission(missionId); closeBrowse.click(); }
+
+    function showInitialState() {
+        currentMissionData = null; currentSelectedPhaseId = null;
+        phaseListContainer.innerHTML = `<div class="phase-list-placeholder">حدد مهمة من <button type="button" class="btn-link interactive-glow" onclick="document.getElementById('browseBtn').click()"><strong>تصفح المهام</strong></button> لعرض مراحلها.</div>`;
+        rightPanelContent.innerHTML = '<div class="right-panel-placeholder">حدد مهمة لعرض تفاصيلها وفرص المشاركة.</div>';
+        terminal.innerHTML = ''; terminal.classList.add('initial-state'); terminalTitleSpan.textContent = 'وحدة التحكم';
+        updateHeaderStats(null);
+        logoPartnerName.textContent = ''; logoPartnerName.classList.remove('visible');
+        timelineContainer.innerHTML = ''; // Clear nodes specifically
+        if (timelineProgress) timelineProgress.style.width = '0%'; // Check if it exists
+        timelinePlaceholder.style.display = 'block'; timelineTitle.textContent = 'تقدم المهمة';
+        if (window.innerWidth <= 992) closeAllPanels();
+        mainContent.classList.remove('loading');
+    }
+
+    function loadMission(missionId) {
+        const mission = missionsData[missionId];
+        if (!mission) { showNotification('خطأ: المهمة المطلوبة غير موجودة.', 'error'); return; }
+        mainContent.classList.add('loading');
+        terminal.classList.remove('initial-state');
+        terminal.innerHTML = `<div class="terminal-line system">جارٍ تحميل بيانات مهمة: ${mission.partnerName} - ${mission.title}... <span class="loading-spinner" style="display: inline-block; border-top-color: var(--terminal-system)"></span></div>`;
+        setTimeout(() => {
+            currentMissionData = mission; currentSelectedPhaseId = null;
+            updateHeaderStats(mission); updateLogoPartnerName(mission.partnerName);
+            populatePhases(mission.phases);
+            populateInfoCardsAndActions(mission); // UPDATED to handle actions
+            resetTerminalForMission(mission); populateTimeline(mission.timelineNodes);
+            timelineTitle.textContent = `تقدم مهمة: ${mission.partnerName}`;
+            mainContent.classList.remove('loading'); AOS.refresh();
+            showNotification(`تم تحميل مهمة ${mission.partnerName}: ${mission.title}`, 'info');
+        }, MISSION_LOAD_DELAY_MS);
+    }
+
+    function updateHeaderStats(mission) {
+        const placeholder = '---';
+        statComplexity.textContent = mission?.complexity || placeholder;
+        statDuration.textContent = mission?.duration || placeholder;
+        statAiTools.textContent = mission?.aiTools?.join(', ') || placeholder;
+        statParticipants.textContent = mission ? `${mission.participants} طالب` : placeholder;
+        [statComplexity, statDuration, statAiTools, statParticipants].forEach(el => el.classList.toggle('placeholder', !mission));
+    }
+
+    function updateLogoPartnerName(partnerName) {
+        if (partnerName) { logoPartnerName.textContent = `× ${partnerName}`; logoPartnerName.classList.add('visible'); }
+        else { logoPartnerName.textContent = ''; logoPartnerName.classList.remove('visible'); }
+    }
+
+    function populatePhases(phases) {
+        phaseListContainer.innerHTML = '';
+        if (!phases || phases.length === 0) { phaseListContainer.innerHTML = '<div class="phase-list-placeholder">لا توجد مراحل محددة لهذه المهمة.</div>'; return; }
+        phases.forEach((phase, index) => {
+            const phaseDiv = document.createElement('div');
+            phaseDiv.className = 'phase interactive-glow'; // Added interactive-glow
+            phaseDiv.dataset.phaseId = phase.id; phaseDiv.dataset.phaseTitle = phase.title;
+            phaseDiv.setAttribute('role', 'button'); phaseDiv.setAttribute('tabindex', '0');
+            phaseDiv.setAttribute('aria-label', `المرحلة ${index + 1}: ${phase.title}`);
+            phaseDiv.innerHTML = `<div class="phase-number" aria-hidden="true">${index + 1}</div><h3 class="phase-title">${phase.title}</h3><p class="phase-description">${phase.description}</p>`;
+            phaseDiv.addEventListener('click', () => selectPhase(phaseDiv));
+            phaseDiv.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPhase(phaseDiv); } });
+            phaseListContainer.appendChild(phaseDiv);
+        });
+    }
+
+    function populateInfoCardsAndActions(mission) { // Renamed and enhanced
+        rightPanelContent.innerHTML = '';
+        if (!mission.infoCards || mission.infoCards.length === 0) {
+            rightPanelContent.innerHTML = '<div class="right-panel-placeholder">لا توجد معلومات إضافية لهذه المهمة.</div>';
+        } else {
+            mission.infoCards.forEach(card => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'mission-card interactive-glow'; // Added interactive-glow
+                cardDiv.setAttribute('data-aos', 'fade-left');
+                cardDiv.innerHTML = `
+                    <h3 class="mission-card-title"><i class="fas ${card.icon}"></i> ${card.title}</h3>
+                    <div class="mission-card-content">${card.contentHTML}</div>`;
+                rightPanelContent.appendChild(cardDiv);
+            });
+        }
+
+        // Add standard action buttons footer
+        const actionsFooter = document.createElement('div');
+        actionsFooter.className = 'right-panel-actions-footer';
+        actionsFooter.innerHTML = `
+            <button class="btn btn-accent interactive-glow btn-apply-mission" data-mission-id="${mission.id}" data-mission-name="${mission.partnerName}: ${mission.title}">
+               <i class="fas fa-user-graduate"></i> قدّم لهذه المهمة
+            </button>
+            <button class="btn btn-primary interactive-glow btn-partner-mission" data-mission-id="${mission.id}">
+               <i class="fas fa-handshake"></i> شراكة الشركات لهذه المهمة
+            </button>
+        `;
+        rightPanelContent.appendChild(actionsFooter);
+        setupDynamicModalButtons(); // Re-bind listeners
+    }
+
+
+    function populateTimeline(nodes) {
+        timelineContainer.innerHTML = ''; timelinePlaceholder.style.display = 'none';
+        if (!nodes || nodes.length === 0) { timelinePlaceholder.style.display = 'block'; if(timelineProgress) timelineProgress.style.width = '0%'; return; }
+        timelineContainer.innerHTML = `<div class="timeline-line"></div><div class="timeline-progress" id="timelineProgressDynamic"></div>`; // Use new ID for dynamic progress
+        const timelineProgressDynamic = document.getElementById('timelineProgressDynamic');
+
+        nodes.forEach((node, index) => {
+            const nodeDiv = document.createElement('div');
+            nodeDiv.className = 'timeline-node'; nodeDiv.dataset.phaseId = node.phaseId;
+            nodeDiv.setAttribute('data-aos', 'fade-up'); nodeDiv.setAttribute('data-aos-delay', `${100 + index * 100}`);
+            nodeDiv.innerHTML = `
+                <div class="node-icon-wrapper"><div class="node-icon interactive-glow"><i class="fas ${node.icon || 'fa-question-circle'}"></i></div></div>
+                <span class="node-label">${node.label}</span><span class="node-date">${node.date}</span>`;
+            timelineContainer.appendChild(nodeDiv);
+        });
+        updateTimelineUI(null, timelineProgressDynamic); // Pass the dynamic progress bar
+    }
+
+
+    function resetTerminalForMission(mission) {
+        if (currentTimeoutId) { clearTimeout(currentTimeoutId); currentTimeoutId = null; }
+        terminal.innerHTML = ''; terminal.classList.remove('initial-state');
+        const welcomeLines = [
+            { type: "system", text: `تم تحميل مهمة: ${mission.partnerName} - ${mission.title}` },
+            { type: "system", text: `التعقيد: ${mission.complexity} | المدة: ${mission.duration}` },
+            { type: "system", text: "حدد مرحلة من القائمة اليمنى لبدء استعراض الأوامر التفصيلية." }
+        ];
+        displayTerminalLines(welcomeLines, () => addCursor());
+        terminalTitleSpan.textContent = 'وحدة التحكم'; terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    function selectPhase(selectedPhaseDiv) {
+        if (!currentMissionData) { showNotification("يرجى تحميل مهمة أولاً.", "warning"); return; }
+        if (selectedPhaseDiv.classList.contains('active')) return;
+        if (currentTimeoutId) { clearTimeout(currentTimeoutId); currentTimeoutId = null; }
+        terminal.innerHTML = '';
+        phaseListContainer.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+        selectedPhaseDiv.classList.add('active');
+        const phaseId = selectedPhaseDiv.dataset.phaseId;
+        const phaseTitle = selectedPhaseDiv.dataset.phaseTitle;
+        currentSelectedPhaseId = phaseId;
+        terminalTitleSpan.textContent = phaseTitle;
+        const phaseContent = currentMissionData.terminalContent[phaseTitle];
+        if (phaseContent && phaseContent.length > 0) { displayTerminalLines(phaseContent, () => addCursor()); }
+        else { terminal.innerHTML = `<div class="terminal-line warning">لا توجد أوامر أو معلومات مسجلة لهذه المرحلة.</div>`; addCursor(); }
+        
+        const timelineProgressDynamic = document.getElementById('timelineProgressDynamic'); // Get it again
+        updateTimelineUI(phaseId, timelineProgressDynamic);
+
+        if (window.innerWidth <= 992) closeAllPanels();
+        setTimeout(() => { terminal.focus(); terminal.scrollTop = terminal.scrollHeight; }, LINE_DELAY_MS * 2);
+    }
+
+    function updateTimelineUI(activePhaseId, progressElement) {
+        const currentProgressEl = progressElement || document.getElementById('timelineProgress'); // Fallback for initial call
+        if (!currentMissionData || !currentMissionData.timelineNodes || currentMissionData.timelineNodes.length === 0 || !currentProgressEl) {
+            if(currentProgressEl) currentProgressEl.style.width = '0%';
+            return;
+        }
+        const timelineNodes = timelineContainer.querySelectorAll('.timeline-node');
+        const totalNodes = currentMissionData.timelineNodes.length;
+        let activeIndex = -1;
+        if (activePhaseId) activeIndex = currentMissionData.timelineNodes.findIndex(node => node.phaseId === activePhaseId);
+        const progressPercentage = totalNodes > 1 ? (activeIndex / (totalNodes - 1)) * 100 : (activeIndex >= 0 ? 100 : 0);
+        currentProgressEl.style.width = `${Math.min(progressPercentage, 100)}%`;
+        timelineNodes.forEach((nodeElement, index) => {
+            nodeElement.classList.remove('active', 'completed');
+            if (activeIndex === -1) {}
+            else if (index < activeIndex) nodeElement.classList.add('completed');
+            else if (index === activeIndex) nodeElement.classList.add('active');
+        });
+    }
+
+    function displayTerminalLines(lines, onComplete) {
+        terminal.innerHTML = ''; let lineIndex = 0;
+        function typeNextLine() {
+            if (lineIndex >= lines.length) { if (onComplete) onComplete(); currentTimeoutId = null; return; }
+            const item = lines[lineIndex]; const lineDiv = document.createElement('div');
+            if (item.type === 'prompt') {
+                lineDiv.className = `terminal-line ${item.type}`; const commandSpan = document.createElement('span');
+                commandSpan.className = 'command'; commandSpan.textContent = ' '; lineDiv.appendChild(commandSpan);
+                terminal.appendChild(lineDiv); terminal.scrollTop = terminal.scrollHeight;
+                typeCharacter(commandSpan, item.command || '', 0, () => { lineIndex++; currentTimeoutId = setTimeout(typeNextLine, LINE_DELAY_MS); });
+            } else {
+                lineDiv.className = `terminal-line ${item.type} typing`; terminal.appendChild(lineDiv); terminal.scrollTop = terminal.scrollHeight;
+                typeCharacter(lineDiv, item.text || '', 0, () => { lineDiv.classList.remove('typing'); lineIndex++; currentTimeoutId = setTimeout(typeNextLine, LINE_DELAY_MS); });
+            }
+        }
+        typeNextLine();
+    }
+
+    function typeCharacter(element, text, charIndex, callback) {
+        if (charIndex < text.length) {
+            element.textContent += text[charIndex];
+            const parentScrollable = element.closest('.terminal-content');
+            if (parentScrollable) parentScrollable.scrollTop = parentScrollable.scrollHeight;
+            currentTimeoutId = setTimeout(() => typeCharacter(element, text, charIndex + 1, callback), TYPING_SPEED_MS);
+        } else {
+            const parentScrollable = element.closest('.terminal-content');
+            if (parentScrollable) parentScrollable.scrollTop = parentScrollable.scrollHeight;
+            if (callback) callback();
+        }
+    }
+
+    function addCursor() {
+        const existingCursor = terminal.querySelector('.cursor'); if (existingCursor) existingCursor.parentElement.remove();
+        const cursorLine = document.createElement('div'); cursorLine.className = 'terminal-line prompt';
+        const cursorSpan = document.createElement('span'); cursorSpan.className = 'cursor'; cursorLine.appendChild(cursorSpan);
+        terminal.appendChild(cursorLine); terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    function clearTerminal() {
+        if (currentTimeoutId) { clearTimeout(currentTimeoutId); currentTimeoutId = null; }
+        terminal.innerHTML = ''; const clearMessage = [{ type: "system", text: "تم مسح الشاشة." }];
+        if (currentMissionData) displayTerminalLines(clearMessage, () => addCursor());
+        else terminal.classList.add('initial-state');
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    function toggleFullScreen() { /* ... (same as before, ensure it targets '.center-panel' if preferred for portal) ... */
+        const icon = fullscreenBtn.querySelector('i');
+        const targetElement = document.querySelector('.center-panel') || document.documentElement; // Prefer center panel
+
+        if (!document.fullscreenElement) {
+             if (targetElement.requestFullscreen) {
+                 targetElement.requestFullscreen().catch(err => showNotification(`فشل تفعيل ملء الشاشة: ${err.message}`, 'error'));
+             } else showNotification('المتصفح لا يدعم طلب ملء الشاشة لهذا العنصر.', 'warning');
+        } else {
+            if (document.exitFullscreen) document.exitFullscreen().catch(err => console.error(`Exit fullscreen failed: ${err.message}`));
+        }
+    }
+    document.addEventListener('fullscreenchange', () => {
+        const icon = fullscreenBtn.querySelector('i');
+        if (!document.fullscreenElement) {
+            icon.classList.replace('fa-compress', 'fa-expand');
+            fullscreenBtn.setAttribute('aria-label', 'تكبير/تصغير الشاشة'); fullscreenBtn.title = 'تكبير/تصغير الشاشة';
+        } else {
+            icon.classList.replace('fa-expand', 'fa-compress');
+            fullscreenBtn.setAttribute('aria-label', 'الخروج من وضع ملء الشاشة'); fullscreenBtn.title = 'الخروج من وضع ملء الشاشة';
+        }
+    });
+
+
+    function toggleLeftPanel() { isLeftPanelOpen = !isLeftPanelOpen; leftPanel.classList.toggle('active', isLeftPanelOpen); leftPanelBtn.setAttribute('aria-expanded', isLeftPanelOpen); if (isLeftPanelOpen) closeRightPanel(); updateOverlay(); }
+    function closeLeftPanel() { if (!isLeftPanelOpen) return; isLeftPanelOpen = false; leftPanel.classList.remove('active'); leftPanelBtn.setAttribute('aria-expanded', 'false'); updateOverlay(); }
+    function toggleRightPanel() { isRightPanelOpen = !isRightPanelOpen; rightPanel.classList.toggle('active', isRightPanelOpen); rightPanelBtn.setAttribute('aria-expanded', isRightPanelOpen); if (isRightPanelOpen) closeLeftPanel(); updateOverlay(); }
+    function closeRightPanel() { if (!isRightPanelOpen) return; isRightPanelOpen = false; rightPanel.classList.remove('active'); rightPanelBtn.setAttribute('aria-expanded', 'false'); updateOverlay(); }
+    function closeAllPanels() { closeLeftPanel(); closeRightPanel(); }
+    function updateOverlay() { const isActive = isLeftPanelOpen || isRightPanelOpen; overlay.classList.toggle('active', isActive); overlay.setAttribute('aria-hidden', !isActive); document.body.style.overflow = isActive ? 'hidden' : ''; }
+
+    function setupModal(openTrigger, modalElement, closeTriggerElement) {
+        if (!openTrigger || !modalElement || !closeTriggerElement) return;
+        let returnFocusTo = null;
+        const focusableElements = modalElement.querySelectorAll('button, [href], input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])');
+        const firstFocusable = focusableElements[0]; const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        const open = (triggerEl) => {
+            returnFocusTo = triggerEl || document.activeElement;
+            modalElement.classList.add('modal-active'); modalElement.removeAttribute('aria-hidden');
+            document.body.style.overflow = 'hidden';
+            if (firstFocusable) setTimeout(() => firstFocusable.focus(), 50);
+            AOS.refreshHard();
+        };
+        const close = () => {
+            modalElement.classList.remove('modal-active'); modalElement.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (returnFocusTo) setTimeout(() => { returnFocusTo.focus(); returnFocusTo = null; }, 50);
+            resetFormValidation(modalElement.querySelector('form'));
+        };
+        const trapFocus = (e) => {
+            if (e.key !== 'Tab') return;
+            if (firstFocusable === lastFocusable) { e.preventDefault(); return; }
+            if (e.shiftKey) { if (document.activeElement === firstFocusable) { lastFocusable.focus(); e.preventDefault(); } }
+            else { if (document.activeElement === lastFocusable) { firstFocusable.focus(); e.preventDefault(); } }
+        };
+        if (openTrigger && typeof openTrigger === 'object' && openTrigger.addEventListener) openTrigger.addEventListener('click', (e) => { e.preventDefault(); open(openTrigger); });
+        closeTriggerElement.addEventListener('click', close);
+        modalElement.addEventListener('click', (e) => { if (e.target === modalElement) close(); });
+        modalElement.addEventListener('keydown', trapFocus);
+        // Store close function for later use if needed
+        modalElement.closeModal = close;
+    }
+
+    function setupDynamicModalButtons() {
+        document.querySelectorAll('.btn-apply-mission').forEach(button => {
+             // Remove existing listener to prevent duplicates if this function is called multiple times
+            const newButton = button.cloneNode(true); // Clone to remove old listeners
+            button.parentNode.replaceChild(newButton, button);
+            newButton.addEventListener('click', handleApplyButtonClick);
+        });
+        document.querySelectorAll('.btn-partner-mission').forEach(button => {
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            newButton.addEventListener('click', handlePartnerButtonClick);
+        });
+    }
+
+    function handleApplyButtonClick(e) {
+        const button = e.currentTarget; const missionName = button.dataset.missionName;
+        if(studentApplyMissionName) studentApplyMissionName.textContent = missionName || 'المهمة المحددة';
+        openModalHelper(studentModal, button);
+    }
+
+    function handlePartnerButtonClick(e) { // New handler for partner button
+        openModalHelper(companyModal, e.currentTarget);
+    }
+
+    function openModalHelper(modalElement, triggerElement) { // Generic open helper
+        if (!modalElement.classList.contains('modal-active')) { // Check if not already open
+            let returnFocusTo = triggerElement || document.activeElement;
+            const focusableElements = modalElement.querySelectorAll('button, [href], input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstFocusable = focusableElements[0];
+
+            modalElement.returnFocusTo = returnFocusTo; // Store for closing
+            modalElement.classList.add('modal-active');
+            modalElement.removeAttribute('aria-hidden');
+            document.body.style.overflow = 'hidden';
+            if (firstFocusable) setTimeout(() => firstFocusable.focus(), 50);
+            AOS.refreshHard();
+        }
+    }
+
+    function closeModalHelper(modalElement) { // Generic close helper
+        modalElement.classList.remove('modal-active');
+        modalElement.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (modalElement.returnFocusTo) {
+            setTimeout(() => { modalElement.returnFocusTo.focus(); modalElement.returnFocusTo = null; }, 50);
+        }
+        resetFormValidation(modalElement.querySelector('form'));
+    }
+
+
+    function handleEscKey(e) {
+        if (e.key === 'Escape') {
+            const activeModal = document.querySelector('.modal.modal-active');
+            if (activeModal) closeModalHelper(activeModal);
+            else if (isLeftPanelOpen || isRightPanelOpen) closeAllPanels();
+            else if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
+        }
+    }
+
+    function handleFormSubmit(e) {
+        e.preventDefault(); const form = e.target; const submitButton = form.querySelector('button[type="submit"]');
+        if (!validateForm(form)) { showNotification('يرجى تصحيح الأخطاء الموضحة في النموذج.', 'warning'); const firstInvalid = form.querySelector('.is-invalid'); if(firstInvalid) firstInvalid.focus(); return; }
+        submitButton.disabled = true; submitButton.classList.add('submitting');
+        setTimeout(() => {
+            submitButton.disabled = false; submitButton.classList.remove('submitting');
+            const modal = form.closest('.modal'); if(modal) closeModalHelper(modal);
+            const successMessage = form.id === 'studentForm' ? 'تم إرسال طلب الانضمام بنجاح! سيتم التواصل معك قريبًا.' : 'تم إرسال طلب الشراكة بنجاح! سنقوم بالرد خلال يومي عمل.';
+            showNotification(successMessage, 'success');
+            form.reset(); resetFormValidation(form);
+        }, 1500);
+    }
+    function validateForm(form) { /* ... (same as before) ... */
+         let isValid = true; resetFormValidation(form);
+         const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+         inputs.forEach(input => {
+             const feedbackElement = input.closest('.form-group').querySelector('.invalid-feedback');
+             let inputValid = false;
+             if (input.type === 'email') inputValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+             else if (input.type === 'tel' && input.pattern) { const regex = new RegExp(input.pattern); inputValid = regex.test(input.value); }
+             else if (input.type === 'checkbox') inputValid = input.checked;
+             else if (input.type === 'radio') { const groupName = input.name; inputValid = form.querySelector(`input[name="${groupName}"]:checked`) !== null; }
+             else inputValid = input.value.trim() !== '';
+             if (!inputValid) {
+                 isValid = false; input.classList.add('is-invalid');
+                 if (feedbackElement) feedbackElement.style.display = 'block';
+                 input.setAttribute('aria-invalid', 'true');
+                 if(feedbackElement) input.setAttribute('aria-describedby', feedbackElement.id || `feedback-${input.id}`);
+             } else { input.setAttribute('aria-invalid', 'false'); input.removeAttribute('aria-describedby'); }
+         });
+         return isValid;
+    }
+    function resetFormValidation(form) { /* ... (same as before) ... */
+         if (!form) return;
+         form.querySelectorAll('.is-invalid').forEach(el => { el.classList.remove('is-invalid'); el.setAttribute('aria-invalid', 'false'); el.removeAttribute('aria-describedby'); });
+         form.querySelectorAll('.invalid-feedback').forEach(el => { el.style.display = 'none'; });
+    }
+
+    function showNotification(message, type = 'success', duration = NOTIFICATION_TIMEOUT_MS) { /* ... (same as before) ... */
+        if (notification.timeoutId) clearTimeout(notification.timeoutId);
+        notification.className = 'notification'; void notification.offsetWidth;
+        notificationMessage.textContent = message; notification.classList.add(type);
+        switch (type) {
+            case 'error': notificationIcon.className = 'fas fa-times-circle notification-icon'; break;
+            case 'warning': notificationIcon.className = 'fas fa-exclamation-triangle notification-icon'; break;
+            case 'info': notificationIcon.className = 'fas fa-info-circle notification-icon'; break;
+            default: notificationIcon.className = 'fas fa-check-circle notification-icon';
+        }
+        notification.classList.add('show'); notification.setAttribute('aria-hidden', 'false');
+        notification.timeoutId = setTimeout(() => { notification.classList.remove('show'); notification.setAttribute('aria-hidden', 'true'); notification.timeoutId = null; }, duration);
+    }
+
+    function handleResize() { if (window.innerWidth > 992 && (isLeftPanelOpen || isRightPanelOpen)) closeAllPanels(); }
+    function handleScroll() { body.classList.toggle('scrolled', window.scrollY > 20); }
+
+    function setupEventListeners() {
+        leftPanelBtn.addEventListener('click', toggleLeftPanel);
+        rightPanelBtn.addEventListener('click', toggleRightPanel);
+        overlay.addEventListener('click', closeAllPanels);
+        setupModal(browseBtn, browseModal, closeBrowse);
+        // Generic close buttons for modals not tied to specific open triggers
+        if(closeStudent) closeStudent.addEventListener('click', () => closeModalHelper(studentModal));
+        if(closeCompany) closeCompany.addEventListener('click', () => closeModalHelper(companyModal));
+
+        if (studentForm) studentForm.addEventListener('submit', handleFormSubmit);
+        if (companyForm) companyForm.addEventListener('submit', handleFormSubmit);
+        if (clearTerminalBtn) clearTerminalBtn.addEventListener('click', clearTerminal);
+        if (fullscreenBtn) fullscreenBtn.addEventListener('click', toggleFullScreen);
+        window.addEventListener('resize', handleResize); window.addEventListener('scroll', handleScroll);
+        document.addEventListener('keydown', handleEscKey);
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeApp);
+  </script>
+</body>
+</html>
