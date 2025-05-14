@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>بوابة شركاء Nexus | Nexus Partner Portal</title>
+
+  <meta name="description" content="إدارة المهام والمواهب وتتبع التقدم بالتعاون مع Nexus AI لدعم مبادرات وابتكارات رؤية السعودية 2030.">
+  <meta name="keywords" content="Nexus, شركاء, شركات, جامعات, إدارة مهام, إدارة مواهب, فرق طلابية, السعودية, رؤية 2030, ابتكار, تكنولوجيا, توطين">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3ENP%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-partner: #0D47A1; /* Professional Blue */
+      --secondary-partner: #00796B; /* Teal */
+      --accent-partner: #FFAB00; /* Amber/Gold */
+      --info-partner: #1E88E5; /* Lighter Blue for info elements */
+      --success-partner: #43A047; /* Green */
+      --warning-partner: #FB8C00; /* Orange */
+      --danger-partner: #E53935; /* Red */
+
+      --bg-light: #F4F6F8; /* Main background */
+      --bg-dark: #121212;
+      --text-light: #212529;
+      --text-dark: #E0E0E0;
+      --border-light: #DEE2E6;
+      --border-dark: #3a3b3c; /* Darker border for dark mode */
+      --card-bg-light: #FFFFFF;
+      --card-bg-dark: #1E1E1E;
+      --shadow: 0 2px 10px rgba(0,0,0,0.07);
+      --shadow-dark: 0 4px 15px rgba(0,0,0,0.2);
+
+      /* Base Theme (Light) */
+      --current-bg: var(--bg-light);
+      --current-text: var(--text-light);
+      --current-text-secondary: #6c757d;
+      --current-border: var(--border-light);
+      --current-card-bg: var(--card-bg-light);
+      --current-primary: var(--primary-partner);
+      --current-secondary: var(--secondary-partner);
+      --current-accent: var(--accent-partner);
+      --current-info: var(--info-partner);
+      --current-success: var(--success-partner);
+      --current-warning: var(--warning-partner);
+      --current-danger: var(--danger-partner);
+      --current-header-bg: linear-gradient(135deg, var(--primary-partner) 0%, #1565C0 100%); /* Gradient header */
+      --current-header-text: #FFFFFF;
+      --current-sidebar-bg: #FFFFFF;
+      --current-sidebar-text: #343a40;
+      --current-sidebar-hover-bg: #e9ecef;
+      --current-sidebar-active-bg: var(--primary-partner);
+      --current-sidebar-active-text: #FFFFFF;
+      --current-shadow: var(--shadow);
+    }
+
+    body.dark-mode {
+      --current-bg: var(--bg-dark);
+      --current-text: var(--text-dark);
+      --current-text-secondary: #adb5bd;
+      --current-border: var(--border-dark);
+      --current-card-bg: var(--card-bg-dark);
+      --current-primary: #42A5F5; /* Lighter Blue */
+      --current-secondary: #26A69A; /* Lighter Teal */
+      --current-accent: #FFCA28; /* Lighter Amber */
+      --current-info: #64B5F6;
+      --current-success: #66BB6A;
+      --current-warning: #FFA726;
+      --current-danger: #EF5350;
+      --current-header-bg: linear-gradient(135deg, #1E1E1E 0%, #2C2C2C 100%);
+      --current-header-text: var(--text-dark);
+      --current-sidebar-bg: var(--card-bg-dark);
+      --current-sidebar-text: var(--text-dark);
+      --current-sidebar-hover-bg: #2a2a2a; /* Darker hover */
+      --current-sidebar-active-bg: var(--current-primary);
+      --current-sidebar-active-text: #000000; /* Black text on light blue for contrast */
+      --current-shadow: var(--shadow-dark);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--current-bg);
+      color: var(--current-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .partner-portal-wrapper { display: flex; min-height: 100vh; }
+
+    .sidebar {
+      width: 260px;
+      background-color: var(--current-sidebar-bg);
+      border-left: 1px solid var(--current-border);
+      padding: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, border-color 0.3s ease, right 0.3s ease-in-out;
+      box-shadow: -3px 0 12px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    body.dark-mode .sidebar { box-shadow: -3px 0 15px rgba(0,0,0,0.25); }
+
+    .sidebar-logo {
+      display: flex; align-items: center; gap: 0.7rem; font-weight: 700;
+      font-size: 1.5rem; color: var(--current-primary); text-decoration: none;
+      padding: 0 1.5rem 1.5rem 1.5rem; border-bottom: 1px solid var(--current-border);
+      margin-bottom: 1rem; transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .sidebar-logo i { font-size: 1.8rem; }
+    .sidebar-logo .beta-tag { font-size: 0.6rem; background-color: var(--current-accent); color: white; padding: 2px 5px; border-radius: 3px; font-weight: normal; margin-right: 5px;}
+
+
+    .sidebar-nav ul { list-style: none; }
+    .sidebar-nav li a {
+      display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1.5rem;
+      color: var(--current-sidebar-text); text-decoration: none; font-weight: 500;
+      border-right: 4px solid transparent; /* RTL active indicator */
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      font-size: 0.95rem;
+    }
+    .sidebar-nav li a:hover {
+      background-color: var(--current-sidebar-hover-bg);
+      color: var(--current-primary);
+      border-right-color: var(--current-accent);
+    }
+    .sidebar-nav li a.active, .sidebar-nav li a.active:hover {
+      background-color: var(--current-sidebar-active-bg); color: var(--current-sidebar-active-text);
+      border-right-color: var(--current-accent); font-weight: 700;
+    }
+    .sidebar-nav li a i { width: 20px; text-align: center; font-size: 1.1em; }
+
+    .sidebar-footer {
+      margin-top: auto; padding: 1.2rem 1.5rem; border-top: 1px solid var(--current-border);
+      font-size: 0.8rem; color: var(--current-text-secondary);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .sidebar-footer .vision-logo { height: 20px; opacity: 0.7; margin-top: 5px; }
+
+
+    .main-content-area { flex: 1; display: flex; flex-direction: column; overflow-x: hidden; }
+
+    .portal-header {
+      background: var(--current-header-bg); color: var(--current-header-text);
+      padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--current-shadow); transition: background 0.3s ease, color 0.3s ease;
+      position: sticky; top: 0; z-index: 990; /* Below sidebar overlay */
+    }
+    .portal-header h1 { font-size: 1.4rem; font-weight: 600; margin: 0; }
+    .header-actions { display: flex; align-items: center; gap: 1rem; }
+    .header-actions .icon-btn {
+      background: none; border: none; color: var(--current-header-text);
+      font-size: 1.25rem; cursor: pointer; padding: 0.5rem;
+      border-radius: 50%; transition: background-color 0.2s ease;
+      position: relative; /* For notification badge */
+    }
+    .icon-btn .badge {
+        position: absolute; top: 0px; right: 0px;
+        background-color: var(--danger-partner); color: white;
+        font-size: 0.65rem; width: 16px; height: 16px;
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        font-weight: bold;
+    }
+    .header-actions .icon-btn:hover { background-color: rgba(255,255,255,0.12); }
+    body.dark-mode .header-actions .icon-btn:hover { background-color: rgba(255,255,255,0.07); }
+    .user-menu { position: relative; }
+    .user-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background-color: var(--current-accent); color: var(--current-primary);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; cursor: pointer; border: 2px solid rgba(255,255,255,0.3);
+    }
+    body.dark-mode .user-avatar { color: var(--bg-dark); }
+    .dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 10px); left: 0;
+      background-color: var(--current-card-bg); border: 1px solid var(--current-border);
+      border-radius: 8px; box-shadow: var(--current-shadow);
+      min-width: 200px; z-index: 100; overflow: hidden; animation: fadeInDropdown 0.2s ease-out;
+    }
+    @keyframes fadeInDropdown { from { opacity:0; transform: translateY(-10px); } to { opacity:1; transform: translateY(0); } }
+    .dropdown-menu a { display: block; padding: 0.8rem 1.2rem; color: var(--current-text); text-decoration: none; font-size: 0.9rem; }
+    .dropdown-menu a i { margin-left: 0.7rem; width:16px; opacity:0.8;}
+    .dropdown-menu a:hover { background-color: var(--current-sidebar-hover-bg); color: var(--current-primary); }
+    .dropdown-menu .divider { height: 1px; background-color: var(--current-border); margin: 0.5rem 0; }
+
+    .page-content { flex: 1; padding: 1.5rem 2rem; overflow-y: auto; } /* Reduced top padding */
+    .page-section { display: none; }
+    .page-section.active { display: block; animation: fadeInPage 0.4s ease-out; }
+    @keyframes fadeInPage { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+    .page-title-container { display:flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .page-title {
+      font-size: 1.8rem; font-weight: 700; color: var(--current-primary);
+      margin: 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--current-accent);
+      display: inline-block;
+    }
+    .page-title-container .action-buttons .btn { font-size: 0.85rem; padding: 0.5rem 1rem;}
+
+
+    .card {
+      background-color: var(--current-card-bg); border: 1px solid var(--current-border);
+      border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem;
+      box-shadow: var(--current-shadow); transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+    body.dark-mode .card:hover { box-shadow: 0 6px 25px rgba(0,0,0,0.3); }
+
+    .card-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--current-border);
+    }
+    .card-title { font-size: 1.25rem; font-weight: 600; color: var(--current-primary); margin: 0; }
+    .card-title i { margin-left: 0.5rem; opacity: 0.8; }
+    .card-subtitle { font-size: 0.9rem; color: var(--current-text-secondary); margin-top: 0.2rem; }
+    .card-actions .btn { margin-right: 0.5rem; font-size: 0.8rem; padding: 0.4rem 0.8rem;}
+
+    .grid { display: grid; gap: 1.5rem; }
+    .grid-cols-1 { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+      .md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .lg-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+      .lg-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+      .lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+
+
+    .stat-card { text-align: center; padding: 1.2rem; }
+    .stat-card .stat-icon { font-size: 2rem; color: var(--current-accent); margin-bottom: 0.8rem; display: block;}
+    .stat-card .stat-value {
+      font-size: 2rem; font-weight: 700; color: var(--current-primary);
+      display: block; margin-bottom: 0.2rem;
+    }
+    .stat-card .stat-label { font-size: 0.9rem; color: var(--current-text-secondary); display: block; }
+    .stat-card .stat-trend { font-size: 0.8rem; margin-top: 0.5rem; }
+    .stat-trend.positive { color: var(--current-success); }
+    .stat-trend.negative { color: var(--current-danger); }
+
+
+    .btn {
+      padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease; border: 1px solid transparent;
+      font-family: 'Tajawal', sans-serif; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.1);}
+    .btn:active { transform: translateY(0px); box-shadow: 0 1px 2px rgba(0,0,0,0.08);}
+
+    .btn-primary { background-color: var(--current-primary); color: white; border-color: var(--current-primary); }
+    .btn-primary:hover { background-color: #0b3b80; border-color: #0b3b80; } /* Darker shade of primary */
+    body.dark-mode .btn-primary:hover { background-color: #5aaeff; border-color: #5aaeff; }
+
+    .btn-secondary { background-color: var(--current-secondary); color: white; border-color: var(--current-secondary); }
+    .btn-secondary:hover { background-color: #005c52; border-color: #005c52; }
+    body.dark-mode .btn-secondary:hover { background-color: #38bcb0; border-color: #38bcb0; }
+
+    .btn-outline-primary { background-color: transparent; color: var(--current-primary); border-color: var(--current-primary); }
+    .btn-outline-primary:hover { background-color: var(--current-primary); color: white; }
+    .btn-lg { padding: 0.8rem 1.8rem; font-size: 1rem; }
+    .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+    .btn-success { background-color: var(--current-success); color:white; border-color: var(--current-success);}
+    .btn-danger { background-color: var(--current-danger); color:white; border-color: var(--current-danger);}
+
+    /* Table Styles */
+    .table-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem;}
+    .search-filter-input {
+        padding: 0.6rem 1rem; border: 1px solid var(--current-border);
+        border-radius: 6px; background-color: var(--current-card-bg); color: var(--current-text);
+        min-width: 250px; font-size: 0.9rem;
+    }
+    .search-filter-input:focus { outline-color: var(--current-primary); }
+
+    .table-wrapper { overflow-x: auto; border: 1px solid var(--current-border); border-radius: 8px; }
+    .table {
+      width: 100%; border-collapse: collapse; margin-bottom: 0; /* No margin as wrapper has border */
+      background-color: var(--current-card-bg); color: var(--current-text); font-size: 0.9rem;
+    }
+    .table th, .table td {
+      padding: 0.9rem 1rem; text-align: right;
+      border-bottom: 1px solid var(--current-border); vertical-align: middle;
+      white-space: nowrap;
+    }
+    .table thead th {
+      background-color: var(--current-sidebar-hover-bg); font-weight: 600;
+      color: var(--current-primary); border-bottom-width: 2px; border-top:none;
+      position: sticky; top: 0; z-index: 10; /* Sticky header */
+    }
+    body.dark-mode .table thead th { background-color: #282828; }
+    .table tbody tr:hover { background-color: var(--current-sidebar-hover-bg); }
+    body.dark-mode .table tbody tr:hover { background-color: #2c2c2c; }
+    .table tbody tr:last-child td { border-bottom: none; }
+    .table .actions a, .table .actions button {
+      margin-right: 0.3rem; color: var(--current-text-secondary);
+      text-decoration: none; background: none; border: none; cursor: pointer;
+      font-size: 1.1rem; padding: 0.2rem;
+    }
+    .table .actions a:hover, .table .actions button:hover { color: var(--current-primary); }
+    .table .actions .fa-edit:hover { color: var(--current-warning); }
+    .table .actions .fa-trash-alt:hover { color: var(--current-danger); }
+    .table .actions .fa-check-circle:hover { color: var(--current-success); }
+    .table .actions .fa-times-circle:hover { color: var(--current-danger); }
+
+
+    .status-badge {
+      padding: 0.3em 0.7em; font-size: 0.75rem; font-weight: 700;
+      border-radius: 10rem; white-space: nowrap; letter-spacing: 0.5px;
+    }
+    .status-active { background-color: #DCEDC8; color: #388E3C; }
+    .status-pending { background-color: #FFF9C4; color: #FBC02D; }
+    .status-new, .status-proposed { background-color: #C5CAE9; color: #303F9F; } /* Indigo */
+    .status-completed { background-color: #E0E0E0; color: #616161; }
+    .status-on-hold { background-color: #FFCCBC; color: #D84315; } /* Deep Orange */
+    .status-rejected { background-color: #FFCDD2; color: #C62828; } /* Red */
+    .status-high { background-color: var(--danger-partner); color:white; }
+    .status-medium { background-color: var(--warning-partner); color:white; }
+    .status-low { background-color: var(--info-partner); color:white; }
+
+    body.dark-mode .status-active { background-color: #388E3C; color: #DCEDC8; }
+    body.dark-mode .status-pending { background-color: #FBC02D; color: #000; }
+    body.dark-mode .status-new, body.dark-mode .status-proposed { background-color: #303F9F; color: #C5CAE9; }
+    body.dark-mode .status-completed { background-color: #616161; color: #E0E0E0; }
+    body.dark-mode .status-on-hold { background-color: #D84315; color: #FFCCBC; }
+    body.dark-mode .status-rejected { background-color: #C62828; color: #FFCDD2; }
+
+
+    /* Form Styles */
+    .form-group { margin-bottom: 1.2rem; }
+    .form-label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--current-text); }
+    .form-control {
+      width: 100%; padding: 0.75rem 1rem; font-size: 0.95rem;
+      background-color: var(--current-card-bg); color: var(--current-text);
+      border: 1px solid var(--current-border); border-radius: 6px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+    .form-control:focus {
+      outline: none; border-color: var(--current-primary);
+      box-shadow: 0 0 0 0.2rem rgba(var(--rgb-primary, 13, 71, 161), 0.25);
+    }
+    body.light-mode .form-control:focus { --rgb-primary: 13, 71, 161; }
+    body.dark-mode .form-control:focus { --rgb-primary: 66, 165, 245; }
+    textarea.form-control { min-height: 100px; resize: vertical; }
+    .form-actions { margin-top: 1.5rem; text-align: left; }
+    .form-check-input { margin-left: 0.5rem; }
+    .form-check-label { font-weight: normal; }
+
+    /* Vision 2030 Tag */
+    .vision-tag {
+      display: inline-block; background-color: var(--current-secondary);
+      color: white; padding: 0.3em 0.8em; border-radius: 4px;
+      font-size: 0.8rem; font-weight: 500; margin-top: 0.5rem; margin-left: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+    .vision-tag i { margin-left: 0.4em; }
+
+
+    /* Mobile responsiveness */
+    .mobile-menu-toggle { display: none; }
+    @media (max-width: 992px) {
+      .sidebar {
+        position: fixed; top: 0; right: -280px; /* Start off-screen for RTL */
+        height: 100vh; z-index: 1000;
+      }
+      .sidebar.open { right: 0; }
+      .mobile-menu-toggle {
+        display: block; font-size: 1.5rem; color: var(--current-header-text);
+        background: none; border: none; cursor: pointer; padding: 0.5rem;
+      }
+      .portal-overlay {
+        display: none; position: fixed; inset: 0;
+        background-color: rgba(0,0,0,0.5); z-index: 999;
+      }
+      .portal-overlay.active { display: block; }
+      .grid-cols-1, .md-grid-cols-2, .md-grid-cols-3, .lg-grid-cols-2, .lg-grid-cols-3, .lg-grid-cols-4 { grid-template-columns: 1fr; }
+      .page-title-container { flex-direction: column; align-items: flex-start; gap: 1rem;}
+      .page-title-container .action-buttons { width: 100%; display: flex; flex-direction: column; gap: 0.5rem;}
+      .page-title-container .action-buttons .btn { width: 100%;}
+      .table-controls { flex-direction: column; align-items: stretch;}
+      .search-filter-input {width: 100%;}
+    }
+    @media (max-width: 576px) {
+        .portal-header h1 { font-size: 1.2rem; }
+        .page-title { font-size: 1.5rem; }
+        .user-menu .user-avatar { width: 32px; height: 32px; font-size: 0.9rem;}
+        .header-actions .icon-btn { font-size: 1.1rem;}
+    }
+
+
+    #themeToggleBtnPartner {
+        background: none; border: none; color: var(--current-header-text);
+        font-size: 1.1rem; cursor: pointer; padding: 0.6rem;
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        width: 38px; height: 38px;
+    }
+    #themeToggleBtnPartner:hover { background-color: rgba(255,255,255,0.15); }
+    body.dark-mode #themeToggleBtnPartner:hover { background-color: rgba(255,255,255,0.08); }
+    #themeToggleBtnPartner .fa-moon { display: none; }
+    body.dark-mode #themeToggleBtnPartner .fa-sun { display: none; }
+    body.dark-mode #themeToggleBtnPartner .fa-moon { display: inline-block; }
+
+    /* KPI Card Specific Styles */
+    .kpi-card { padding: 1rem; }
+    .kpi-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
+    .kpi-title { font-size: 0.9rem; font-weight: 500; color: var(--current-text-secondary); }
+    .kpi-icon { font-size: 1.2rem; opacity: 0.7; }
+    .kpi-value { font-size: 1.7rem; font-weight: 700; color: var(--current-primary); display: block; margin-bottom: 0.5rem; }
+    .kpi-meta { font-size: 0.8rem; color: var(--current-text-secondary); }
+    .kpi-meta .positive { color: var(--current-success); }
+    .kpi-meta .negative { color: var(--current-danger); }
+    .progress-bar-container { height: 8px; background-color: var(--current-border); border-radius: 4px; overflow: hidden; margin-top: 0.3rem;}
+    .progress-bar { height: 100%; background-color: var(--current-primary); border-radius: 4px; transition: width 0.5s ease;}
+
+    /* Activity Feed */
+    .activity-feed ul { list-style: none; padding: 0; max-height: 300px; overflow-y: auto;}
+    .activity-feed li { display: flex; align-items: flex-start; padding: 0.8rem 0.5rem; border-bottom: 1px solid var(--current-border); }
+    .activity-feed li:last-child { border-bottom: none; }
+    .activity-feed .activity-icon {
+      font-size: 1rem; color: var(--current-primary);
+      background-color: var(--current-sidebar-hover-bg);
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin-left: 1rem; flex-shrink: 0;
+    }
+    .activity-feed .activity-text { font-size: 0.85rem; line-height: 1.5; }
+    .activity-feed .activity-text strong { color: var(--current-primary); font-weight: 600;}
+    .activity-feed .activity-time { font-size: 0.75rem; color: var(--current-text-secondary); display: block; margin-top: 0.2rem; }
+
+    /* Chart Placeholder */
+    .chart-placeholder {
+        background-color: var(--current-sidebar-hover-bg);
+        border: 1px dashed var(--current-border);
+        border-radius: 8px; padding: 2rem;
+        text-align: center; color: var(--current-text-secondary);
+        min-height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .chart-placeholder .fa-chart-bar { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;}
+    .css-bar-chart { display: flex; align-items: flex-end; height: 180px; gap: 10px; justify-content: space-around; padding-top:10px;}
+    .css-bar { width: 30px; background-color: var(--current-primary); border-radius: 4px 4px 0 0; position:relative; transition: height 0.5s ease-out;}
+    .css-bar span { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; color: var(--current-text-secondary); white-space:nowrap;}
+    .css-bar.secondary { background-color: var(--current-secondary); }
+    .css-bar.accent { background-color: var(--current-accent); }
+
+
+    .modal {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6); backdrop-filter: blur(3px);
+        z-index: 1001; align-items: center; justify-content: center; padding: 20px;
+        overflow-y: auto; /* For long modals */
+    }
+    .modal.open { display: flex; }
+    .modal .card { width:100%; max-width:700px; margin: auto; } /* Auto margin for centering and scroll */
+    .modal .card-header button { background:none; border:none; font-size:1.8rem; cursor:pointer; color: var(--current-text-secondary); padding:0; line-height:1;}
+    .modal .card-header button:hover { color: var(--current-danger);}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="partner-portal-wrapper">
+    <aside class="sidebar" id="partnerSidebar">
+      <a href="#dashboard" class="sidebar-logo nav-link">
+        <i class="fas fa-hands-helping"></i> Nexus شركاء
+        <span class="beta-tag">تجريبي</span>
+      </a>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#dashboard" class="nav-link active"><i class="fas fa-tachometer-alt fa-fw"></i> لوحة التحكم</a></li>
+          <li><a href="#missions" class="nav-link"><i class="fas fa-tasks fa-fw"></i> إدارة المهام</a></li>
+          <li><a href="#talent" class="nav-link"><i class="fas fa-users-cog fa-fw"></i> مركز المواهب</a></li>
+          <li><a href="#teams" class="nav-link"><i class="fas fa-user-friends fa-fw"></i> إدارة الفرق</a></li>
+          <li><a href="#reports" class="nav-link"><i class="fas fa-chart-pie fa-fw"></i> التقارير والإحصائيات</a></li>
+          <li><a href="#communication" class="nav-link"><i class="fas fa-comments fa-fw"></i> التواصل والدعم</a></li>
+          <li><a href="#settings" class="nav-link"><i class="fas fa-cog fa-fw"></i> الإعدادات</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        © <span id="currentYear"></span> بوابة شركاء Nexus.
+        <br> نعمل معاً لدعم رؤية السعودية ٢٠٣٠ الطموحة.
+        <br><img src="https://www.vision2030.gov.sa/images/logo-ar.svg" alt="Saudi Vision 2030" class="vision-logo" style="filter: invert(var(--is-dark-mode, 0));">
+
+      </div>
+    </aside>
+
+    <div class="main-content-area">
+      <header class="portal-header">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="فتح القائمة">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h1 id="portalPageTitle">لوحة التحكم</h1>
+        <div class="header-actions">
+          <button id="themeToggleBtnPartner" aria-label="التبديل إلى الوضع المظلم" title="تبديل المظهر">
+            <i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+          </button>
+          <button class="icon-btn" aria-label="الإشعارات" title="الإشعارات">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="user-menu">
+            <div class="user-avatar" id="userAvatar" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-label="قائمة المستخدم" title="ملف الشريك">
+              ش ع <!-- Placeholder: شركة الابتكار -->
+            </div>
+            <div class="dropdown-menu" id="userDropdown">
+              <a href="#settings"><i class="fas fa-user-circle"></i> الملف الشخصي للمؤسسة</a>
+              <a href="#settings"><i class="fas fa-users-cog"></i> إدارة مستخدمي البوابة</a>
+              <a href="#communication"><i class="fas fa-headset"></i> طلب دعم فني</a>
+              <div class="divider"></div>
+              <a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="page-section active">
+          <div class="page-title-container">
+             <h2 class="page-title"><i class="fas fa-tachometer-alt"></i> نظرة عامة على لوحة التحكم</h2>
+             <div class="action-buttons">
+                <button class="btn btn-primary" onclick="openCreateMissionModal()"><i class="fas fa-plus-circle"></i> اقتراح مهمة جديدة</button>
+             </div>
+          </div>
+
+          <div class="grid lg-grid-cols-4 md-grid-cols-2 grid-cols-1">
+            <div class="card kpi-card">
+                <div class="kpi-card-header">
+                    <span class="kpi-title">إجمالي المهام</span>
+                    <i class="fas fa-clipboard-list kpi-icon" style="color:var(--current-primary)"></i>
+                </div>
+                <span class="kpi-value">38</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 70%; background-color: var(--current-primary);"></div></div>
+                <p class="kpi-meta"><span class="positive"><i class="fas fa-arrow-up"></i> 5 مهام</span> جديدة هذا الشهر</p>
+            </div>
+            <div class="card kpi-card">
+                <div class="kpi-card-header">
+                    <span class="kpi-title">المواهب المشاركة</span>
+                     <i class="fas fa-users kpi-icon" style="color:var(--current-secondary)"></i>
+                </div>
+                <span class="kpi-value">172</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 85%; background-color: var(--current-secondary);"></div></div>
+                <p class="kpi-meta"><span class="positive"><i class="fas fa-user-plus"></i> 25 طالبًا</span> انضموا مؤخرًا</p>
+            </div>
+            <div class="card kpi-card">
+                <div class="kpi-card-header">
+                    <span class="kpi-title">الفرق النشطة</span>
+                    <i class="fas fa-layer-group kpi-icon" style="color:var(--current-accent)"></i>
+                </div>
+                <span class="kpi-value">45</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 60%; background-color: var(--current-accent);"></div></div>
+                 <p class="kpi-meta"><span class="positive"><i class="fas fa-check-circle"></i> 3 فرق</span> أكملت مهامها</p>
+            </div>
+             <div class="card kpi-card">
+                <div class="kpi-card-header">
+                    <span class="kpi-title">مؤشر رؤية 2030</span>
+                    <i class="fas fa-bullseye kpi-icon" style="color:var(--current-success)"></i>
+                </div>
+                <span class="kpi-value">92%</span>
+                 <div class="progress-bar-container"><div class="progress-bar" style="width: 92%; background-color: var(--current-success);"></div></div>
+                <p class="kpi-meta">مواءمة مع أهداف التنمية الوطنية</p>
+            </div>
+          </div>
+
+          <div class="grid lg-grid-cols-3 md-grid-cols-1 grid-cols-1">
+            <div class="card lg-span-2"> <!-- Takes 2 columns on large screens -->
+              <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-rocket"></i> مهام ذات أولوية / مهام طلابكم</h3>
+                <a href="#missions" class="btn btn-sm btn-outline-primary nav-link">عرض الكل</a>
+              </div>
+              <div class="table-wrapper" style="max-height: 350px; overflow-y:auto;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>اسم المهمة</th>
+                      <th>الشريك الرئيسي</th>
+                      <th>الحالة</th>
+                      <th>التقدم</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>تطوير تقنيات الزراعة الذكية بالصحراء</td>
+                      <td>وزارة البيئة والمياه والزراعة</td>
+                      <td><span class="status-badge status-active">نشطة</span></td>
+                      <td><div class="progress-bar-container" style="height:10px;"><div class="progress-bar" style="width: 60%; background-color: var(--current-success);"></div></div> 60%</td>
+                    </tr>
+                    <tr>
+                      <td>منصة الواقع المعزز للسياحة الثقافية</td>
+                      <td>هيئة السياحة السعودية</td>
+                      <td><span class="status-badge status-proposed">مقترحة</span></td>
+                      <td>0%</td>
+                    </tr>
+                     <tr>
+                      <td>حلول الأمن السيبراني للمنشآت الحيوية</td>
+                      <td>الهيئة الوطنية للأمن السيبراني</td>
+                      <td><span class="status-badge status-active">نشطة</span></td>
+                      <td><div class="progress-bar-container" style="height:10px;"><div class="progress-bar" style="width: 25%; background-color: var(--current-warning);"></div></div> 25%</td>
+                    </tr>
+                    <tr>
+                        <td>مبادرة إعادة تدوير النفايات الإلكترونية</td>
+                        <td>شركة تطوير البيئة (جامعة الملك عبدالعزيز)</td>
+                        <td><span class="status-badge status-on-hold">معلقة</span></td>
+                        <td>10%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card activity-feed">
+                <h3 class="card-title"><i class="fas fa-stream"></i> أحدث الأنشطة</h3>
+                <ul>
+                    <li>
+                        <span class="activity-icon"><i class="fas fa-user-plus"></i></span>
+                        <div class="activity-text">
+                           طالب جديد، <strong>سالم الحربي</strong>, تقدم لمهمة "المدن الذكية".
+                           <span class="activity-time">منذ 15 دقيقة</span>
+                        </div>
+                    </li>
+                     <li>
+                        <span class="activity-icon"><i class="fas fa-check-circle" style="color:var(--current-success)"></i></span>
+                        <div class="activity-text">
+                           مهمة "تطوير تطبيقات الصحة النفسية" تم <strong>إكمالها</strong> بنجاح.
+                           <span class="activity-time">منذ ساعة</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="activity-icon"><i class="fas fa-file-alt" style="color:var(--current-info)"></i></span>
+                        <div class="activity-text">
+                           فريق "رواد الفضاء" قدم <strong>تقرير تقدم</strong> لمهمة الأقمار الصناعية.
+                           <span class="activity-time">منذ 3 ساعات</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="activity-icon"><i class="fas fa-lightbulb" style="color:var(--current-accent)"></i></span>
+                        <div class="activity-text">
+                           شركة "نيوم للاستثمار" اقترحت <strong>مهمة جديدة</strong> حول الطاقة المتجددة.
+                           <span class="activity-time">أمس</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+          </div>
+          <div class="card">
+              <h3 class="card-title"><i class="fas fa-tasks"></i> نظرة عامة على تقدم المهام</h3>
+              <div class="chart-placeholder css-bar-chart">
+                  <div class="css-bar" style="height: 60%;"><span title="مهام مقترحة">مقترحة (12)</span></div>
+                  <div class="css-bar secondary" style="height: 80%;"><span title="مهام نشطة">نشطة (20)</span></div>
+                  <div class="css-bar accent" style="height: 40%;"><span title="مهام مكتملة">مكتملة (6)</span></div>
+                  <div class="css-bar" style="height: 20%; background-color:var(--current-warning);"><span title="مهام معلقة">معلقة (3)</span></div>
+              </div>
+          </div>
+        </section>
+
+        <!-- Missions Management Section -->
+        <section id="missions" class="page-section">
+          <div class="page-title-container">
+            <h2 class="page-title"><i class="fas fa-tasks"></i> إدارة المهام</h2>
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="openCreateMissionModal()"><i class="fas fa-plus-circle"></i> اقتراح مهمة جديدة</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">قائمة المهام</h3>
+                <div class="table-controls" style="justify-content:flex-end;"> <!-- Placed within card for context -->
+                     <input type="text" class="search-filter-input" placeholder="ابحث عن مهمة...">
+                </div>
+            </div>
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>اسم المهمة</th>
+                    <th>القطاع (رؤية 2030)</th>
+                    <th>الأولوية</th>
+                    <th>الفرق المسندة</th>
+                    <th>الحالة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- More missions will be added here -->
+                  <tr>
+                    <td>1</td>
+                    <td>حلول النقل الذكي لمدينة الرياض</td>
+                    <td>جودة الحياة، النقل</td>
+                    <td><span class="status-badge status-high">عالية</span></td>
+                    <td>3</td>
+                    <td><span class="status-badge status-active">نشطة</span></td>
+                    <td class="actions">
+                      <a href="#" title="عرض التفاصيل"><i class="fas fa-eye"></i></a>
+                      <a href="#" title="تعديل"><i class="fas fa-edit"></i></a>
+                      <a href="#" title="إدارة المتقدمين/الفرق"><i class="fas fa-users-cog"></i></a>
+                      <a href="#" title="عرض التقديمات"><i class="fas fa-file-archive"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>منصة تعليمية تفاعلية للغة العربية باستخدام AI</td>
+                    <td>تنمية القدرات البشرية، الثقافة</td>
+                    <td><span class="status-badge status-medium">متوسطة</span></td>
+                    <td>2</td>
+                    <td><span class="status-badge status-new">جديدة</span></td>
+                    <td class="actions">
+                      <a href="#" title="عرض التفاصيل"><i class="fas fa-eye"></i></a>
+                      <a href="#" title="مراجعة الاقتراح"><i class="fas fa-check-double"></i></a>
+                      <a href="#" title="تحديد الأولويات"><i class="fas fa-flag"></i></a>
+                    </td>
+                  </tr>
+                   <tr>
+                    <td>3</td>
+                    <td>الاستدامة المائية في الزراعة بتقنيات IoT</td>
+                    <td>البيئة، الأمن الغذائي</td>
+                    <td><span class="status-badge status-high">عالية</span></td>
+                    <td>1</td>
+                    <td><span class="status-badge status-completed">مكتملة</span></td>
+                    <td class="actions">
+                      <a href="#" title="عرض التقرير النهائي"><i class="fas fa-file-invoice"></i></a>
+                      <a href="#" title="توثيق النتائج"><i class="fas fa-archive"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>تطبيقات الواقع الافتراضي لتعزيز السياحة في العلا</td>
+                    <td>السياحة والترفيه، الثقافة</td>
+                    <td><span class="status-badge status-medium">متوسطة</span></td>
+                    <td>4</td>
+                    <td><span class="status-badge status-active">نشطة</span></td>
+                    <td class="actions">
+                      <a href="#" title="عرض التفاصيل"><i class="fas fa-eye"></i></a> <a href="#" title="تعديل"><i class="fas fa-edit"></i></a> <a href="#" title="إدارة الفرق"><i class="fas fa-users-cog"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>نظام ذكي لإدارة النفايات البلدية</td>
+                    <td>جودة الحياة، البيئة</td>
+                    <td><span class="status-badge status-low">منخفضة</span></td>
+                    <td>1</td>
+                    <td><span class="status-badge status-pending">قيد المراجعة</span></td>
+                    <td class="actions">
+                      <a href="#" title="عرض الاقتراح"><i class="fas fa-file-alt"></i></a> <a href="#" title="قبول/رفض"><i class="fas fa-thumbs-up"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>منصة توطين صناعة الألعاب الإلكترونية</td>
+                    <td>الترفيه، الاقتصاد الرقمي</td>
+                    <td><span class="status-badge status-high">عالية</span></td>
+                    <td>0</td>
+                    <td><span class="status-badge status-proposed">مقترحة</span></td>
+                    <td class="actions">
+                      <a href="#" title="مراجعة الجدوى"><i class="fas fa-clipboard-check"></i></a> <a href="#" title="تخصيص موارد"><i class="fas fa-coins"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>تطوير مواد بناء صديقة للبيئة لمشاريع البحر الأحمر</td>
+                    <td>الاستدامة، الإنشاءات</td>
+                    <td><span class="status-badge status-medium">متوسطة</span></td>
+                    <td>2</td>
+                    <td><span class="status-badge status-active">نشطة</span></td>
+                    <td class="actions">
+                        <a href="#" title="عرض التفاصيل"><i class="fas fa-eye"></i></a> <a href="#" title="تعديل"><i class="fas fa-edit"></i></a> <a href="#" title="تقييم المخاطر"><i class="fas fa-shield-alt"></i></a>
+                    </td>
+                  </tr>
+                   <tr>
+                    <td>8</td>
+                    <td>تحليل بيانات الأقمار الصناعية لرصد التغير المناخي</td>
+                    <td>الفضاء، البيئة</td>
+                    <td><span class="status-badge status-high">عالية</span></td>
+                    <td>1</td>
+                    <td><span class="status-badge status-active">نشطة</span></td>
+                    <td class="actions">
+                        <a href="#" title="عرض التفاصيل"><i class="fas fa-eye"></i></a> <a href="#" title="عرض التقدم"><i class="fas fa-chart-line"></i></a> <a href="#" title="نشر النتائج"><i class="fas fa-bullhorn"></i></a>
+                    </td>
+                  </tr>
+                   <tr>
+                    <td>9</td>
+                    <td>مبادرة التوعية بالأمن السيبراني للشباب</td>
+                    <td>الأمن السيبراني، تنمية القدرات البشرية</td>
+                    <td><span class="status-badge status-low">منخفضة</span></td>
+                    <td>3</td>
+                    <td><span class="status-badge status-on-hold">معلقة</span></td>
+                    <td class="actions">
+                        <a href="#" title="عرض التفاصيل"><i class="fas fa-eye"></i></a> <a href="#" title="تحديث الخطة"><i class="fas fa-calendar-alt"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>تطوير حلول Fintech للمدفوعات الرقمية الشاملة</td>
+                    <td>القطاع المالي، الاقتصاد الرقمي</td>
+                    <td><span class="status-badge status-medium">متوسطة</span></td>
+                    <td>0</td>
+                    <td><span class="status-badge status-rejected">مرفوضة</span></td>
+                    <td class="actions">
+                        <a href="#" title="عرض أسباب الرفض"><i class="fas fa-file-excel"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Talent Hub Section -->
+        <section id="talent" class="page-section">
+           <div class="page-title-container">
+             <h2 class="page-title"><i class="fas fa-users-cog"></i> مركز المواهب</h2>
+             <div class="action-buttons">
+                 <button class="btn btn-secondary" onclick="openNominateStudentModal()"><i class="fas fa-user-check"></i> ترشيح طالب (جامعة)</button>
+                 <button class="btn btn-outline-primary"><i class="fas fa-filter"></i> تصفية متقدمة</button>
+             </div>
+           </div>
+          <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">قائمة الطلاب المرشحين/المتقدمين</h3>
+                 <div class="table-controls" style="justify-content:flex-end;">
+                     <input type="text" class="search-filter-input" placeholder="ابحث عن طالب بالاسم أو المهارة...">
+                </div>
+            </div>
+            <p class="card-subtitle">هذه المنطقة مخصصة للجامعات لترشيح طلابها وللشركات لمراجعة المتقدمين لمهامهم وتقييمهم.</p>
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>اسم الطالب</th>
+                    <th>الجامعة/الجهة</th>
+                    <th>التخصص/القسم</th>
+                    <th>السنة الدراسية</th>
+                    <th>التقييم العام</th>
+                    <th>المهمة الحالية/المقترحة</th>
+                    <th>الحالة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>أحمد محمد عبدالله</td>
+                    <td>جامعة الملك فهد للبترول والمعادن</td>
+                    <td>هندسة الحاسب</td>
+                    <td>الرابعة</td>
+                    <td><i class="fas fa-star" style="color:gold;"></i> 4.5/5</td>
+                    <td>حلول النقل الذكي</td>
+                    <td><span class="status-badge status-pending">قيد المراجعة (شركة)</span></td>
+                    <td class="actions"><a href="#" title="عرض الملف الشخصي"><i class="fas fa-id-card-alt"></i></a> <a href="#" title="مقابلة"><i class="fas fa-comments"></i></a> <a href="#" title="قبول/رفض"><i class="fas fa-user-check"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>فاطمة صالح الكثيري</td>
+                    <td>جامعة الأميرة نورة</td>
+                    <td>تصميم جرافيكي</td>
+                    <td>الخريجة</td>
+                    <td><i class="fas fa-star" style="color:gold;"></i> 4.2/5</td>
+                    <td>منصة تعليمية تفاعلية</td>
+                    <td><span class="status-badge status-new">مرشحة (جامعة)</span></td>
+                    <td class="actions"><a href="#" title="عرض الملف الشخصي"><i class="fas fa-id-card-alt"></i></a> <a href="#" title="إرسال للمهمة"><i class="fas fa-paper-plane"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>خالد عبدالعزيز</td>
+                    <td>شركة سايبرتك للحلول</td>
+                    <td>وحدة البحث والتطوير</td>
+                    <td>N/A</td>
+                    <td><i class="fas fa-medal" style="color:silver;"></i> خبير</td>
+                    <td>الأمن السيبراني للمنشآت</td>
+                    <td><span class="status-badge status-active">قائد فريق</span></td>
+                    <td class="actions"><a href="#" title="عرض الملف الشخصي"><i class="fas fa-id-card-alt"></i></a> <a href="#" title="تعيين مرشد"><i class="fas fa-chalkboard-teacher"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>سارة بنت فهد</td>
+                    <td>جامعة الملك سعود</td>
+                    <td>إدارة أعمال (مسار ابتكار)</td>
+                    <td>الثالثة</td>
+                    <td><i class="fas fa-star" style="color:gold;"></i> 4.0/5</td>
+                    <td>توطين صناعة الألعاب</td>
+                    <td><span class="status-badge status-pending">في الانتظار</span></td>
+                    <td class="actions"><a href="#" title="عرض الملف الشخصي"><i class="fas fa-id-card-alt"></i></a> <a href="#" title="طلب معلومات إضافية"><i class="fas fa-info-circle"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>علي حسن اليماني</td>
+                    <td>معهد الرياض للتقنية</td>
+                    <td>تطوير تطبيقات الويب</td>
+                    <td>الخريج</td>
+                    <td><i class="fas fa-star-half-alt" style="color:gold;"></i> 3.8/5</td>
+                    <td>منصة المدفوعات الرقمية</td>
+                    <td><span class="status-badge status-rejected">غير مناسب</span></td>
+                    <td class="actions"><a href="#" title="عرض الملف الشخصي"><i class="fas fa-id-card-alt"></i></a> <a href="#" title="أسباب الرفض"><i class="fas fa-comment-slash"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Teams Management Section -->
+        <section id="teams" class="page-section">
+          <div class="page-title-container">
+            <h2 class="page-title"><i class="fas fa-user-friends"></i> إدارة الفرق</h2>
+             <div class="action-buttons">
+                <button class="btn btn-outline-primary"><i class="fas fa-plus"></i> تشكيل فريق جديد (يدوي)</button>
+            </div>
+          </div>
+          <div class="card">
+             <div class="card-header">
+                <h3 class="card-title">الفرق العاملة على المهام</h3>
+                 <div class="table-controls" style="justify-content:flex-end;">
+                     <input type="text" class="search-filter-input" placeholder="ابحث عن فريق أو مهمة...">
+                </div>
+            </div>
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>اسم الفريق</th>
+                    <th>المهمة المسندة</th>
+                    <th>الأعضاء</th>
+                    <th>قائد الفريق/المنسق</th>
+                    <th>صحة الفريق</th>
+                    <th>آخر تحديث/المرحلة التالية</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>فريق الابتكار المستدام</td>
+                    <td>الاستدامة المائية في الزراعة</td>
+                    <td>5 طلاب</td>
+                    <td>د. عمر (مرشد جامعي)</td>
+                    <td><span class="status-badge status-active">على المسار</span></td>
+                    <td>تقرير نصف المدة جاهز</td>
+                    <td class="actions"><a href="#" title="عرض تفاصيل الفريق"><i class="fas fa-users"></i></a> <a href="#" title="مراسلة الفريق"><i class="fas fa-comments"></i></a> <a href="#" title="تقييم الأداء"><i class="fas fa-award"></i></a> <a href="#" title="جدولة اجتماع"><i class="fas fa-calendar-check"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>صقور نيوم</td>
+                    <td>حلول النقل الذكي لمدينة الرياض</td>
+                    <td>4 طلاب، 1 خبير شركة</td>
+                    <td>م. ريما (قائدة الفريق)</td>
+                    <td><span class="status-badge status-warning-partner" style="color:black;">بحاجة لاهتمام</span></td>
+                    <td>مراجعة النموذج الأولي</td>
+                    <td class="actions"><a href="#" title="عرض التفاصيل"><i class="fas fa-users"></i></a> <a href="#" title="مراسلة الفريق"><i class="fas fa-comments"></i></a> <a href="#" title="توفير دعم"><i class="fas fa-life-ring"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>أبطال السياحة الرقمية</td>
+                    <td>تطبيقات الواقع الافتراضي للعلا</td>
+                    <td>6 طلاب</td>
+                    <td>أ. نورة (مرشدة جامعية)</td>
+                    <td><span class="status-badge status-active">على المسار</span></td>
+                    <td>جمع متطلبات المستخدم</td>
+                    <td class="actions"><a href="#" title="عرض التفاصيل"><i class="fas fa-users"></i></a> <a href="#" title="تقديم ملاحظات"><i class="fas fa-comment-dots"></i></a> <a href="#" title="عرض التقديمات"><i class="fas fa-tasks"></i></a></td>
+                  </tr>
+                   <tr>
+                    <td>حماة البيئة</td>
+                    <td>تطوير مواد بناء صديقة للبيئة</td>
+                    <td>3 طلاب، 1 خبير صناعي</td>
+                    <td>م. أحمد (قائد الفريق)</td>
+                    <td><span class="status-badge status-new">تشكيل حديث</span></td>
+                    <td>تحديد خطة العمل</td>
+                    <td class="actions"><a href="#" title="عرض التفاصيل"><i class="fas fa-users"></i></a> <a href="#" title="تعيين مهام"><i class="fas fa-clipboard-list"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="page-section">
+          <div class="page-title-container">
+             <h2 class="page-title"><i class="fas fa-chart-pie"></i> التقارير والإحصائيات</h2>
+             <div class="action-buttons">
+                <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> تصدير تقرير مجمع</button>
+             </div>
+          </div>
+
+          <div class="grid lg-grid-cols-2 md-grid-cols-1 grid-cols-1">
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-flag-checkered"></i> مساهمة الشراكات في رؤية السعودية ٢٠٣٠</h3>
+                <p>تتبع مساهمة مهام Nexus AI في تحقيق أهداف الرؤية الطموحة للمملكة.</p>
+                <div class="vision-tag"><i class="fas fa-users"></i> تنمية القدرات البشرية (450+ موهبة مدربة)</div>
+                <div class="vision-tag"><i class="fas fa-industry"></i> تطوير الصناعة الوطنية (12 حل مبتكر)</div>
+                <div class="vision-tag"><i class="fas fa-seedling"></i> الاستدامة البيئية (5 مبادرات خضراء)</div>
+                <div class="vision-tag"><i class="fas fa-briefcase"></i> توطين الوظائف (70+ فرصة محتملة)</div>
+                <div class="vision-tag"><i class="fas fa-globe-americas"></i> الاقتصاد الرقمي (15 مشروع تقني)</div>
+                 <div class="mt-3">
+                    <a href="#" class="btn btn-secondary"><i class="fas fa-chart-bar"></i> عرض تقرير التأثير التفصيلي</a>
+                </div>
+            </div>
+             <div class="card">
+                <h3 class="card-title"><i class="fas fa-graduation-cap"></i> تطوير المهارات والمواهب</h3>
+                <p>نظرة على المهارات الأكثر تطورًا لدى الطلاب من خلال المهام.</p>
+                <ul style="padding-right:20px; font-size:0.9rem;">
+                    <li>الذكاء الاصطناعي وتعلم الآلة: <strong>85%</strong> من المشاركين</li>
+                    <li>تحليل البيانات الضخمة: <strong>70%</strong></li>
+                    <li>تطوير التطبيقات والبرمجيات: <strong>65%</strong></li>
+                    <li>إدارة المشاريع والعمل الجماعي: <strong>90%</strong></li>
+                    <li>التفكير النقدي وحل المشكلات: <strong>78%</strong></li>
+                </ul>
+                 <div class="chart-placeholder css-bar-chart" style="height:150px;">
+                  <div class="css-bar" style="height: 85%; background-color:var(--current-info);" title="AI/ML"><span>AI/ML</span></div>
+                  <div class="css-bar secondary" style="height: 70%;" title="Big Data"><span>Big Data</span></div>
+                  <div class="css-bar accent" style="height: 65%;" title="Dev"><span>Dev</span></div>
+                  <div class="css-bar" style="height: 90%; background-color:var(--current-success);" title="PM"><span>PM</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+         <!-- Communication Section -->
+        <section id="communication" class="page-section">
+          <div class="page-title-container">
+             <h2 class="page-title"><i class="fas fa-comments"></i> التواصل والدعم</h2>
+          </div>
+           <div class="grid md-grid-cols-2 grid-cols-1">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-envelope"></i> مركز الرسائل (قيد التطوير)</h3>
+                    <p>هنا يمكنك التواصل مباشرة مع فرق Nexus AI، أو الفرق الطلابية المشرف عليها، أو الشركاء الآخرين.</p>
+                    <button class="btn btn-primary" disabled><i class="fas fa-plus"></i> إنشاء رسالة جديدة</button>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-headset"></i> طلب دعم فني أو استشارة</h3>
+                    <p>هل تحتاج إلى مساعدة في استخدام البوابة أو لديك استفسار حول إحدى المهام؟</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="supportSubject" class="form-label">موضوع الطلب</label>
+                            <input type="text" id="supportSubject" class="form-control" placeholder="مثال: استفسار حول تقارير الأداء">
+                        </div>
+                        <div class="form-group">
+                            <label for="supportMessage" class="form-label">تفاصيل الطلب</label>
+                            <textarea id="supportMessage" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> إرسال طلب الدعم</button>
+                    </form>
+                </div>
+           </div>
+        </section>
+
+
+        <!-- Settings Section -->
+        <section id="settings" class="page-section">
+          <div class="page-title-container">
+            <h2 class="page-title"><i class="fas fa-cog"></i> إعدادات الحساب والمؤسسة</h2>
+          </div>
+          <div class="grid lg-grid-cols-3 md-grid-cols-1 grid-cols-1">
+            <div class="card lg-span-2">
+                <h3 class="card-title">معلومات الشريك (شركة/جامعة)</h3>
+                <form>
+                  <div class="grid md-grid-cols-2 grid-cols-1">
+                      <div class="form-group">
+                        <label for="partnerName" class="form-label">اسم الجهة</label>
+                        <input type="text" id="partnerName" class="form-control" value="شركة الابتكار السعودية المحدودة" disabled>
+                      </div>
+                      <div class="form-group">
+                        <label for="partnerType" class="form-label">نوع الجهة</label>
+                        <input type="text" id="partnerType" class="form-control" value="شركة قطاع خاص" disabled>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="partnerCR" class="form-label">رقم السجل التجاري/الترخيص</label>
+                    <input type="text" id="partnerCR" class="form-control" value="1010XXXXXX" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="partnerLogo" class="form-label">شعار المؤسسة</label>
+                    <input type="file" id="partnerLogo" class="form-control">
+                    <small class="form-text text-muted" style="color:var(--current-text-secondary);">الشعار الحالي: <img src="https://via.placeholder.com/100x40.png?text=شعارنا" alt="شعار" style="height:20px;vertical-align:middle;margin-right:5px;"></small>
+                  </div>
+                  <hr style="margin: 1.5rem 0; border-color: var(--current-border);">
+                  <h4 style="font-weight:600; margin-bottom:1rem; color:var(--current-primary);">معلومات مسؤول الاتصال الرئيسي</h4>
+                  <div class="grid md-grid-cols-2 grid-cols-1">
+                       <div class="form-group">
+                        <label for="contactPerson" class="form-label">اسم المسؤول</label>
+                        <input type="text" id="contactPerson" class="form-control" value="عبدالعزيز بن محمد آل سعود">
+                      </div>
+                      <div class="form-group">
+                        <label for="contactPosition" class="form-label">المنصب</label>
+                        <input type="text" id="contactPosition" class="form-control" value="مدير الابتكار والشراكات">
+                      </div>
+                  </div>
+                  <div class="grid md-grid-cols-2 grid-cols-1">
+                      <div class="form-group">
+                        <label for="contactEmail" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="contactEmail" class="form-control" value="a.mohammed@saudiinnovation.sa">
+                      </div>
+                      <div class="form-group">
+                        <label for="contactPhone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="contactPhone" class="form-control" value="+96650XXXXXXX">
+                      </div>
+                  </div>
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> حفظ التغييرات</button>
+                  </div>
+                </form>
+            </div>
+            <div class="card">
+                 <h3 class="card-title"><i class="fas fa-users-cog"></i> إدارة المستخدمين</h3>
+                 <p class="card-subtitle">إضافة أو تعديل صلاحيات مستخدمي البوابة من مؤسستكم.</p>
+                 <button class="btn btn-secondary btn-block" style="width:100%; margin-bottom:1rem;"><i class="fas fa-user-plus"></i> إضافة مستخدم جديد</button>
+                 <ul style="list-style:none; font-size:0.9rem;">
+                    <li style="padding:0.5rem 0; border-bottom: 1px dashed var(--current-border);">نورة عبدالله (مسؤول رئيسي)</li>
+                    <li style="padding:0.5rem 0; border-bottom: 1px dashed var(--current-border);">سليمان خالد (مقيم مهام)</li>
+                    <li style="padding:0.5rem 0;">أمل فيصل (منسق طلاب - جامعة)</li>
+                 </ul>
+                 <hr style="margin: 1.5rem 0; border-color: var(--current-border);">
+                 <h3 class="card-title"><i class="fas fa-bell"></i> تفضيلات الإشعارات</h3>
+                 <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="emailNotif" checked>
+                        <label class="form-check-label" for="emailNotif">إشعارات البريد الإلكتروني للمهام الجديدة</label>
+                    </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="smsNotif">
+                        <label class="form-check-label" for="smsNotif">إشعارات SMS للتحديثات الهامة (يتطلب تفعيل)</label>
+                    </div>
+                 </div>
+                  <button class="btn btn-outline-primary btn-sm">حفظ تفضيلات الإشعارات</button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+  <div class="portal-overlay" id="portalOverlay"></div>
+
+
+  <!-- Modals (Example: Create Mission Modal) -->
+  <div id="createMissionModal" class="modal">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><i class="fas fa-bullseye"></i> اقتراح / إنشاء مهمة جديدة</h3>
+        <button onclick="closeCreateMissionModal()" aria-label="إغلاق">×</button>
+      </div>
+      <form id="createMissionForm" style="padding-top:1rem;">
+        <div class="form-group">
+          <label for="missionTitle" class="form-label">عنوان المهمة (واضح وجذاب)</label>
+          <input type="text" id="missionTitle" class="form-control" required placeholder="مثال: تطوير نظام ذكي لإدارة حركة الحشود في المشاعر المقدسة">
+        </div>
+        <div class="form-group">
+          <label for="missionDescription" class="form-label">وصف تفصيلي للمهمة والتحدي</label>
+          <textarea id="missionDescription" class="form-control" rows="3" required placeholder="اشرح المشكلة، الأهداف، وأهمية الحل المقترح."></textarea>
+        </div>
+         <div class="grid md-grid-cols-2 grid-cols-1">
+            <div class="form-group">
+                <label for="missionSector" class="form-label">القطاع الرئيسي (رؤية 2030)</label>
+                <select id="missionSector" class="form-control" required>
+                  <option value="">اختر قطاعًا...</option>
+                  <option value="quality_of_life">جودة الحياة (ترفيه، رياضة، سياحة)</option>
+                  <option value="human_capabilities">تنمية القدرات البشرية (تعليم، تدريب)</option>
+                  <option value="industry_logistics">تطوير الصناعة الوطنية والخدمات اللوجستية</option>
+                  <option value="financial_sector">تطوير القطاع المالي</option>
+                  <option value="digital_economy">الاقتصاد الرقمي والاتصالات وتقنية المعلومات</option>
+                  <option value="energy_utilities">الطاقة والمرافق</option>
+                  <option value="environment_sustainability">البيئة والاستدامة والأمن الغذائي</option>
+                  <option value="health">الصحة</option>
+                  <option value="space">الفضاء</option>
+                  <option value="defense">الصناعات العسكرية والدفاع</option>
+                  <option value="other">قطاع آخر (يرجى التحديد)</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="missionPriority" class="form-label">أولوية المهمة للمؤسسة</label>
+                <select id="missionPriority" class="form-control">
+                    <option value="high">عالية</option>
+                    <option value="medium" selected>متوسطة</option>
+                    <option value="low">منخفضة</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="missionVisionAlignment" class="form-label">تفاصيل مواءمة المهمة مع رؤية 2030</label>
+            <textarea id="missionVisionAlignment" class="form-control" rows="2" placeholder="كيف تساهم هذه المهمة في تحقيق أهداف محددة من رؤية المملكة؟"></textarea>
+        </div>
+         <div class="form-group">
+          <label for="missionSkills" class="form-label">المهارات التقنية المطلوبة (مفصولة بفاصلة)</label>
+          <input type="text" id="missionSkills" class="form-control" placeholder="مثال: Python, AI, تحليل بيانات, UI/UX, IoT">
+        </div>
+         <div class="form-group">
+          <label for="missionExpectedOutcomes" class="form-label">النتائج والمخرجات المتوقعة</label>
+          <textarea id="missionExpectedOutcomes" class="form-control" rows="2" placeholder="مثال: نموذج أولي، تقرير بحثي، تطبيق عملي، براءة اختراع مقترحة"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="missionResources" class="form-label">الموارد التي يمكن للمؤسسة توفيرها (اختياري)</label>
+          <input type="text" id="missionResources" class="form-control" placeholder="مثال: بيانات، وصول لخبراء، معامل اختبار">
+        </div>
+        <div class="form-actions" style="border-top: 1px solid var(--current-border); padding-top: 1rem; margin-top: 1.5rem;">
+          <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> إرسال المهمة للمراجعة</button>
+          <button type="button" class="btn btn-outline-primary" onclick="closeCreateMissionModal()" style="margin-right:10px;">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.sidebar-nav .nav-link, .card .nav-link'); // Include card nav links
+    const pageSections = document.querySelectorAll('.page-section');
+    const portalPageTitle = document.getElementById('portalPageTitle');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const partnerSidebar = document.getElementById('partnerSidebar');
+    const portalOverlay = document.getElementById('portalOverlay');
+    const userAvatar = document.getElementById('userAvatar');
+    const userDropdown = document.getElementById('userDropdown');
+    const themeToggleBtnPartner = document.getElementById('themeToggleBtnPartner');
+
+
+    // Theme Toggling
+    function applyPartnerTheme(theme) {
+        const isDark = theme === 'dark';
+        document.body.classList.toggle('dark-mode', isDark);
+        document.documentElement.style.setProperty('--is-dark-mode', isDark ? 1 : 0); // For vision logo filter
+
+        themeToggleBtnPartner.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        themeToggleBtnPartner.setAttribute('aria-label', isDark ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع المظلم');
+    }
+
+    function togglePartnerTheme() {
+        const currentIsDark = document.body.classList.contains('dark-mode');
+        const newTheme = currentIsDark ? 'light' : 'dark';
+        localStorage.setItem('partnerTheme', newTheme);
+        applyPartnerTheme(newTheme);
+    }
+
+    function loadPartnerThemePreference() {
+        const savedTheme = localStorage.getItem('partnerTheme');
+        const prefersDarkSys = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme) {
+            applyPartnerTheme(savedTheme);
+        } else { // Default to light if no preference, could also use prefersDarkSys
+            applyPartnerTheme('light');
+        }
+    }
+    loadPartnerThemePreference();
+    themeToggleBtnPartner.addEventListener('click', togglePartnerTheme);
+
+
+    function navigateToSection(targetId, fromButton = false) {
+      pageSections.forEach(section => section.classList.remove('active'));
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+        const titleElement = targetSection.querySelector('.page-title') || targetSection.querySelector('h3.card-title');
+        if (titleElement) {
+             portalPageTitle.innerHTML = titleElement.innerHTML; // Copy innerHTML to keep icons
+        } else {
+            portalPageTitle.textContent = "صفحة مخصصة"; // Fallback
+        }
+      }
+
+      // Clear all active states first
+      document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => link.classList.remove('active'));
+      // Activate the correct link
+      const activeLink = document.querySelector(`.sidebar-nav a[href="#${targetId}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
+
+      if (fromButton && window.innerWidth <= 992 && partnerSidebar.classList.contains('open')) {
+          closeMobileMenu();
+      }
+      window.location.hash = targetId; // Update URL hash
+    }
+    window.navigateToSection = navigateToSection;
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        navigateToSection(targetId);
+        if (window.innerWidth <= 992 && partnerSidebar.classList.contains('open')) {
+            closeMobileMenu();
+        }
+      });
+    });
+
+    const initialHash = window.location.hash.substring(1) || 'dashboard';
+    if (document.getElementById(initialHash)) {
+        navigateToSection(initialHash);
+    } else {
+        navigateToSection('dashboard'); // Default if hash is invalid
+    }
+
+
+    function openMobileMenu() {
+        partnerSidebar.classList.add('open');
+        portalOverlay.classList.add('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMobileMenu() {
+        partnerSidebar.classList.remove('open');
+        portalOverlay.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    if (mobileMenuToggle) { mobileMenuToggle.addEventListener('click', () => partnerSidebar.classList.contains('open') ? closeMobileMenu() : openMobileMenu()); }
+    if (portalOverlay) { portalOverlay.addEventListener('click', closeMobileMenu); }
+
+
+    if (userAvatar) {
+      userAvatar.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isExpanded = userDropdown.style.display === 'block';
+        userDropdown.style.display = isExpanded ? 'none' : 'block';
+        userAvatar.setAttribute('aria-expanded', String(!isExpanded));
+      });
+      userAvatar.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); userAvatar.click(); } });
+    }
+    document.addEventListener('click', (e) => {
+      if (userDropdown && userDropdown.style.display === 'block' && !userAvatar.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.style.display = 'none'; userAvatar.setAttribute('aria-expanded', 'false');
+      }
+    });
+     document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (userDropdown && userDropdown.style.display === 'block') {
+            userDropdown.style.display = 'none'; userAvatar.setAttribute('aria-expanded', 'false'); userAvatar.focus();
+          } else if (partnerSidebar.classList.contains('open')) {
+            closeMobileMenu();
+          }
+        }
+    });
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const createMissionModalEl = document.getElementById('createMissionModal');
+    window.openCreateMissionModal = function() { createMissionModalEl.classList.add('open'); }
+    window.closeCreateMissionModal = function() { createMissionModalEl.classList.remove('open'); }
+    document.getElementById('createMissionForm').addEventListener('submit', function(e) {
+        e.preventDefault(); alert('تم إرسال طلب إنشاء المهمة للمراجعة!'); closeCreateMissionModal();
+    });
+
+    window.openNominateStudentModal = function() { alert("سيتم فتح نافذة ترشيح طالب هنا."); }
+
+     // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && createMissionModalEl.classList.contains('open')) {
+            closeCreateMissionModal();
+        }
+    });
+
+  });
+</script>
+</body>
+</html>
