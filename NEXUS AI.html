@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI | AI-Augmented Consulting & Talent Development for Saudi Vision 2030</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></noscript>
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Tajawal:wght@400;500;700&display=swap"></noscript>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3ENAI%3C/text%3E%3C/svg%3E">
+    <meta name="theme-color" content="#003366">
+
+    <style>
+        :root {
+            --primary: #003366; /* Deep Blue */
+            --primary-light: #004080;
+            --primary-lighter: #0055a5;
+            --secondary: #00CC66; /* Vision Green */
+            --secondary-dark: #00b359;
+            --accent: #FF6B35; /* Vibrant Orange */
+            --accent-light: #ff8c5a;
+            --dark: #1A1A1A;
+            --dark-light: #2d2d2d;
+            --light: #F8F9FA;
+            --light-dark: #e9ecef;
+            --vision-green: #245C36;
+            --saudi-blue: #005F87;
+            --gold: #D4AF37;
+            --gold-light: #e8c873;
+            --section-padding: clamp(4rem, 10vw, 8rem) 0;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --border-radius-sm: 0.5rem;
+            --border-radius-md: 1rem;
+            --border-radius-lg: 1.25rem; /* 20px */
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .arabic-text {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+        }
+        body.rtl-active {
+             font-family: 'Tajawal', sans-serif;
+             direction: rtl;
+         }
+         body.rtl-active .navbar-nav { margin-right: auto !important; margin-left: 0 !important; }
+         body.rtl-active .key-feature i,
+         body.rtl-active .demo-feature i,
+         body.rtl-active .benefit-item i,
+         body.rtl-active .exit-feature i { margin-left: 1rem; margin-right: 0;}
+
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        a:hover {
+            color: var(--secondary-dark);
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        main {
+            display: block;
+        }
+
+        .section {
+            padding: var(--section-padding);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-weight: 800;
+            position: relative;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            transition: var(--transition);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        .section-title:hover {
+            color: var(--secondary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: var(--secondary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .section-title:hover::after {
+            width: 100px;
+            background: var(--accent);
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--dark-light);
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            transition: var(--transition);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--light); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            padding: 0.8rem 0; /* Reduced padding slightly */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 51, 102, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 0.4rem 0; /* Reduced padding slightly */
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 2rem; /* Increased size for "Nexus AI" */
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+            transition: var(--transition);
+        }
+         .navbar-brand:hover {
+             color: var(--primary-lighter);
+             text-decoration: none;
+             transform: scale(1.03);
+         }
+        .navbar.scrolled .navbar-brand { color: white; }
+         .navbar.scrolled .navbar-brand:hover { color: var(--light-dark); }
+
+
+        .nav-link {
+            font-weight: 600;
+            margin: 0 0.5rem; /* Adjusted margin */
+            position: relative;
+            color: var(--dark);
+            transition: var(--transition);
+            font-size: 0.85rem; /* Slightly smaller */
+            padding: 0.5rem 0.2rem; /* Adjusted padding */
+        }
+
+        .navbar.scrolled .nav-link { color: rgba(255, 255, 255, 0.9); }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 70%; }
+
+        .nav-link:hover, .nav-link:focus, .nav-link.active {
+            transform: translateY(-2px);
+            color: var(--secondary) !important;
+            text-decoration: none;
+        }
+        .navbar.scrolled .nav-link:hover,
+        .navbar.scrolled .nav-link:focus,
+        .navbar.scrolled .nav-link.active {
+            color: var(--secondary) !important;
+        }
+        .nav-item.dropdown .dropdown-menu {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-sm);
+            border: none;
+            box-shadow: var(--box-shadow);
+            margin-top: 0.5rem;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        .navbar.scrolled .nav-item.dropdown .dropdown-menu {
+            background-color: rgba(0, 51, 102, 0.95); /* Darker when scrolled */
+        }
+        .nav-item.dropdown .dropdown-item {
+            font-weight: 500;
+            color: var(--dark);
+            padding: 0.6rem 1.2rem;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+        .navbar.scrolled .nav-item.dropdown .dropdown-item {
+             color: rgba(255, 255, 255, 0.9);
+        }
+        .nav-item.dropdown .dropdown-item:hover,
+        .nav-item.dropdown .dropdown-item:focus {
+            background-color: var(--secondary);
+            color: white !important;
+            transform: translateX(5px);
+        }
+        .navbar.scrolled .nav-item.dropdown .dropdown-item:hover,
+        .navbar.scrolled .nav-item.dropdown .dropdown-item:focus {
+            background-color: var(--secondary);
+        }
+
+
+        .navbar-toggler {
+            border: none; padding: 0.5rem; font-size: 1.5rem; color: var(--primary);
+        }
+        .navbar-toggler:focus { box-shadow: 0 0 0 0.2rem rgba(0, 51, 102, 0.25); outline: none; }
+        .navbar.scrolled .navbar-toggler { color: white; }
+         .navbar.scrolled .navbar-toggler:focus { box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25); }
+
+        .language-switcher-item { display: flex; align-items: center; margin-left: 1rem; }
+        .language-btn {
+            background: transparent; border: none; color: var(--dark); font-weight: 600; cursor: pointer;
+            transition: var(--transition); padding: 0.5rem 1rem; border-radius: 50px;
+            border: 2px solid rgba(0, 0, 0, 0.1); font-size: 0.85rem; line-height: 1;
+            display: flex; align-items: center;
+        }
+        .language-btn:hover, .language-btn:focus {
+            transform: scale(1.05); border-color: var(--secondary); color: var(--secondary); outline: none;
+        }
+        .navbar.scrolled .language-btn { color: white; border-color: rgba(255, 255, 255, 0.2); }
+        .navbar.scrolled .language-btn:hover, .navbar.scrolled .language-btn:focus {
+            border-color: var(--secondary); color: var(--secondary);
+        }
+
+         @media (max-width: 991.98px) {
+             .navbar-nav .nav-link { padding: 0.8rem 1rem; margin: 0.1rem 0; text-align: center; }
+             .nav-link::after { bottom: 5px; }
+             .language-switcher-item { margin-left: 0; padding: 0.8rem 1rem; justify-content: center; }
+              .language-btn { margin: 0 auto; }
+              .nav-item.dropdown .dropdown-menu { text-align: center; }
+              .nav-item.dropdown .dropdown-item:hover,
+              .nav-item.dropdown .dropdown-item:focus { transform: translateX(0); }
+         }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            min-height: 100vh; position: relative; overflow: hidden; color: white;
+            padding-top: 100px; display: flex; align-items: center;
+        }
+        .hero-bg-pattern {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(0, 204, 102, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.08) 0%, transparent 25%),
+                url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none"/><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="%2300CC66" stroke-width="0.3" stroke-opacity="0.08" fill="none"/></svg>');
+            opacity: 0.6; z-index: 0; animation: bgPatternAnimate 60s linear infinite alternate;
+        }
+        @keyframes bgPatternAnimate {
+            0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; }
+        }
+        .hero-content { position: relative; z-index: 2; padding-top: clamp(20px, 5vh, 60px); }
+        .hero-title {
+            font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); margin-bottom: 1.5rem;
+            transition: var(--transition); letter-spacing: -1px;
+        }
+        .hero-title:hover { text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem); opacity: 0.9; margin-bottom: 2rem;
+            transition: var(--transition); max-width: 700px; margin-left: auto; margin-right: auto;
+        }
+        .vision-badge {
+            display: inline-block; background: rgba(255, 255, 255, 0.15); color: white;
+            padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600; margin-bottom: 2rem;
+            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2); transition: var(--transition);
+            animation: pulseBadge 2.5s infinite ease-in-out;
+        }
+        @keyframes pulseBadge {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 204, 102, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 204, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 204, 102, 0); }
+        }
+        .vision-badge:hover {
+            background: rgba(255, 255, 255, 0.25); transform: translateY(-3px) scale(1.03); animation: none;
+        }
+        .btn-hero {
+            padding: 1rem 2rem; font-weight: 600; border-radius: 50px; transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;
+            border: none; font-size: 1.1rem; display: inline-flex; align-items: center;
+            justify-content: center; line-height: 1.5;
+        }
+        .btn-hero i { margin-left: 8px; transition: transform 0.3s ease; }
+        .btn-hero-primary { background: var(--secondary); color: white; }
+        .btn-hero-primary:hover, .btn-hero-primary:focus {
+            transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 204, 102, 0.3);
+            color: white; background: var(--secondary-dark); outline: none;
+        }
+        .btn-hero-primary::after {
+            content: ''; position: absolute; top: -50%; left: -75%; width: 200%; height: 200%;
+            background: rgba(255, 255, 255, 0.1); transform: rotate(30deg);
+            transition: left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); pointer-events: none;
+        }
+        .btn-hero-primary:hover::after { left: 100%; }
+        .btn-hero-primary:hover i { transform: translateX(5px); }
+        .btn-hero-secondary { border: 2px solid white; color: white; background: transparent; }
+        .btn-hero-secondary:hover, .btn-hero-secondary:focus {
+            background: white; color: var(--primary); transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2); outline: none;
+        }
+        .btn-hero-secondary:hover i { transform: translateX(5px); }
+
+        .floating-ai {
+            position: absolute; width: 100px; height: 100px; background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--border-radius-lg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); z-index: 1;
+            animation: float 6s ease-in-out infinite; cursor: help; transition: var(--transition);
+            will-change: transform;
+        }
+        .floating-ai:hover {
+            transform: scale(1.15) translateY(-12px) !important; background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); animation-play-state: paused;
+        }
+        .floating-ai i { font-size: 2.5rem; color: white; transition: var(--transition); }
+        .floating-ai:hover i { transform: scale(1.1) rotate(15deg); }
+        .floating-ai:nth-child(1) { top: 18%; left: 8%; animation-delay: 0s; width: 80px; height: 80px; }
+        .floating-ai:nth-child(1) i {font-size: 2rem;}
+        .floating-ai:nth-child(2) { top: 65%; left: 12%; animation-delay: 1s; background: rgba(255, 255, 255, 0.12); }
+        .floating-ai:nth-child(3) { top: 25%; right: 10%; animation-delay: 2s; width: 90px; height: 90px; }
+        .floating-ai:nth-child(3) i {font-size: 2.2rem;}
+        .floating-ai:nth-child(4) { top: 70%; right: 15%; animation-delay: 3s; background: rgba(255, 255, 255, 0.12); }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .ai-tooltip {
+            position: absolute; bottom: 115%; left: 50%; transform: translateX(-50%);
+            background: white; color: var(--dark); padding: 0.8rem; border-radius: var(--border-radius-sm);
+            box-shadow: var(--box-shadow); width: 220px; opacity: 0; visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 10; pointer-events: none;
+        }
+        .ai-tooltip::after {
+            content: ''; position: absolute; top: 100%; left: 50%; margin-left: -5px;
+            border-width: 5px; border-style: solid; border-color: white transparent transparent transparent;
+        }
+        .ai-tooltip h6 { color: var(--primary); font-weight: 700; margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .ai-tooltip p { font-size: 0.8rem; margin-bottom: 0; line-height: 1.4; }
+        .floating-ai:hover .ai-tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(-5px); }
+
+        .key-features { text-align: left; margin-top: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .key-feature {
+            display: flex; align-items: flex-start; margin-bottom: 1rem; font-size: 1rem;
+            background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: var(--border-radius-md);
+            backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .key-feature:hover { background: rgba(255, 255, 255, 0.15); transform: translateX(5px); }
+        .key-feature i {
+            margin-right: 1rem; color: var(--secondary); font-size: 1.2rem; margin-top: 4px;
+            transition: transform 0.3s ease, color 0.3s ease; flex-shrink: 0;
+        }
+        .key-feature:hover i { transform: rotate(15deg) scale(1.2); color: var(--accent); }
+        .key-feature span { flex: 1; }
+        .key-feature strong { font-weight: 600; color: white; }
+
+        .highlight-text {
+            animation: colorChange 8s infinite linear; font-weight: 700; position: relative; display: inline-block;
+        }
+        .highlight-text::after {
+            content: ''; position: absolute; bottom: -3px; left: 0; width: 100%; height: 3px;
+            background: currentColor; border-radius: 3px; transform: scaleX(0.8);
+            transition: transform 0.4s ease; transform-origin: left;
+        }
+        .highlight-text:hover::after { transform: scaleX(1); }
+        @keyframes colorChange {
+            0%, 100% { color: var(--secondary); } 25% { color: var(--accent); }
+            50% { color: var(--gold); } 75% { color: var(--saudi-blue); }
+        }
+
+        .card-hover-lift { transition: var(--transition); transform: translateY(0); will-change: transform, box-shadow; }
+        .card-hover-lift:hover { transform: translateY(-8px); box-shadow: var(--box-shadow-hover); }
+         .modal-content.card-hover-lift:hover,
+         .signup-modal .modal-content.card-hover-lift:hover { transform: translateY(0) !important; box-shadow: var(--box-shadow) !important; }
+
+        .interactive-card {
+            border-radius: var(--border-radius-lg); border: 1px solid var(--light-dark);
+            box-shadow: var(--box-shadow); position: relative; overflow: hidden; transition: var(--transition);
+        }
+        .interactive-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 1; transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 1;
+        }
+        .interactive-card:hover { border-color: rgba(0, 204, 102, 0.2); }
+        .interactive-card:hover::before { width: 100%; }
+        .interactive-card > * { position: relative; z-index: 2; }
+
+        /* Challenge & Edge Section (Replaces Problem) */
+        .challenge-edge-section { background-color: white; }
+        .challenge-card { padding: 2.5rem; height: 100%; }
+        .challenge-card h3 { color: var(--primary); font-weight: 700; transition: color 0.3s ease; margin-bottom: 1.5rem; font-size: 1.4rem; }
+        .challenge-card:hover h3 { color: var(--secondary); }
+        .challenge-icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1.5rem; transition: var(--transition); }
+        .challenge-card:hover .challenge-icon { transform: scale(1.1); color: var(--accent); }
+        .stat-highlight { font-size: 2rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.5rem; }
+        .bridge-diagram {
+            position: relative;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .bridge-diagram .component {
+            padding: 1rem;
+            border-radius: var(--border-radius-md);
+            background-color: var(--light-dark);
+            margin: 0.5rem;
+            display: inline-block;
+            box-shadow: var(--box-shadow);
+        }
+        .bridge-diagram .component i { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .bridge-diagram .nexus-bridge {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-hover);
+            transform: scale(1.05);
+        }
+        .bridge-diagram .nexus-bridge i { color: white; }
+        .bridge-diagram .arrow {
+            font-size: 2rem;
+            color: var(--primary-light);
+            margin: 0 1rem;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        body.rtl-active .bridge-diagram .arrow { transform: scaleX(-1); }
+
+        /* Solution Section - Now more focused on "For Companies" & "For Students" */
+        .solution-section { background: linear-gradient(to bottom, var(--light), var(--light-dark)); }
+        .solution-section::before {
+            content: ''; position: absolute; inset: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(0, 204, 102, 0.04) 0%, transparent 60%),
+                        radial-gradient(circle at 90% 80%, rgba(0, 51, 102, 0.04) 0%, transparent 60%);
+            z-index: 0; pointer-events: none;
+        }
+        .benefit-card {
+            padding: 2rem; margin-bottom: 1.5rem; background: white;
+            z-index: 1; height: 100%;
+        }
+        .benefit-card h3 { color: var(--primary); font-weight: 700; margin-bottom: 1.5rem; font-size: 1.5rem; }
+        .benefit-card:hover h3 { color: var(--secondary); }
+        .benefit-item { display: flex; align-items: flex-start; margin-bottom: 1.2rem; transition: transform 0.3s ease; }
+        .benefit-card:hover .benefit-item { transform: translateX(5px); }
+        .benefit-item i {
+            font-size: 1.3rem; color: var(--secondary); margin-right: 1rem; margin-top: 5px;
+            transition: var(--transition); flex-shrink: 0;
+        }
+        .benefit-card:hover .benefit-item i { color: var(--accent); transform: rotate(10deg); }
+        .benefit-item div h5 { font-size: 1.1rem; font-weight: 600; color: var(--primary-light); margin-bottom: 0.25rem; }
+        .benefit-item div p { font-size: 0.9rem; color: var(--dark-light); margin-bottom: 0; }
+        .cost-saving-pie-chart-container {
+            display: flex; flex-direction: column; align-items: center; margin-top: 2rem;
+        }
+        .pie-chart {
+            width: 200px; height: 200px; border-radius: 50%;
+            background-image: conic-gradient(
+                var(--primary) 0% 45%,      /* Consulting Fees 45% */
+                var(--secondary) 45% 75%,  /* Hiring Costs 30% */
+                var(--accent) 75% 90%,     /* Compliance Risks 15% */
+                var(--gold) 90% 100%       /* R&D Efficiency 10% */
+            );
+            box-shadow: var(--box-shadow); margin-bottom: 1rem;
+            transition: transform 0.5s ease;
+        }
+        .pie-chart:hover { transform: scale(1.05) rotate(15deg); }
+        .pie-legend { list-style: none; padding: 0; text-align: left; max-width: 300px; margin: 0 auto; }
+        .pie-legend li { margin-bottom: 0.5rem; font-size: 0.9rem; display: flex; align-items: center; }
+        .pie-legend span {
+            display: inline-block; width: 12px; height: 12px;
+            border-radius: 3px; margin-right: 8px;
+        }
+
+
+        /* Process Section -- IMPROVED */
+        .process-section { background-color: white; }
+        .process-section::before {
+             content: ''; position: absolute; inset: 0; width: 100%; height: 100%;
+             background: radial-gradient(circle at 90% 10%, rgba(255, 107, 53, 0.03) 0%, transparent 70%),
+                         radial-gradient(circle at 10% 90%, rgba(0, 51, 102, 0.03) 0%, transparent 70%);
+             z-index: 0; pointer-events: none;
+         }
+        .process-timeline {
+            position: relative; max-width: 1200px; margin: 0 auto; z-index: 1;
+            padding-top: 2rem; padding-bottom: 2rem;
+        }
+        .process-timeline::after {
+            content: ''; position: absolute; width: 6px;
+            background: linear-gradient(to bottom, var(--secondary-dark), var(--primary-light));
+            top: 20px; bottom: 20px; left: 50%; margin-left: -3px;
+            border-radius: 3px; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: background 0.5s ease;
+        }
+        .process-timeline:hover::after { background: linear-gradient(to bottom, var(--accent), var(--secondary)); }
+        .process-step { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; margin-bottom: 2.5rem; }
+        .process-step:nth-child(odd) { left: 0; }
+        .process-step:nth-child(even) { left: 50%; }
+        .process-step::after {
+            content: ''; position: absolute; width: 28px; height: 28px; background: white;
+            border: 5px solid var(--secondary); top: 30px; border-radius: 50%; z-index: 3;
+            box-shadow: 0 0 0 5px white; transition: var(--transition);
+        }
+        .process-step:hover::after { background: var(--light); border-color: var(--accent); transform: scale(1.15); }
+        .process-step:nth-child(odd)::after { right: -17px; }
+        .process-step:nth-child(even)::after { left: -17px; }
+        .process-content {
+            padding: 2rem; background: white; border-radius: var(--border-radius-lg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07); position: relative;
+        }
+        .process-content::before { z-index: 1; }
+        .process-content > * { position: relative; z-index: 2; }
+        .process-icon { display: flex; align-items: center; margin-bottom: 1rem; }
+        .process-number {
+            background: var(--secondary); color: white; width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem;
+            transition: var(--transition); border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-right: 1rem;
+        }
+        .process-step:hover .process-number {
+             background: var(--accent); transform: scale(1.1) rotate(-10deg);
+             box-shadow: 0 4px 10px rgba(var(--accent), 0.3);
+         }
+        .process-step-icon { font-size: 1.8rem; color: var(--primary); transition: var(--transition); }
+        .process-step:hover .process-step-icon { color: var(--secondary); transform: scale(1.1); }
+        .process-content h4 {
+            color: var(--primary); font-weight: 700; transition: color 0.3s ease;
+            margin-bottom: 0.5rem; font-size: 1.3rem;
+        }
+        .process-content:hover h4 { color: var(--secondary); }
+        .process-content p { font-size: 0.9rem; color: var(--dark-light); margin-bottom: 0; line-height: 1.6; }
+        .process-animation {
+            position: relative; width: clamp(200px, 30vw, 320px); height: clamp(200px, 30vw, 320px);
+            margin: 0 auto 3rem;
+        }
+        .process-circle {
+            position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%;
+            border: 3px solid rgba(0, 204, 102, 0.15); animation: pulseCircle 4s infinite ease-in-out;
+        }
+        .process-circle:nth-child(2) { animation-delay: 1s; }
+        .process-circle:nth-child(3) { animation-delay: 2s; }
+        .process-circle:nth-child(4) { animation-delay: 3s; border-color: rgba(0, 204, 102, 0.1); }
+        .process-steps {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 80%; height: 80%; border-radius: 50%; background: white;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); z-index: 2; transition: var(--transition);
+        }
+        .process-steps-inner { text-align: center; padding: 20px; }
+        .process-steps-inner h4 {
+            color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;
+            transition: color 0.3s ease; font-size: clamp(1rem, 2.5vw, 1.3rem);
+        }
+        .process-steps:hover h4 { color: var(--secondary); }
+        .process-steps-inner p {
+            color: var(--dark-light); font-size: clamp(0.8rem, 2vw, 0.95rem);
+            margin-bottom: 0; transition: transform 0.3s ease;
+        }
+        .process-steps:hover p { transform: scale(1.02); }
+        @keyframes pulseCircle {
+            0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        /* Demo Section / Get Started Section */
+        .demo-section { background: linear-gradient(135deg, var(--light), var(--light-dark)); }
+        .demo-section::before {
+             content: ''; position: absolute; inset: 0; width: 100%; height: 100%;
+             background: radial-gradient(circle at 80% 20%, rgba(0, 51, 102, 0.03) 0%, transparent 60%),
+                         radial-gradient(circle at 20% 80%, rgba(0, 204, 102, 0.03) 0%, transparent 60%);
+             z-index: 0; pointer-events: none;
+         }
+        .demo-card { background: white; padding: 3rem; z-index: 1; }
+        .demo-form .form-label { font-weight: 600; margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .demo-form .form-control, .demo-form .form-select {
+            padding: 1rem; border-radius: var(--border-radius-md); border: 1px solid #ddd;
+            margin-bottom: 1.5rem; transition: var(--transition); background-color: var(--light);
+        }
+        .demo-form .form-control:focus, .demo-form .form-select:focus {
+            border-color: var(--secondary); box-shadow: 0 0 0 0.25rem rgba(0, 204, 102, 0.25);
+            background-color: white; transform: translateY(-2px); outline: none;
+        }
+        .btn-demo {
+            background: var(--secondary); color: white; border: none; padding: 1rem 2rem;
+            border-radius: var(--border-radius-md); font-weight: 600; width: 100%; transition: var(--transition);
+        }
+        .btn-demo:hover, .btn-demo:focus {
+            background: var(--secondary-dark); transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3); color: white; outline: none;
+        }
+        .demo-features { margin-top: 2rem; }
+        .demo-feature { display: flex; align-items: center; margin-bottom: 1.5rem; transition: transform 0.3s ease; }
+        .demo-feature:hover { transform: translateX(10px); }
+        .demo-feature i {
+            font-size: 1.5rem; color: var(--secondary); margin-right: 1rem; width: 50px; height: 50px;
+            background: rgba(0, 204, 102, 0.1); border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; transition: var(--transition); flex-shrink: 0;
+        }
+        .demo-feature:hover i { background: var(--secondary); color: white; transform: rotate(15deg); }
+        .demo-feature div { flex: 1; }
+        .demo-feature h5 { color: var(--primary); margin-bottom: 0.3rem; transition: color 0.3s ease; font-size: 1.1rem; }
+        .demo-feature:hover h5 { color: var(--secondary); }
+        .demo-feature p { font-size: 0.9rem; margin-bottom: 0; color: var(--dark-light); }
+
+        /* Impact & Vision Section (Combines Traction, Testimonials, Vision 2030) */
+        .impact-vision-section { background-color: var(--light); }
+         .impact-vision-section::before {
+            content: ''; position: absolute; inset: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 10% 90%, rgba(0, 204, 102, 0.03) 0%, transparent 70%),
+                        radial-gradient(circle at 90% 10%, rgba(0, 51, 102, 0.03) 0%, transparent 70%);
+            z-index: 0; pointer-events: none;
+        }
+        .traction-card {
+            background: white; padding: 2rem; height: 100%; z-index: 1; text-align: center;
+        }
+        .traction-card i.fa-3x { color: var(--secondary); margin-bottom: 1rem; transition: var(--transition); }
+         .traction-card:hover i.fa-3x { color: var(--accent); transform: scale(1.1) rotate(-5deg); }
+        .traction-stat {
+            font-size: clamp(2.5rem, 6vw, 3rem); font-weight: 700; color: var(--secondary);
+            line-height: 1; margin: 1rem 0 0.5rem; transition: var(--transition); display: block;
+        }
+        .traction-card:hover .traction-stat { transform: scale(1.05); color: var(--accent); }
+         .traction-card h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+         .traction-card p { font-size: 0.9rem; color: var(--dark-light); margin-bottom: 0; }
+        .partner-logo {
+            height: clamp(40px, 6vw, 60px); margin: 1rem; filter: grayscale(100%) opacity(0.6);
+            transition: var(--transition); vertical-align: middle;
+        }
+        .partner-logo:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
+        .partner-logo-watermark { position: relative; display: inline-block; }
+        .partner-logo-watermark small {
+            position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
+            font-size: 0.7rem; font-style: italic; color: var(--dark-light);
+            background-color: rgba(255,255,255,0.7); padding: 0 3px; border-radius: 2px;
+        }
+
+
+        .testimonial-card {
+            background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; padding-left: 3.5rem;
+            box-shadow: var(--box-shadow); margin: 1rem; transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .testimonial-card::before {
+            content: '\201C'; position: absolute; top: 15px; left: 15px; font-size: 5rem;
+            color: rgba(0, 204, 102, 0.1); font-family: Georgia, serif; line-height: 1;
+            z-index: 0; transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .testimonial-card:hover::before { color: rgba(0, 204, 102, 0.15); transform: scale(1.1) translateX(-3px); }
+        .testimonial-text {
+            font-style: italic; margin-bottom: 1.5rem; transition: transform 0.3s ease;
+            position: relative; z-index: 1; font-size: 1.05rem; color: var(--dark-light);
+        }
+        .testimonial-card:hover .testimonial-text { transform: scale(1.01); }
+        .testimonial-author {
+            font-weight: 700; color: var(--primary); transition: color 0.3s ease;
+            position: relative; z-index: 1; font-size: 0.95rem;
+        }
+        .testimonial-card:hover .testimonial-author { color: var(--secondary); }
+        .impact-table { margin-top: 2rem; }
+        .impact-table th { background-color: var(--primary-light); color: white; }
+        .impact-callout {
+            background-color: var(--secondary-dark); color: white; padding: 1rem;
+            border-radius: var(--border-radius-sm); text-align: center; font-weight: 600; margin-top: 1.5rem;
+        }
+
+        /* Investment Opportunity Section (Market, Exit Plan, Assurance) */
+        .investment-opportunity-section { background: linear-gradient(135deg, var(--vision-green) 0%, var(--saudi-blue) 100%); color: white; }
+        .investment-opportunity-section::before {
+            content: ''; position: absolute; inset: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none"/><path d="M10 10 L90 10 L90 90 L10 90 Z" stroke="%23FFFFFF" stroke-width="0.4" stroke-opacity="0.06" fill="none"/></svg>');
+            opacity: 0.5; z-index: 0;
+        }
+        .market-card { /* This existing style will be used */
+            background: rgba(255, 255, 255, 0.08); border-radius: var(--border-radius-lg); padding: 3rem 2rem;
+            text-align: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15); transition: var(--transition);
+            position: relative; overflow: hidden; z-index: 1; height: 100%;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .market-card::before { /* Top border highlight */
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--gold));
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 2;
+        }
+        .market-card:hover { background: rgba(255, 255, 255, 0.12); }
+        .market-card:hover::before { width: 100%; }
+        .market-card h3 {
+            font-weight: 700; margin-bottom: 1rem; transition: color 0.3s ease; font-size: 1.3rem;
+            text-transform: uppercase; letter-spacing: 1px; position: relative; z-index: 3; color: white; /* Ensure text is white */
+        }
+        .market-card:hover h3 { color: var(--secondary); }
+        .market-card .market-value {
+            font-size: clamp(2.5rem, 7vw, 3.5rem); font-weight: 800; line-height: 1; margin: 1.5rem 0;
+            color: white; transition: var(--transition); word-break: break-word; position: relative; z-index: 3;
+        }
+        .market-card:hover .market-value { transform: scale(1.05); color: var(--gold); }
+        .market-card .market-value.som-value { font-size: clamp(2rem, 6vw, 3rem); } /* Applied if SOM is a value */
+        .market-card p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 0; position: relative; z-index: 3; color: rgba(255,255,255,0.8); }
+
+        .market-graph {
+            background: rgba(255,255,255,0.95); border-radius: var(--border-radius-lg); padding: 2rem;
+            box-shadow: var(--box-shadow); margin-top: 3rem; transition: var(--transition);
+            position: relative; overflow: hidden; z-index: 1; color: var(--dark);
+        }
+        .market-graph::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .market-graph:hover::before { width: 100%; }
+        .graph-bar {
+            height: 30px; background: linear-gradient(90deg, var(--secondary), var(--primary));
+            margin-bottom: 1rem; border-radius: var(--border-radius-md); position: relative;
+            overflow: hidden; transition: var(--transition); box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .market-graph:hover .graph-bar { transform: scaleX(1.01) translateX(2px); transform-origin: left; }
+        .graph-label {
+            display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;
+            font-weight: 600; transition: transform 0.3s ease; font-size: 0.9rem;
+        }
+         .graph-label span:last-child { font-weight: 700; color: var(--primary); }
+        .market-graph:hover .graph-label { transform: translateX(3px); }
+        .graph-legend { display: flex; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+        .legend-item { display: flex; align-items: center; transition: transform 0.3s ease; font-size: 0.9rem; }
+        .market-graph:hover .legend-item { transform: translateY(-2px); }
+        .legend-color { width: 15px; height: 15px; border-radius: 3px; margin-right: 0.5rem; transition: transform 0.3s ease; }
+        .market-graph:hover .legend-color { transform: scale(1.1); }
+        .legend-color.tam { background: var(--primary); }
+        .legend-color.sam { background: var(--secondary); }
+        .legend-color.som { background: var(--accent); }
+
+        .exit-plan-card {
+            background: rgba(255, 255, 255, 0.1); color: white;
+            border-radius: var(--border-radius-lg); padding: 2.5rem;
+            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+            margin-top: 3rem; z-index: 1;
+        }
+        .exit-plan-card h3 { color: var(--gold); margin-bottom: 1.5rem; }
+        .exit-feature { display: flex; align-items: flex-start; margin-bottom: 1rem; transition: transform 0.3s ease; }
+        .exit-plan-card:hover .exit-feature { transform: translateX(5px); }
+        .exit-feature i { font-size: 1.2rem; color: var(--gold-light); margin-right: 1rem; margin-top: 4px; flex-shrink: 0;}
+        .exit-plan-card:hover .exit-feature i { color: var(--secondary); }
+        .exit-feature strong { font-weight: 600; color: white; }
+        .exit-feature p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 0; }
+        .investment-assurance {
+            background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: var(--border-radius-md);
+            margin-top: 2rem; text-align: center; font-style: italic; opacity: 0.9;
+            border-left: 5px solid var(--gold);
+        }
+        .animated-graph-placeholder {
+            background: rgba(255,255,255,0.1); border-radius: var(--border-radius-md);
+            padding: 2rem; text-align: center; color: white;
+            border: 1px dashed rgba(255,255,255,0.3); margin-top: 1rem;
+        }
+        .animated-graph-placeholder i { font-size: 3rem; margin-bottom: 1rem; display: block; opacity: 0.5; }
+
+
+        /* Business Model Section (now part of For Companies, or refined here) */
+        .business-model-section { background-color: white; }
+         .business-model-section::before {
+            content: ''; position: absolute; inset: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 51, 102, 0.03) 0%, transparent 60%);
+            z-index: 0; pointer-events: none;
+        }
+        .revenue-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; border-radius: var(--border-radius-lg); padding: 2.5rem;
+            box-shadow: var(--box-shadow); position: relative; overflow: hidden; z-index: 1;
+        }
+        .revenue-card h3 { color: white; transition: color 0.3s ease; font-size: 1.5rem; }
+        .revenue-card:hover h3 { color: var(--gold); }
+        .revenue-card ul { list-style: disc; padding-left: 20px; margin-bottom: 0; font-size: 0.9rem; opacity: 0.9; }
+        .revenue-card ul li { margin-bottom: 0.5rem; }
+        .revenue-card h4 { font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--gold-light); }
+        .model-options { margin-top: 3rem; }
+        .model-option {
+            background: white; padding: 2rem; height: 100%; display: flex; flex-direction: column;
+        }
+         .model-option > *:last-child { margin-top: auto; }
+         .model-option .option-icon {
+             font-size: 2rem; margin-bottom: 1rem; color: var(--primary); transition: var(--transition);
+         }
+         .model-option:hover .option-icon { color: var(--secondary); transform: scale(1.1) rotate(-5deg); }
+        .model-option h4 {
+            color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;
+            transition: color 0.3s ease; font-size: 1.3rem;
+        }
+        .model-option:hover h4 { color: var(--secondary); }
+        .model-option .price {
+            font-size: 1.5rem; font-weight: 700; color: var(--secondary);
+            margin: 0.5rem 0 1rem; transition: var(--transition);
+        }
+        .model-option:hover .price { color: var(--accent); transform: scale(1.05); }
+         .model-option > p { font-size: 0.95rem; color: var(--dark-light); margin-bottom: 1rem; }
+        .model-option ul { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+        .model-option ul li {
+            margin-bottom: 0.8rem; position: relative; padding-left: 25px;
+            transition: transform 0.3s ease; font-size: 0.9rem; color: var(--dark-light);
+        }
+        .model-option:hover ul li { transform: translateX(5px); }
+        .model-option ul li::before {
+            content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 4px; color: var(--secondary); transition: color 0.3s ease;
+        }
+        .model-option:hover ul li::before { color: var(--accent); }
+        .btn-model {
+            background: var(--secondary); color: white; border: none; padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius-md); font-weight: 600; transition: var(--transition);
+            display: inline-block; text-align: center; margin-top: 1rem; margin-right: 0.5rem;
+            margin-bottom: 0.5rem; font-size: 0.9rem;
+        }
+         .model-option > div:last-child .btn-model { margin-right: 0.5rem; }
+         .model-option > div:last-child .btn-model:last-child { margin-right: 0; }
+        .btn-model:hover, .btn-model:focus {
+            background: var(--secondary-dark); transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3); color: white; outline: none; text-decoration: none;
+        }
+        .btn-model-secondary { background: var(--primary); margin-left: 0; }
+        .btn-model-secondary:hover, .btn-model-secondary:focus {
+            background: var(--primary-light); box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+        }
+
+
+        /* Team Section */
+        .team-section { background-color: var(--light); }
+         .team-section::before {
+            content: ''; position: absolute; inset: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 80% 90%, rgba(255, 107, 53, 0.03) 0%, transparent 60%),
+                        radial-gradient(circle at 20% 10%, rgba(0, 51, 102, 0.03) 0%, transparent 60%);
+            z-index: 0; pointer-events: none;
+        }
+        .team-card {
+            background: white; border-radius: var(--border-radius-lg); overflow: hidden;
+            box-shadow: var(--box-shadow); margin-bottom: 2rem; position: relative; z-index: 1;
+            height: 100%; display: flex; flex-direction: column;
+        }
+        .team-img-container { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; }
+        .team-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .team-card:hover .team-img { transform: scale(1.1); }
+        .team-info { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .team-info h4 {
+            color: var(--primary); font-weight: 700; transition: color 0.3s ease;
+            margin-bottom: 0.25rem; font-size: 1.3rem;
+        }
+        .team-card:hover h4 { color: var(--secondary); }
+        .team-info .position {
+            color: var(--secondary); font-weight: 600; margin-bottom: 1rem;
+            transition: color 0.3s ease; font-size: 0.9rem; display: block;
+        }
+        .team-card:hover .position { color: var(--accent); }
+        .team-info p:not(.position) { margin-bottom: 1.5rem; color: var(--dark-light); font-size: 0.9rem; flex-grow: 1; }
+        .social-links { margin-top: auto; }
+        .social-links a {
+            color: var(--dark-light); margin-right: 1rem; font-size: 1.2rem;
+            transition: var(--transition); display: inline-block;
+        }
+         .social-links a:last-child { margin-right: 0; }
+        .social-links a:hover, .social-links a:focus {
+            color: var(--secondary); transform: translateY(-3px) scale(1.1);
+            text-decoration: none; outline: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;
+        }
+        .cta-pattern {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(0, 204, 102, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.08) 0%, transparent 25%),
+                url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none"/><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="%2300CC66" stroke-width="0.3" stroke-opacity="0.08" fill="none"/></svg>');
+            opacity: 0.6; z-index: 0; animation: bgPatternAnimate 50s linear infinite alternate-reverse;
+        }
+        .cta-content { position: relative; z-index: 1; }
+        .cta-title { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 800; margin-bottom: 1.5rem; transition: text-shadow 0.3s ease; }
+        .cta-title:hover { text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+        .btn-cta {
+            padding: 1rem 2.5rem; font-size: 1.1rem; margin-bottom: 1rem; margin-right: 1rem;
+        }
+         .btn-cta:last-child { margin-right: 0; margin-bottom: 0; }
+
+        /* Modal Styles */
+        .signup-modal .modal-content {
+            border-radius: var(--border-radius-lg); overflow: hidden; border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+         }
+        .signup-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 2rem; text-align: center; position: relative;
+        }
+         .signup-header .modal-title { font-weight: 700; font-size: 1.8rem; }
+         .signup-header p { opacity: 0.9; margin-bottom: 0; }
+         .signup-header .btn-close {
+              position: absolute; top: 1rem; right: 1rem;
+              filter: invert(1) grayscale(100%) brightness(200%); opacity: 0.7;
+          }
+         .signup-header .btn-close:hover { opacity: 1; }
+        .signup-tabs .nav-link {
+            color: var(--dark-light); font-weight: 600; border: none; padding: 1rem 1.5rem;
+            transition: var(--transition); border-radius: 0; text-align: center;
+            border-bottom: 3px solid transparent; font-size: 1rem;
+        }
+        .signup-tabs .nav-link:hover, .signup-tabs .nav-link:focus {
+            color: var(--primary); border-bottom-color: var(--light-dark);
+            background-color: var(--light-dark); outline: none;
+        }
+        .signup-tabs .nav-link.active {
+            color: var(--primary); border-bottom: 3px solid var(--secondary);
+            background: transparent; font-weight: 700;
+        }
+        .signup-form { padding: 2.5rem; }
+         .signup-form h4 { color: var(--primary); font-weight: 700; margin-bottom: 1.5rem; text-align: center; }
+         .signup-form .form-label { font-weight: 600; margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .signup-form .form-control, .signup-form .form-select {
+            padding: 1rem; border-radius: var(--border-radius-md); border: 1px solid #ddd;
+            margin-bottom: 1rem; transition: var(--transition); background-color: var(--light);
+        }
+        .signup-form .form-control:focus, .signup-form .form-select:focus {
+            border-color: var(--secondary); box-shadow: 0 0 0 0.25rem rgba(0, 204, 102, 0.25);
+            background-color: white; outline: none;
+        }
+        .btn-signup {
+            background: var(--secondary); color: white; border: none; padding: 1rem;
+            border-radius: var(--border-radius-md); font-weight: 600; width: 100%;
+            transition: var(--transition); margin-top: 1rem;
+        }
+        .btn-signup:hover, .btn-signup:focus {
+            background: var(--secondary-dark); transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3); color: white; outline: none;
+        }
+        #waitlistModal .modal-content { border-radius: var(--border-radius-lg); }
+         #waitlistModal .modal-header { background-color: var(--primary); color: white; border-bottom: none; }
+         #waitlistModal .btn-close { filter: invert(1) grayscale(100%) brightness(200%); opacity: 0.7; }
+         #waitlistModal .btn-close:hover { opacity: 1; }
+         #waitlistModal .modal-body { padding: 2rem; }
+         #waitlistModal .form-label { font-weight: 600; font-size: 0.9rem; }
+         #waitlistModal .form-control, #waitlistModal .form-select {
+             margin-bottom: 1rem; background-color: var(--light); border-radius: var(--border-radius-sm);
+         }
+         #waitlistModal .btn-primary {
+              background-color: var(--primary); border-color: var(--primary);
+              padding: 0.8rem; font-weight: 600;
+          }
+         #waitlistModal .btn-primary:hover { background-color: var(--primary-light); border-color: var(--primary-light); }
+
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: var(--secondary); color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); z-index: 999; cursor: pointer;
+            transition: var(--transition); animation: pulseContact 2s infinite ease-in-out;
+        }
+        @keyframes pulseContact {
+            0% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); }
+            50% { transform: scale(1.1); box-shadow: 0 8px 25px rgba(0, 204, 102, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); }
+        }
+        .floating-contact:hover, .floating-contact:focus {
+            transform: scale(1.15) rotate(15deg); background: var(--accent); animation: none;
+            outline: none; box-shadow: 0 8px 25px rgba(var(--accent), 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark); color: rgba(255, 255, 255, 0.7); padding: 4rem 0 2rem; position: relative;
+        }
+        footer::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        .footer-logo {
+            font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; color: white;
+            transition: var(--transition); display: inline-block; text-decoration: none;
+        }
+        .footer-logo:hover { color: var(--secondary); transform: translateX(5px); text-decoration: none; }
+         footer p { font-size: 0.9rem; line-height: 1.6; }
+        .footer-links h5 {
+            color: var(--secondary); font-weight: 700; margin-bottom: 1.5rem;
+            transition: var(--transition); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .footer-links h5:hover { color: var(--accent); transform: translateX(5px); }
+        .footer-links ul { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.8rem; transition: transform 0.3s ease; }
+        .footer-links li:hover { transform: translateX(5px); }
+        .footer-links a { color: rgba(255, 255, 255, 0.7); transition: var(--transition); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover, .footer-links a:focus { color: white; padding-left: 5px; text-decoration: none; outline: none; }
+        .social-icons a {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%; color: white; margin-right: 10px; transition: var(--transition);
+            text-decoration: none; font-size: 1rem;
+        }
+         .social-icons a:last-child { margin-right: 0; }
+        .social-icons a:hover, .social-icons a:focus {
+            background: var(--secondary); transform: translateY(-3px) scale(1.1);
+            color: white; outline: none;
+        }
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.5); transition: color 0.3s ease; font-size: 0.85rem;
+        }
+        .copyright:hover { color: rgba(255, 255, 255, 0.8); }
+         .copyright a { color: rgba(255, 255, 255, 0.6); font-weight: 500; text-decoration: underline; }
+         .copyright a:hover { color: white; }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 1199px) { /* No changes needed for this breakpoint based on current styles */ }
+        @media (max-width: 991.98px) {
+            .process-timeline::after { left: 31px; }
+            .process-step { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .process-step:nth-child(even) { left: 0; }
+            .process-step::after { left: 13px; top: 30px;}
+            .process-step:nth-child(odd)::after { right: auto; left: 13px; }
+            .market-card { margin-bottom: 1.5rem; } /* Ensures spacing if they stack */
+            .team-card { margin-bottom: 1.5rem; }
+            .footer-links { margin-bottom: 2rem; }
+            .bridge-diagram .component, .bridge-diagram .nexus-bridge { display: block; margin-left: auto; margin-right: auto; max-width: 300px;}
+            .bridge-diagram .arrow { display: block; margin: 1rem auto; transform: rotate(90deg); }
+            body.rtl-active .bridge-diagram .arrow { transform: rotate(-90deg) scaleX(-1); }
+
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section { padding-top: 80px; min-height: auto; padding-bottom: 4rem; text-align: center; }
+            .hero-content { padding-top: 30px; }
+            .section-title { font-size: clamp(1.8rem, 6vw, 2.2rem); margin-bottom: 2rem; }
+            .section-title::after { bottom: -10px; height: 4px; width: 60px; }
+            .section-title:hover::after { width: 80px; }
+            .section-subtitle { font-size: clamp(0.9rem, 3vw, 1rem); margin-bottom: 2rem; }
+            .vision-badge { font-size: 0.9rem; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
+            .key-features { text-align: center; }
+            .key-feature { padding: 0.8rem; font-size: 0.9rem; text-align: left; }
+            .key-feature i { font-size: 1.1rem; margin-right: 0.8rem; }
+            .btn-hero, .btn-cta { padding: 0.8rem 1.5rem; font-size: 1rem; margin-bottom: 1rem; margin-left: 0.25rem; margin-right: 0.25rem; }
+            .hero-section .cta-buttons { display: flex; flex-direction: column; align-items: center; }
+            .hero-section .cta-buttons .btn-hero { width: 90%; max-width: 350px; margin-left: auto; margin-right: auto; }
+            .challenge-card, .benefit-card, .traction-card, .model-option { padding: 1.5rem; }
+            .challenge-icon, .benefit-item i { font-size: 2rem; margin-bottom: 1rem; }
+            .traction-stat { font-size: clamp(1.8rem, 6vw, 2.2rem); }
+            .process-animation { margin-bottom: 2rem; }
+            .process-content { padding: 1.5rem; }
+            .process-step { padding-left: 55px; padding-right: 15px; }
+            .process-step::after { left: 10px; width: 24px; height: 24px; border-width: 4px; box-shadow: 0 0 0 4px white; }
+            .process-icon { margin-bottom: 0.8rem; }
+            .process-number { width: 35px; height: 35px; font-size: 1rem; margin-right: 0.8rem; }
+            .process-step-icon { font-size: 1.5rem; }
+            .demo-card, #waitlistModal .modal-body { padding: 2rem; }
+            .demo-feature i { width: 40px; height: 40px; font-size: 1.2rem; }
+            .market-card { padding: 2rem 1rem; } /* Adjusted padding for market cards on mobile */
+            .market-card .market-value { font-size: clamp(2rem, 7vw, 2.8rem); }
+            .market-graph { padding: 1.5rem; }
+            .team-img-container { aspect-ratio: 1 / 1; }
+            .team-info { padding: 1.5rem; }
+            .floating-ai { display: none; }
+            .floating-contact { width: 50px; height: 50px; font-size: 1.2rem; bottom: 20px; right: 20px; }
+            .navbar-brand { font-size: 1.8rem; } /* Adjusted for "Nexus AI" */
+            .language-btn { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+            .footer-logo { font-size: 1.5rem; text-align: center; display: block; }
+            footer .row > div { text-align: center; }
+             .footer-links h5 { margin-top: 1rem; text-align: center; }
+            .footer-links ul { text-align: center; }
+            .social-icons { text-align: center; margin-top: 1rem; }
+            .copyright { padding-top: 1.5rem; margin-top: 1.5rem; font-size: 0.8rem; }
+        }
+
+        @media (max-width: 575.98px) {
+            .section-title { font-size: clamp(1.6rem, 6vw, 2rem); }
+            .process-animation { width: 180px; height: 180px; margin-bottom: 1.5rem; }
+            .challenge-card, .benefit-card, .traction-card, .model-option { padding: 1.25rem; }
+            .challenge-icon, .benefit-item i { font-size: 1.8rem; }
+            .traction-stat { font-size: clamp(1.6rem, 5vw, 2rem); }
+            .demo-card, #waitlistModal .modal-body { padding: 1.5rem; }
+            .demo-form, .signup-form { padding: 1.5rem; }
+            .demo-feature { flex-direction: column; align-items: center; text-align: center; }
+            .demo-feature i { margin-bottom: 0.8rem; margin-right: 0; }
+            .model-option .btn-model { width: 100%; margin-right: 0; margin-bottom: 0.5rem; }
+            .model-option > div:last-child .btn-model:last-child { margin-bottom: 0; }
+            .team-img-container { aspect-ratio: 4 / 3; }
+            .team-info { padding: 1.25rem; }
+            .cta-title { font-size: clamp(1.6rem, 5vw, 2rem); }
+             .cta-section .d-flex { flex-direction: column !important; align-items: center; }
+              .cta-section .btn-cta { width: 90%; max-width: 300px; margin-right: 0 !important; margin-bottom: 1rem !important; }
+             .cta-section .btn-cta:last-child { margin-bottom: 0 !important; }
+            .modal-dialog { margin: 0.5rem; }
+             .modal-content { border-radius: var(--border-radius-lg); }
+            .signup-header { padding: 1.5rem; }
+             .signup-header .modal-title { font-size: 1.5rem; }
+            .signup-tabs .nav-link { padding: 0.8rem 1rem; font-size: 0.9rem; }
+            .form-control, .form-select { padding: 0.8rem; margin-bottom: 1rem; }
+            .social-icons a { width: 35px; height: 35px; font-size: 0.9rem; }
+            .process-step { padding-left: 15px; padding-right: 15px; }
+            .process-timeline::after { left: 30px; }
+            .process-step::after { left: 13px; }
+            .process-icon { flex-direction: column; align-items: flex-start; }
+            .process-number { margin-right: 0; margin-bottom: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Nexus AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarAboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About Nexus
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarAboutDropdown">
+                            <li><a class="dropdown-item" href="#challenge-edge">The Challenge & Our Edge</a></li>
+                            <li><a class="dropdown-item" href="#process">How It Works</a></li>
+                            <li><a class="dropdown-item" href="#impact-vision">Impact & Vision</a></li>
+                             <li><a class="dropdown-item" href="#team">Our Team</a></li>
+                        </ul>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarPartnersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            For Partners
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarPartnersDropdown">
+                            <li><a class="dropdown-item" href="#for-companies">Company Solutions</a></li>
+                            <li><a class="dropdown-item" href="#business-model">Partnership Models</a></li>
+                            <li><a class="dropdown-item" href="#investment-opportunity">Investment Opportunity</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#for-students">For Students</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-sm btn-outline-secondary ms-lg-2 px-3" style="color: var(--secondary); border-color: var(--secondary); font-size: 0.8rem; padding: 0.4rem 0.8rem;" href="#get-started" data-bs-toggle="modal" data-bs-target="#signupModal">Get Started</a></li>
+                    <li class="nav-item language-switcher-item mt-2 mt-lg-0">
+                         <button class="language-btn" onclick="toggleLanguage()" aria-label="Switch Language">
+                             <i class="fas fa-globe me-1"></i>
+                             <span class="english-lang">العربية</span>
+                             <span class="arabic-lang" style="display:none">English</span>
+                         </button>
+                     </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-bg-pattern"></div>
+            <div class="floating-ai animate__animated animate__fadeIn" data-aos="zoom-in" data-aos-delay="500">
+                <i class="fas fa-robot"></i>
+                <div class="ai-tooltip"><h6>AI-Powered Matching</h6><p>Structured approach matching student skills with company needs.</p></div>
+            </div>
+            <div class="floating-ai animate__animated animate__fadeIn" data-aos="zoom-in" data-aos-delay="700">
+                <i class="fas fa-brain"></i>
+                <div class="ai-tooltip"><h6>AI-Augmented Consulting</h6><p>Students leverage AI tools in real-world projects.</p></div>
+            </div>
+            <div class="floating-ai animate__animated animate__fadeIn" data-aos="zoom-in" data-aos-delay="900">
+                <i class="fas fa-project-diagram"></i>
+                <div class="ai-tooltip"><h6>Structured Missions</h6><p>Defined 8-week consulting missions with clear deliverables.</p></div>
+            </div>
+            <div class="floating-ai animate__animated animate__fadeIn" data-aos="zoom-in" data-aos-delay="1100">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="ai-tooltip"><h6>Vision 2030 Alignment</h6><p>Developing Saudi talent for the future economy.</p></div>
+            </div>
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-10 mx-auto text-center hero-content">
+                        <div class="vision-badge animate__animated animate__fadeInUp">Supporting Saudi Vision 2030</div>
+                        <h1 class="hero-title animate__animated animate__fadeInDown">
+                            <span class="highlight-text">NEXUS AI:</span> Connecting <span class="highlight-text">Saudi Talent</span> & <span class="highlight-text">Industry</span> via <span class="highlight-text">AI-Augmented</span> Consulting Mission
+                        </h1>
+                        <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-0_5s">
+ <strong class="text-white">Hire smarter, test talent on real projects, and build your future workforce.</strong>
+                        </p>
+                        <div class="cta-buttons animate__animated animate__fadeInUp animate__delay-1s">
+                            <a href="#signupModal" class="btn btn-hero btn-hero-primary" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="student-tab">
+                                Students: Apply Here <i class="fas fa-user-graduate"></i>
+                            </a>
+                            <a href="#signupModal" class="btn btn-hero btn-hero-secondary" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="company-tab">
+                                Companies: Partner Now <i class="fas fa-handshake"></i>
+                            </a>
+                        </div>
+                        <div class="key-features mt-5 animate__animated animate__fadeInUp animate__delay-1_5s">
+                            <div class="key-feature"><i class="fas fa-check-circle"></i><span><strong>Students:</strong> Get paid, gain <span class="highlight-text">real experience</span> on company challenges, master AI tools.</span></div>
+                            <div class="key-feature"><i class="fas fa-check-circle"></i><span><strong>Companies:</strong> <span class="highlight-text">"Hire before hiring"</span> - cost-effective solutions, access pre-vetted AI-fluent talent.</span></div>
+                            <div class="key-feature"><i class="fas fa-check-circle"></i><span><strong>Vision 2030:</strong> Create <span class="highlight-text">impactful learning</span>, directly contributing to workforce development.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Challenge & Our Edge Section -->
+        <section class="section challenge-edge-section" id="challenge-edge">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">The Talent-Innovation Gap in KSA</h2>
+                <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">
+                   Saudi Arabia's ambitious Vision 2030 goals require a new breed of talent. However, critical gaps persist, hindering progress.
+                </p>
+                <div class="row g-4 justify-content-center mb-5">
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="challenge-card interactive-card card-hover-lift text-center">
+                            <div class="challenge-icon"><i class="fas fa-user-tie"></i></div>
+                            <h3>Corporate Talent Search</h3>
+                            <p>Companies struggle to find and vet AI-fluent Saudi talent ready for real-world impact.</p>
+                            <p class="mt-3"><strong class="stat-highlight">62%</strong> <small>of recruitment budgets wasted on mismatched hires in KSA.*</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="challenge-card interactive-card card-hover-lift text-center">
+                            <div class="challenge-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <h3>Student Experience Deficit</h3>
+                            <p>Saudi students lack opportunities to apply academic knowledge to tangible industry problems/business challenges.</p>
+                          
+            <p class="mt-3"><strong class="stat-highlight">89%</strong> <small>of Saudi CEOs prioritize AI-skilled local hires (PwC 2024).*</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="challenge-card interactive-card card-hover-lift text-center">
+                            <div class="challenge-icon"><i class="fas fa-lightbulb-slash"></i></div>
+                            <h3>Delayed Innovation Cycles</h3>
+                            <p>Traditional project timelines of </p>
+                          <p class="mt-3"><strong class="stat-highlight">3-6 months</strong> <small>are too slow for the dynamic AI landscape.*</small></p>
+                        </div>
+                    </div>
+                </div>
+                 <p class="text-center small text-muted" data-aos="fade-up">*Source: Saudi HR Development Fund 2023 (Illustrative statistic based on user prompt context)</p>
+
+                <div class="text-center my-5 pt-4" data-aos="fade-up">
+                     <h3 class="section-title text-center" style="font-size: clamp(1.8rem, 4vw, 2.2rem);">Our Edge: The "Hire Before Hiring" Bridge</h3>
+                     <p class="section-subtitle text-center">Nexus AI uniquely pre-qualifies talent through AI-enhanced problem-solving, allowing companies to test, train, and mentor their future hires on real projects.</p>
+                    <div class="bridge-diagram" data-aos="zoom-in">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-4 text-center">
+                                <div class="component" data-aos="fade-right">
+                                    <i class="fas fa-university"></i>
+                                    <h4>Academia (Raw Talent)</h4>
+                                    <p>Bright Saudi Students</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="component nexus-bridge" data-aos="zoom-in" data-aos-delay="200">
+                                    <i class="fas fa-cogs"></i>
+                                    <h4>Nexus Consulting-Missions</h4>
+                                    <p>AI-Augmented Short Projects, Mentorship, Real-World Experience</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                 <div class="component" data-aos="fade-left" data-aos-delay="400">
+                                    <i class="fas fa-industry"></i>
+                                    <h4>Future Saudi Experts</h4>
+                                    <p>Skilled, AI-fluent Vetted Talent</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="d-none d-md-flex align-items-center justify-content-center mt-3 position-relative" style="height: 50px;">
+                            <svg width="100%" height="50" viewBox="0 0 600 50" preserveAspectRatio="none" style="position: absolute; top: -25px; left:0; z-index: -1;">
+                                <path d="M50 25 Q150 -5, 250 25 T450 25 Q550 55, 550 25" stroke="var(--primary-light)" stroke-width="3" fill="transparent" stroke-dasharray="10,5" class="bridge-line"/>
+                            </svg>
+                             <style> .bridge-line { animation: dash 2s linear infinite; } @keyframes dash { to { stroke-dashoffset: -30; } } </style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- How Nexus Works (Process Section) -->
+        <section class="section process-section" id="process">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">The Nexus AI Process</h2>
+                <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">
+                    Our Structured 8-Week Consulting Missions & Micro-Internships
+                </p>
+
+                <div class="process-animation" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="process-circle"></div><div class="process-circle"></div><div class="process-circle"></div><div class="process-circle"></div>
+                    <div class="process-steps card-hover-lift">
+                        <div class="process-steps-inner">
+                            <h4>8-Week Cycle</h4>
+                            <p>Defined scope, clear milestones, tangible deliverables.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="process-step" data-aos="fade-right" data-aos-delay="300"><div class="process-content interactive-card card-hover-lift"><div class="process-icon"><div class="process-number">1</div><i class="fas fa-bullhorn process-step-icon"></i></div><h4>Challenge Intake</h4><p>Company defines a strategic business problem or project need.</p></div></div>
+                    <div class="process-step" data-aos="fade-left" data-aos-delay="400"><div class="process-content interactive-card card-hover-lift"><div class="process-icon"><div class="process-number">2</div><i class="fas fa-tasks process-step-icon"></i></div><h4>Mission Scoping</h4><p>Nexus AI transforms the challenge into a structured 8-week mission.</p></div></div>
+                    <div class="process-step" data-aos="fade-right" data-aos-delay="500"><div class="process-content interactive-card card-hover-lift"><div class="process-icon"><div class="process-number">3</div><i class="fas fa-users-cog process-step-icon"></i></div><h4>Team Formation</h4><p>Recruit & assemble a vetted team (5-6 students) with relevant AI skills.</p></div></div>
+                    <div class="process-step" data-aos="fade-left" data-aos-delay="600"><div class="process-content interactive-card card-hover-lift"><div class="process-icon"><div class="process-number">4</div><i class="fas fa-robot process-step-icon"></i></div><h4>AI-Augmented Execution</h4><p>Team works with PM, applying AI tools & methodologies, with mentorship.</p></div></div>
+                    <div class="process-step" data-aos="fade-right" data-aos-delay="700"><div class="process-content interactive-card card-hover-lift"><div class="process-icon"><div class="process-number">5</div><i class="fas fa-comments process-step-icon"></i></div><h4>Feedback & Delivery</h4><p>Mid-term review and final presentation delivering actionable insights.</p></div></div>
+                    <div class="process-step" data-aos="fade-left" data-aos-delay="800"><div class="process-content interactive-card card-hover-lift"><div class="process-icon"><div class="process-number">6</div><i class="fas fa-user-check process-step-icon"></i></div><h4>Talent Validation & Impact</h4><p>Companies gain solutions & validated talent; Students gain experience & visibility for future hire.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- For Companies Section -->
+        <section class="section solution-section" id="for-companies">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Solutions for Companies</h2>
+                <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">
+                    Access AI-driven innovation, de-risk hiring, and achieve cost-effective results with Saudi Arabia's brightest young minds.
+                </p>
+                <div class="row g-4">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <div class="benefit-card interactive-card card-hover-lift">
+                            <h3>Key Benefits for Your Organization</h3>
+                            <div class="benefit-item"><i class="fas fa-dollar-sign"></i><div><h5>Significant Cost Savings</h5><p>Reduce traditional consulting fees by 30-50% and cut hiring costs by up to 40% through our pilot-to-hire model.</p></div></div>
+                            <div class="benefit-item"><i class="fas fa-brain"></i><div><h5>AI-Driven Innovation & Speed</h5><p>Leverage GenAI for profitability. Get MVP-grade solutions in 4-8 weeks, much faster than traditional methods.</p></div></div>
+                            <div class="benefit-item"><i class="fas fa-users"></i><div><h5>Pre-Vetted Talent Pipeline</h5><p>"Hire before hiring" - test and mentor potential future employees on real projects, ensuring cultural fit and skill adequacy.</p></div></div>
+                            <div class="benefit-item"><i class="fas fa-flag"></i><div><h5>Saudization & Vision 2030 Alignment</h5><p>Meet Saudization targets efficiently and contribute to national talent development. Benefit from HRDF incentives.</p></div></div>
+                             <div class="benefit-item"><i class="fas fa-cogs"></i><div><h5>Reduced R&D Costs</h5><p>Utilize student-led teams for cost-effective prototyping and exploring new ideas, potentially reducing R&D expenses by 20%.</p></div></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" data-aos="fade-left" data-aos-delay="150">
+                        <div class="benefit-card interactive-card card-hover-lift text-center">
+                            <h3>Corporate Cost Savings</h3>
+                             <p>Nexus AI offers a compelling alternative to traditional expenses.</p>
+                            <div class="cost-saving-pie-chart-container">
+                                <div class="pie-chart" title="Corporate Cost Savings Breakdown: Consulting Fees (45%), Hiring Costs (30%), Compliance Risks (15%), R&D Efficiency (10%)"></div>
+                                <ul class="pie-legend">
+                                    <li><span style="background-color: var(--primary);"></span>Consulting Fees (45%)</li>
+                                    <li><span style="background-color: var(--secondary);"></span>Hiring Costs (30%)</li>
+                                    <li><span style="background-color: var(--accent);"></span>Compliance Risks (15%)</li>
+                                    <li><span style="background-color: var(--gold);"></span>R&D Efficiency (10%)</li>
+                                </ul>
+                            </div>
+                             <p class="mt-3 small text-muted">Illustrative breakdown of potential savings areas when partnering with Nexus AI.</p>
+                            <a href="#get-started" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="company-tab" class="btn btn-primary mt-3">Discuss Your Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5" data-aos="fade-up">
+                    <h3 class="section-title text-center" style="font-size: clamp(1.8rem, 4vw, 2.2rem);">Strategic Partnerships to Amplify Value</h3>
+                    <p class="section-subtitle text-center">We aim to integrate with key KSA platforms like <strong class="highlight-text">Qiwa</strong> (PIF-owned HR platform) for labor data insights and collaborate with institutions like <strong class="highlight-text">Misk Academy</strong> for student recruitment and co-branded challenges.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- For Students Section -->
+        <section class="section" id="for-students" style="background-color: white;">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Empowering Saudi Students</h2>
+                <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">
+                    Gain invaluable real-world experience, master AI tools, and launch your career by working on impactful projects for leading companies.
+                </p>
+                <div class="row g-4">
+                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="benefit-card interactive-card card-hover-lift">
+                            <div class="text-center mb-3"><i class="fas fa-briefcase fa-2x text-primary"></i></div>
+                            <h4 class="text-primary text-center">Real-World Experience</h4>
+                            <p class="text-center">Work on paid consulting missions for actual companies, tackling genuine business challenges.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="benefit-card interactive-card card-hover-lift">
+                             <div class="text-center mb-3"><i class="fas fa-robot fa-2x text-primary"></i></div>
+                            <h4 class="text-primary text-center">AI & In-Demand Skills</h4>
+                            <p class="text-center">Develop practical AI application skills, project management, and consulting capabilities.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="benefit-card interactive-card card-hover-lift">
+                            <div class="text-center mb-3"><i class="fas fa-network-wired fa-2x text-primary"></i></div>
+                            <h4 class="text-primary text-center">Career Acceleration</h4>
+                            <p class="text-center">Build your portfolio, network with industry professionals, and gain direct exposure to potential employers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5" data-aos="fade-up">
+                    <a href="#signupModal" class="btn btn-lg btn-hero btn-hero-primary" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="student-tab">
+                        Apply for a Mission <i class="fas fa-arrow-right"></i>
+                    </a>
+                     <p class="mt-3">Premium access subscription for enhanced features: <strong class="highlight-text">50 SAR/month</strong> (Details coming soon).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact & Vision Section -->
+        <section class="section impact-vision-section" id="impact-vision">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Our Traction & Vision 2030 Impact</h2>
+                <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">
+                    Demonstrating value through early successes and a steadfast commitment to Saudi Arabia's future.
+                </p>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200"><div class="traction-card interactive-card card-hover-lift"><i class="fas fa-check-circle fa-3x"></i><h3>Pilot Missions</h3><div class="traction-stat">3+</div><p>Successful pilots with leading KSA companies & universities.</p></div></div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300"><div class="traction-card interactive-card card-hover-lift"><i class="fas fa-users fa-3x"></i><h3>Students Engaged</h3><div class="traction-stat">50+</div><p>Applied / Participated from top universities like KSU, KFUPM, PNU.</p></div></div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400"><div class="traction-card interactive-card card-hover-lift"><i class="fas fa-handshake fa-3x"></i><h3>Partnership Pipeline</h3><div class="traction-stat">15+</div><p>Active discussions with companies, universities & gov entities.</p></div></div>
+                </div>
+                <div class="row mt-5 align-items-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-12"><h3 class="text-center mb-4">Early Partners & Supporters</h3>
+                        <div class="d-flex flex-wrap justify-content-center align-items-center">
+                            <img src="https://via.placeholder.com/150x60/CCCCCC/969696/?text=Company+A" alt="Partner Logo Company A" class="partner-logo img-fluid">
+                            <img src="https://via.placeholder.com/150x60/CCCCCC/969696/?text=University+B" alt="Partner Logo University B" class="partner-logo img-fluid">
+                             <div class="partner-logo-watermark mx-2">
+                                <img src="https://via.placeholder.com/150x60/A0A0A0/FFFFFF/?text=Saudi+Aramco" alt="Saudi Aramco" class="partner-logo img-fluid" style="filter: grayscale(50%) opacity(0.7);">
+                                <small><em>Pilot Pending</em></small>
+                            </div>
+                            <img src="https://via.placeholder.com/150x60/CCCCCC/969696/?text=Incubator+C" alt="Partner Logo Incubator C" class="partner-logo img-fluid">
+                        </div>
+                    </div>
+                </div>
+                 <div class="row mt-5 justify-content-center">
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                        <div class="testimonial-card card-hover-lift">
+                            <p class="testimonial-text">"The Nexus AI student team delivered exceptional AI-driven market analysis, far exceeding our expectations. Their insights directly informed our product strategy. This 'hire before hiring' model is a game-changer."</p>
+                            <p class="testimonial-author">- Head of Strategy, [Pilot Partner Company Name]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-4" data-aos="fade-up">
+                    <h3 class="section-title text-center" style="font-size: clamp(1.8rem, 4vw, 2.2rem);">Triple Impact for Vision 2030</h3>
+                     <div class="table-responsive impact-table card-hover-lift interactive-card">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Stakeholder</th>
+                                    <th scope="col">Benefit Delivered by Nexus AI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Companies</strong></td>
+                                    <td>Up to 40% faster Saudization, access to AI-skilled local hires.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Students</strong></td>
+                                    <td>NEOM-certified AI skills (future goal), real-world project experience, enhanced employability.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Government & KSA</strong></td>
+                                    <td>Reduced youth unemployment, strengthened innovation ecosystem, upskilled national workforce.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="impact-callout card-hover-lift" data-aos="zoom-in" data-aos-delay="100">Nexus AI directly contributes to the Human Capability Development Program KPIs under Vision 2030.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Model Section -->
+        <section class="section business-model-section" id="business-model">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Partnership & Value Models</h2>
+                <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">
+                    Flexible, High-Value Engagement Models Designed for Mutual Success and Impact.
+                </p>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="revenue-card card-hover-lift">
+                            <h3 class="text-center mb-4">Dual Revenue Streams & Win-Win Value</h3>
+                            <div class="row g-4">
+                                <div class="col-md-6"><h4><i class="fas fa-building me-2"></i>For Companies</h4><ul><li><strong>Mission-Based Fee:</strong> $5K - $20K per 8-week challenge solved.</li><li>Cost-effective innovation (~1/10th traditional consulting).</li><li>Streamlined recruitment pipeline (Test-before-hire).</li><li>Contribution to Vision 2030 & Saudization.</li></ul></div>
+                                <div class="col-md-6"><h4><i class="fas fa-user-graduate me-2"></i>For Students</h4><ul><li><strong>Premium Access:</strong> 50 SAR/month (for enhanced platform features, advanced workshops - launching soon).</li><li>Paid, premium real-world project experience.</li><li>Master in-demand AI & consulting skills.</li><li>Direct exposure to potential employers.</li></ul></div>
+                            </div>
+                             <p class="text-center mt-4"><a href="#get-started" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="company-tab" class="btn btn-light btn-sm">Discuss Custom Proposal</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row model-options g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300"><div class="model-option interactive-card card-hover-lift"><i class="fas fa-rocket option-icon"></i><h4>Company Mission</h4><div class="price">Project Fee ($5K-$20K)</div><p>Launch a targeted 8-week AI-augmented consulting mission.</p><ul><li>Dedicated team (5-6 students + PM)</li><li>AI-driven solution delivery</li><li>Talent evaluation & pipeline access</li><li>Full project management</li></ul><div><a href="#get-started" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="company-tab" class="btn btn-model">Submit Project Idea</a></div></div></div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400"><div class="model-option interactive-card card-hover-lift"><i class="fas fa-university option-icon"></i><h4>University Partnership</h4><div class="price">Custom Agreement</div><p>Integrate practical, AI-focused experience into your curriculum.</p><ul><li>Enhance student employability</li><li>Align programs with industry needs</li><li>Facilitate corporate connections</li><li>Joint research/program options</li></ul><div><a href="#get-started" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="company-tab" class="btn btn-model">Explore Partnership</a></div></div></div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500"><div class="model-option interactive-card card-hover-lift"><i class="fas fa-hands-helping option-icon"></i><h4>Gov/Non-Profit Collab</h4><div class="price">Sponsored / Co-Funded</div><p>Drive social impact & national goals through student talent.</p><ul><li>Address key Vision 2030 challenges</li><li>Utilize talent for impact projects</li><li>Support workforce development</li><li>Tailored program design</li></ul><div><a href="#get-started" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="company-tab" class="btn btn-model">Discuss Collaboration</a></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Opportunity Section -->
+        <section class="section investment-opportunity-section" id="investment-opportunity">
+            <div class="container">
+                <h2 class="section-title text-center text-white" data-aos="fade-up">Market Opportunity</h2>
+                <p class="section-subtitle text-center text-white" data-aos="fade-up" data-aos-delay="100">
+                    The demand for AI-skilled talent and innovative solutions is surging, fueled by Vision 2030's ambitious goals.
+                    Saudi companies urgently need AI-skilled local talent, with 89% of CEOs prioritizing such hires (PwC 2024), and $1.2B allocated for private sector Saudization incentives.
+                </p>
+                
+                <div class="row g-4"> <!-- Added g-4 for spacing consistency -->
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="market-card card-hover-lift"> <!-- Used existing card style -->
+                            <h3>TAM</h3>
+                            <div class="market-value">$1.5B</div>
+                            <p>Total Consulting & Young Talent Spend</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="market-card card-hover-lift"> <!-- Used existing card style -->
+                            <h3>SAM</h3>
+                            <div class="market-value">$100M</div>
+                            <p>Addressable Student Consulting Market - AI Focus</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="market-card card-hover-lift"> <!-- Used existing card style -->
+                            <h3>SOM</h3>
+                            <div class="market-value">Contact Us</div> 
+                            <p>Our Initial Obtainable Market - Year 1-3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Graph -->
+                <div class="market-graph card-hover-lift interactive-card" data-aos="fade-up" data-aos-delay="500"> <!-- Used existing card styles -->
+                    <h4 class="text-center mb-4">Market Potential & Our Target</h4>
+                    <div class="graph-label">
+                        <span>Total Market (TAM)</span>
+                        <span>$1.5B</span>
+                    </div>
+                    <div class="graph-bar" style="width: 100%; background: linear-gradient(90deg, var(--primary-light), var(--primary));"></div>
+                    
+                    <div class="graph-label">
+                        <span>Addressable Market (SAM)</span>
+                        <span>$100M</span>
+                    </div>
+                    <div class="graph-bar" style="width: 6.67%; background: linear-gradient(90deg, var(--secondary-dark), var(--secondary));"></div> <!-- Adjusted 100M/1.5B -->
+                    
+                    <div class="graph-label">
+                        <span>Our Target (SOM)</span>
+                        <span>Contact Us</span>
+                    </div>
+                    <div class="graph-bar" style="width: 6%; background: linear-gradient(90deg, var(--accent-light), var(--accent));"></div> <!-- Kept user's style for SOM viz -->
+                    
+                    <div class="graph-legend">
+                        <div class="legend-item">
+                            <div class="legend-color tam"></div>
+                            <span>TAM</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color sam"></div>
+                            <span>SAM</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color som"></div>
+                            <span>SOM</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-center mt-4 small text-muted">Based on the KSA consulting market (e.g., Statista) and estimated AI focus, with significant potential from ~2M university students & ~30k large companies. Detailed sources available.</p>
+                </div>
+
+                <div class="exit-plan-card card-hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-center">Securing Your Investment: Exit Strategy & Acquisition Potential</h3>
+                    <p class="text-center mb-4">Investors seek clear paths to 10X+ returns. Nexus AI offers compelling, Saudi-specific exit avenues:</p>
+                    <div class="row g-3">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="exit-feature"><i class="fas fa-landmark"></i><div><strong>Government Integration:</strong> Acquisition by entities like HRDF for national Saudization scaling (similar to Tamheer program expansion) or PIF subsidiaries.</div></div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="exit-feature"><i class="fas fa-building-shield"></i><div><strong>Strategic Corporate Buyout:</strong> Local giants (e.g., STC, Aramco Ventures, NEOM talent arm) acquiring Nexus AI to secure their AI talent pipeline.</div></div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                             <div class="exit-feature"><i class="fas fa-link"></i><div><strong>Merger/Acquisition by EdTech/HRTech:</strong> Joining forces with established platforms like Noon Academy or Taqadam (KAUST's accelerator) to broaden reach.</div></div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4>What Makes Our Exit Potential Strong?</h4>
+                        <ul>
+                            <li><strong>Vision 2030 Alignment:</strong> Solving mandatory Saudization and human capability development needs makes us an attractive government/strategic partner.</li>
+                            <li><strong>AI Talent Scarcity:</strong> Addressing the critical shortage of localized AI skills gives us high strategic value.</li>
+                            <li><strong>Proven Model Scalability:</strong> Similar platforms in other markets (e.g., Awign in India achieving $100M+ valuations) demonstrate potential.</li>
+                        </ul>
+                        <p class="text-center mt-3"><strong>Our Pitch to Investors:</strong> <em>"Nexus AI's exit paths are intrinsically linked to Vision 2030's success – from HRDF integration for national impact to strategic buyouts by entities like NEOM or PIF subsidiaries focused on talent development."</em></p>
+                    </div>
+                    <div class="animated-graph-placeholder mt-4" data-aos="zoom-in">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Interactive graph showcasing ROI potential & exit timelines (Conceptual - Visualisation to be developed)</p>
+                    </div>
+                </div>
+
+                 <div class="investment-assurance card-hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-shield-alt me-2"></i> Our Commitment to Prudent Growth: Invested capital will be strategically deployed upon assembling our core operational team and achieving pre-defined successful traction milestones. Early investments serve as crucial validation, building trust with our corporate and academic partners as we scale responsibly.
+                </div>
+                 <div class="text-center mt-5" data-aos="fade-up">
+                     <a href="mailto:invest@nexusai.sa?subject=Investment%20Inquiry%20-%20Nexus%20AI" class="btn btn-lg btn-hero btn-hero-primary">
+                        Discuss Investment <i class="fas fa-arrow-right"></i>
+                    </a>
+                 </div>
+            </div>
+        </section>
+
+
+        <!-- Team Section -->
+        <section class="section team-section" id="team">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Meet the Team</h2>
+                <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">
+                    Passionate About Connecting Saudi Talent with AI-Driven Opportunities
+                </p>
+                <div class="row justify-content-center g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="team-card card-hover-lift">
+                            <div class="team-img-container"><img src="https://via.placeholder.com/600x450/003366/FFFFFF/?text=A.N." alt="Abderrahmane Nedjadi" class="team-img img-fluid"></div>
+                            <div class="team-info"><h4>Abderrahmane Nedjadi</h4><p class="position">Founder & CEO</p><p>Expertise in AI applications, workforce development, and the Saudi talent ecosystem. Passionate about bridging the education-industry gap through practical, AI-augmented experiences.</p><div class="social-links"><a href="https://www.linkedin.com/in/abderrahmanenedjadi/" target="_blank" rel="noopener noreferrer" aria-label="Abderrahmane Nedjadi LinkedIn Profile"><i class="fab fa-linkedin"></i></a><a href="mailto:abderahmanenedjadi@gmail.com" aria-label="Email Abderrahmane Nedjadi"><i class="fas fa-envelope"></i></a></div></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="team-card card-hover-lift">
+                             <div class="team-img-container"><img src="https://via.placeholder.com/600x450/00CC66/FFFFFF/?text=Advisor+1" alt="Advisor 1 Name" class="team-img img-fluid"></div>
+                            <div class="team-info"><h4>[Advisor Name 1]</h4><p class="position">Advisor, AI & EdTech</p><p>Industry leader specializing in AI applications for business transformation and innovative educational technology.</p><div class="social-links"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Advisor 1 LinkedIn Profile"><i class="fab fa-linkedin"></i></a></div></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="team-card card-hover-lift">
+                            <div class="team-img-container"><img src="https://via.placeholder.com/600x450/FF6B35/FFFFFF/?text=Advisor+2" alt="Advisor 2 Name" class="team-img img-fluid"></div>
+                            <div class="team-info"><h4>[Advisor Name 2]</h4><p class="position">Advisor, KSA Market & Strategy</p><p>Experienced executive with deep connections within Saudi industry, government, and talent development initiatives.</p><div class="social-links"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Advisor 2 LinkedIn Profile"><i class="fab fa-linkedin"></i></a></div></div>
+                        </div>
+                    </div>
+                </div>
+                 <p class="section-subtitle text-center mt-5" data-aos="fade-up">Actionable Next Steps for Nexus AI: We are actively researching comparable exits in MENA (e.g., Noon Academy's funding rounds) and networking with potential acquirers and corporate innovation teams at events like LEAP.</p>
+            </div>
+        </section>
+
+        <!-- CTA Section (Get Started) -->
+        <section class="section cta-section" id="get-started-cta">
+            <div class="cta-pattern"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center cta-content" data-aos="fade-up">
+                        <h2 class="cta-title">Ready to Bridge the Gap & Shape the Future?</h2>
+                        <p class="lead mb-4">Join the Nexus AI ecosystem. Whether you're a student seeking experience, a company needing AI-driven solutions, an institution looking to partner, or an investor ready to fuel growth – let's connect.</p>
+                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                            <a href="#signupModal" class="btn btn-hero btn-hero-primary btn-cta" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="student-tab">
+                                Students: Apply Now <i class="fas fa-user-graduate"></i>
+                            </a>
+                             <a href="#signupModal" class="btn btn-hero btn-hero-secondary btn-cta" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="company-tab">
+                                Companies: Partner <i class="fas fa-handshake"></i>
+                            </a>
+                        </div>
+                         <a href="mailto:info@nexusai.sa?subject=Nexus%20AI%20Inquiry" class="btn btn-link btn-sm text-white mt-3">General Inquiry? Email Us <i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Consolidated Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content signup-modal">
+                <div class="signup-header"><h2 class="modal-title" id="signupModalLabel">Join Nexus AI</h2><p>Connect to Saudi Arabia's AI-Augmented Future</p><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body p-0">
+                    <ul class="nav nav-tabs signup-tabs nav-fill" id="signupTabs" role="tablist">
+                        <li class="nav-item" role="presentation"><button class="nav-link active" id="student-tab" data-bs-toggle="tab" data-bs-target="#student-signup-pane" type="button" role="tab" aria-controls="student-signup-pane" aria-selected="true"><i class="fas fa-user-graduate me-2"></i>I'm a Student</button></li>
+                        <li class="nav-item" role="presentation"><button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company-signup-pane" type="button" role="tab" aria-controls="company-signup-pane" aria-selected="false"><i class="fas fa-building me-2"></i>Company / Partner Org</button></li>
+                    </ul>
+                    <div class="tab-content" id="signupTabContent">
+                        <div class="tab-pane fade show active" id="student-signup-pane" role="tabpanel" aria-labelledby="student-tab" tabindex="0">
+                            <div class="signup-form">
+                                <h4 class="mb-4">Apply for AI-Augmented Consulting Missions</h4>
+                                <form id="studentFormCombined" name="student-signup" method="POST" data-netlify="true">
+                                    <input type="hidden" name="form-name" value="student-signup">
+                                    <div class="row g-3">
+                                        <div class="col-md-6"><label for="studentFirstName" class="form-label">First Name</label><input type="text" class="form-control" id="studentFirstName" name="studentFirstName" placeholder="First Name" required></div>
+                                        <div class="col-md-6"><label for="studentLastName" class="form-label">Last Name</label><input type="text" class="form-control" id="studentLastName" name="studentLastName" placeholder="Last Name" required></div>
+                                        <div class="col-12"><label for="studentEmail" class="form-label">Email Address</label><input type="email" class="form-control" id="studentEmail" name="studentEmail" placeholder="your@university.email" required></div>
+                                        <div class="col-md-6"><label for="studentPhone" class="form-label">Phone (Optional, WhatsApp Preferred)</label><input type="tel" class="form-control" id="studentPhone" name="studentPhone" placeholder="+966..."></div>
+                                         <div class="col-md-6"><label for="studentLinkedIn" class="form-label">LinkedIn Profile URL (Optional)</label><input type="url" class="form-control" id="studentLinkedIn" name="studentLinkedIn" placeholder="linkedin.com/in/..."></div>
+                                        <div class="col-md-6"><label for="studentUniversity" class="form-label">University</label><select class="form-select" id="studentUniversity" name="studentUniversity" required><option value="" selected disabled>Select University</option><option>King Saud University (KSU)</option><option>King Fahd University of Petroleum & Minerals (KFUPM)</option><option>King Abdullah University of Science and Technology (KAUST)</option><option>Princess Nourah bint Abdulrahman University (PNU)</option><option>Alfaisal University</option><option>Prince Sultan University (PSU)</option><option>Imam Abdulrahman Bin Faisal University (IAU)</option><option>King Abdulaziz University (KAU)</option><option value="Other">Other</option></select></div>
+                                        <div class="col-md-6"><label for="studentMajor" class="form-label">Major / Field of Study</label><select class="form-select" id="studentMajor" name="studentMajor" required><option value="" selected disabled>Select Major</option><option>Computer Science / AI / Data Science</option><option>Software Engineering</option><option>Information Systems / Technology</option><option>Engineering (All Disciplines)</option><option>Business Administration / Management</option><option>Finance / Economics</option><option>Marketing / Digital Marketing</option><option>Design / Multimedia</option><option value="Other">Other</option></select></div>
+                                        <div class="col-md-6"><label for="studentYear" class="form-label">Current Academic Year</label><select class="form-select" id="studentYear" name="studentYear" required><option value="" selected disabled>Select Status</option><option>Undergraduate - Year 1/2</option><option>Undergraduate - Year 3</option><option>Undergraduate - Year 4/5 (Penultimate/Final)</option><option>Master's Student</option><option>PhD Student</option><option>Graduate </option></select></div>
+                                        <div class="col-md-6"><label for="studentGPA" class="form-label">Approx. GPA (Optional)</label><input type="text" class="form-control" id="studentGPA" name="studentGPA" placeholder="e.g., 3.8/4.0 or 4.5/5.0"></div>
+                                        <div class="col-12"><label for="studentSkills" class="form-label">Key Skills & AI Interests (Keywords)</label><textarea class="form-control" id="studentSkills" name="studentSkills" rows="3" placeholder="e.g., Python, Data Analysis, ML, Market Research, Problem-Solving, UI/UX, AI Ethics, GenAI..." required></textarea><div class="form-text">Mention technical skills, soft skills, and AI areas you're passionate about.</div></div>
+                                    </div>
+                                    <button type="submit" class="btn-signup mt-4">Submit Application</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="company-signup-pane" role="tabpanel" aria-labelledby="company-tab" tabindex="0">
+                            <div class="signup-form">
+                                 <h4 class="mb-4">Partner with Nexus AI</h4>
+                                <form id="companyFormCombined" name="partner-inquiry" method="POST" data-netlify="true">
+                                     <input type="hidden" name="form-name" value="partner-inquiry">
+                                    <div class="row g-3">
+                                        <div class="col-md-6"><label for="contactFirstName" class="form-label">Contact First Name</label><input type="text" class="form-control" id="contactFirstName" name="contactFirstName" placeholder="First Name" required></div>
+                                        <div class="col-md-6"><label for="contactLastName" class="form-label">Contact Last Name</label><input type="text" class="form-control" id="contactLastName" name="contactLastName" placeholder="Last Name" required></div>
+                                        <div class="col-12"><label for="orgName" class="form-label">Company / Organization Name</label><input type="text" class="form-control" id="orgName" name="orgName" placeholder="Organization Name" required></div>
+                                        <div class="col-md-6"><label for="workEmail" class="form-label">Work Email</label><input type="email" class="form-control" id="workEmail" name="workEmail" placeholder="your.work@company.com" required></div>
+                                         <div class="col-md-6"><label for="contactPhone" class="form-label">Contact Phone (Optional)</label><input type="tel" class="form-control" id="contactPhone" name="contactPhone" placeholder="+966..."></div>
+                                        <div class="col-md-6"><label for="orgType" class="form-label">Organization Type</label><select class="form-select" id="orgType" name="orgType" required><option value="" selected disabled>Select Type</option><option>Company (Private Sector)</option><option>Startup / SME</option><option>University / Education</option><option>Government Entity</option><option>Non-Profit Organization</option><option>Investor / VC</option><option>Other</option></select></div>
+                                        <div class="col-md-6"><label for="partnerIndustry" class="form-label">Industry (if applicable)</label><select class="form-select" id="partnerIndustry" name="partnerIndustry"><option value="" selected disabled>Select Industry</option><option>Technology / IT / SaaS</option><option>Healthcare</option><option>Finance / Banking / FinTech</option><option>Education</option><option>Energy / Utilities</option><option>Consulting</option><option>Retail / E-commerce</option><option>Telecommunications</option><option>Manufacturing</option><option>Logistics / Transportation</option><option>Real Estate / Construction</option><option>Media / Entertainment</option><option>Government / Public Sector</option><option>Non-Profit</option><option>Other</option></select></div>
+                                        <div class="col-12"><label for="challengeDesc" class="form-label">Interest / Potential Challenge / Investment Inquiry (Optional)</label><textarea class="form-control" id="challengeDesc" name="challengeDesc" rows="3" placeholder="Briefly describe potential project ideas, challenges, partnership interests, or if you're an investor..."></textarea></div>
+                                    </div>
+                                    <button type="submit" class="btn-signup mt-4">Submit Inquiry / Connect</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Waitlist Modal -->
+    <div class="modal fade" id="waitlistModal" tabindex="-1" aria-labelledby="waitlistModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title" id="waitlistModalLabel">Join Our Waitlist</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <p>Be the first to know about new mission openings, partnership opportunities, platform updates, and investment news.</p>
+                    <form id="waitlistForm" name="waitlist-signup" method="POST" data-netlify="true">
+                         <input type="hidden" name="form-name" value="waitlist-signup">
+                        <div class="mb-3"><label for="waitlistEmail" class="form-label">Email Address</label><input type="email" class="form-control" id="waitlistEmail" name="waitlistEmail" placeholder="your@email.com" required></div>
+                        <div class="mb-3"><label for="waitlistInterest" class="form-label">I'm primarily interested as a...</label><select class="form-select" id="waitlistInterest" name="waitlistInterest" required><option value="" selected disabled>Select role...</option><option value="student">Student</option><option value="company">Company Representative</option><option value="university">University Representative</option><option value="nonprofit_gov">Non-Profit/Gov Representative</option><option value="investor">Investor</option><option value="other">Other</option></select></div>
+                        <button type="submit" class="btn btn-primary w-100">Join Waitlist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact" data-bs-toggle="modal" data-bs-target="#signupModal" aria-label="Open Sign up Form">
+        <i class="fas fa-user-plus"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="#home" class="footer-logo">Nexus AI</a>
+                    <p>Connecting Saudi talent with industry through AI-augmented consulting. Building the Kingdom's future workforce, aligned with Vision 2030.</p>
+                    <div class="social-icons mt-3">
+                         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Nexus AI on Twitter"><i class="fab fa-x-twitter"></i></a>
+                         <a href="https://www.linkedin.com/company/nexus-ai-augmented-consulting" target="_blank" rel="noopener noreferrer" aria-label="Nexus AI on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Nexus AI on Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6"><div class="footer-links"><h5>About</h5><ul><li><a href="#challenge-edge">Challenge</a></li><li><a href="#process">Process</a></li><li><a href="#impact-vision">Impact</a></li><li><a href="#team">Team</a></li></ul></div></div>
+                <div class="col-lg-2 col-md-3 col-6"><div class="footer-links"><h5>Partners</h5><ul><li><a href="#for-companies">For Companies</a></li><li><a href="#business-model">Models</a></li><li><a href="#investment-opportunity">Invest</a></li></ul></div></div>
+                <div class="col-lg-2 col-md-6 col-6"><div class="footer-links"><h5>Students</h5><ul><li><a href="#for-students">Benefits</a></li><li><a href="#signupModal" data-bs-toggle="modal" data-bs-target="#signupModal" data-signup-target-tab="student-tab">Apply</a></li><li><a href="#faqModal" data-bs-toggle="modal" data-bs-target="#faqModal">FAQ</a></li></ul></div></div>
+                <div class="col-lg-2 col-md-6 col-6"><div class="footer-links"><h5>Contact</h5><ul><li><a href="mailto:info@nexusai.sa">Email Us</a></li><li><a href="#" data-bs-toggle="modal" data-bs-target="#waitlistModal">Join Waitlist</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div></div>
+            </div>
+            <div class="row"><div class="col-12 text-center copyright"><p>&copy; <script>document.write(new Date().getFullYear())</script> Nexus AI (Conceptual). All Rights Reserved. | Proudly Supporting <a href="https://www.vision2030.gov.sa/en/" target="_blank" rel="noopener noreferrer">Saudi Vision 2030</a></p></div></div>
+        </div>
+    </footer>
+    
+    <!-- Basic FAQ Modal (Placeholder) -->
+    <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="faqModalLabel">Frequently Asked Questions</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="false" aria-controls="faqCollapseOne">
+                    What is Nexus AI?
+                  </button>
+                </h2>
+                <div id="faqCollapseOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Nexus AI connects companies with elite Saudi student teams for structured, paid micro-internships and AI-augmented consulting projects, fostering talent development aligned with Saudi Vision 2030. We enable companies to "hire before hiring" by testing talent on real projects.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                    How do students benefit?
+                  </button>
+                </h2>
+                <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Students gain paid real-world experience, develop practical AI and consulting skills, build a professional portfolio and network, and significantly enhance their employability by working on impactful industry challenges.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                    How do companies benefit?
+                  </button>
+                </h2>
+                <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Companies get cost-effective solutions to business challenges, access fresh AI-driven perspectives from pre-vetted Saudi talent, de-risk hiring through our "hire before hiring" model, and contribute to Vision 2030 goals.
+                  </div>
+                </div>
+              </div>
+               <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                    What is the "Hire before hiring" concept?
+                  </button>
+                </h2>
+                <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    It means companies can engage student teams on real, short-term projects (missions). This allows them to observe skills, work ethic, and cultural fit of potential future employees in a practical setting before making long-term hiring commitments, thus reducing recruitment risks and costs.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faqHeadingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                    How is Nexus AI different from traditional internships?
+                  </button>
+                </h2>
+                <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Unlike traditional internships, Nexus AI missions are structured, project-based, AI-augmented consulting engagements. We pre-qualify student talent and focus on delivering tangible solutions to company challenges, providing a more direct path to impact and talent validation.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, easing: 'ease-in-out', offset: 50 });
+
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            const scrollThreshold = 50; let isScrolled = false;
+            const handleScroll = () => {
+                const shouldBeScrolled = window.scrollY > scrollThreshold;
+                if (shouldBeScrolled !== isScrolled) { navbar.classList.toggle('scrolled', shouldBeScrolled); isScrolled = shouldBeScrolled; }
+            };
+            handleScroll();
+            let scrollTimeout; window.addEventListener('scroll', () => { clearTimeout(scrollTimeout); scrollTimeout = setTimeout(handleScroll, 50); }, { passive: true });
+        }
+
+        document.querySelectorAll('a[href^="#"], .dropdown-item[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId.startsWith('#') && targetId.length > 1 && !this.dataset.bsToggle && !this.classList.contains('dropdown-toggle')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const navbarHeight = navbar ? navbar.offsetHeight : 70;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                        
+                        const navbarCollapseEl = document.querySelector('.navbar-collapse');
+                        if (navbarCollapseEl && navbarCollapseEl.classList.contains('show')) {
+                            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapseEl) || new bootstrap.Collapse(navbarCollapseEl);
+                            bsCollapse.hide();
+                        }
+                        const parentDropdown = this.closest('.dropdown');
+                        if (parentDropdown) {
+                            const dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
+                            // Bootstrap 5.3+ might handle this, but ensure dropdown closes
+                            const bsDropdown = bootstrap.Dropdown.getInstance(dropdownToggle);
+                             if (bsDropdown && bootstrap.Dropdown.getInstance(dropdownToggle)._isShown()) {
+                                 bootstrap.Dropdown.getInstance(dropdownToggle).hide();
+                             }
+                        }
+                    }
+                }
+            });
+        });
+
+        function setActiveLinkBasedOnScroll() {
+            let currentSectionId = '';
+            const sections = document.querySelectorAll('main > section[id]'); // Target sections directly under main
+            const navbarHeight = navbar ? navbar.offsetHeight : 70;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navbarHeight - Math.max(100, window.innerHeight * 0.3); // Adjusted offset
+                if (window.scrollY >= sectionTop) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
+
+
+            if (currentSectionId) {
+                const activeLink = document.querySelector(`.nav-link[href="#${currentSectionId}"], .dropdown-item[href="#${currentSectionId}"]`);
+                if (activeLink) {
+                    if(activeLink.classList.contains('dropdown-item')){
+                        activeLink.classList.add('active'); // For dropdown item
+                        const parentDropdownToggle = activeLink.closest('.dropdown')?.querySelector('.nav-link.dropdown-toggle');
+                         if (parentDropdownToggle) parentDropdownToggle.classList.add('active');
+                    } else {
+                         activeLink.classList.add('active'); // For direct nav link
+                    }
+                }
+            } else {
+                 const homeLink = document.querySelector('.nav-link[href="#home"]');
+                 if (homeLink) homeLink.classList.add('active');
+            }
+        }
+        window.addEventListener('load', setActiveLinkBasedOnScroll);
+        window.addEventListener('scroll', setActiveLinkBasedOnScroll, { passive: true });
+
+
+        function toggleLanguage() {
+            const englishElements = document.querySelectorAll('.english-lang');
+            const arabicElements = document.querySelectorAll('.arabic-lang');
+            const isEnglishVisible = englishElements[0]?.style.display !== 'none';
+            englishElements.forEach(el => el.style.display = isEnglishVisible ? 'none' : 'inline-block');
+            arabicElements.forEach(el => el.style.display = isEnglishVisible ? 'inline-block' : 'none');
+            const newLang = isEnglishVisible ? 'ar' : 'en';
+            document.documentElement.lang = newLang;
+            document.body.classList.toggle('rtl-active', newLang === 'ar');
+            console.warn("UI language toggled. Full content localization needs comprehensive implementation.");
+            setActiveLinkBasedOnScroll(); // Re-evaluate active links after potential layout shifts
+        }
+
+         const signupModalElement = document.getElementById('signupModal');
+         if (signupModalElement) {
+             signupModalElement.addEventListener('show.bs.modal', function (event) {
+                 const button = event.relatedTarget;
+                 const targetTabId = button?.getAttribute('data-signup-target-tab');
+                 if (targetTabId) {
+                     const targetTab = signupModalElement.querySelector(`#${targetTabId}`);
+                     if (targetTab) {
+                         const tabInstance = bootstrap.Tab.getOrCreateInstance(targetTab);
+                         tabInstance.show();
+                     }
+                 }
+             });
+         }
+
+         function handleFormSubmit(formId, modalId, successMessage) {
+            const form = document.getElementById(formId);
+            const modalElement = modalId ? document.getElementById(modalId) : null;
+            if (form) {
+                 form.addEventListener('submit', function(e) {
+                    if (form.getAttribute('data-netlify') === 'true' || form.name) {
+                        console.log(`Netlify form submission for: ${formId}`);
+                         e.target.querySelector('button[type="submit"]').disabled = true;
+                         setTimeout(() => {
+                            alert(successMessage);
+                            form.reset();
+                            e.target.querySelector('button[type="submit"]').disabled = false;
+                            if (modalElement) {
+                                const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                                if (modalInstance) modalInstance.hide();
+                            }
+                        }, 500);
+                    } else {
+                        e.preventDefault();
+                        console.log(`Simulating JS submission for: ${formId}`);
+                        alert(successMessage);
+                        form.reset();
+                        if (modalElement) {
+                            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                            if (modalInstance) modalInstance.hide();
+                        }
+                    }
+                 });
+            }
+         }
+         handleFormSubmit('studentFormCombined', 'signupModal', 'Thank you for applying! We\'ll review your application and contact you if a suitable mission arises.');
+         handleFormSubmit('companyFormCombined', 'signupModal', 'Thank you for your interest! Our partnership team will reach out shortly to discuss collaboration or investment.');
+         handleFormSubmit('waitlistForm', 'waitlistModal', 'Thank you for joining the waitlist! We\'ll keep you updated.');
+
+    </script>
+
+</body>
